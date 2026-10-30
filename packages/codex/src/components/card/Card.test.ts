@@ -63,7 +63,7 @@ describe( 'Card', () => {
 		];
 
 		test.each( cases )(
-			'Case %# %s: (%p) => HTML',
+			'Case %# %s: (%O) => HTML',
 			(
 				_,
 				title,

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Card matches the snapshot Case 0 Card with title and description: ("Title") => HTML 1`] = `
+exports[`Card > matches the snapshot > Case 0 Card with title and description: ('Title') => HTML 1`] = `
 <span
   class="cdx-card"
 >
@@ -33,7 +33,7 @@ exports[`Card matches the snapshot Case 0 Card with title and description: ("Tit
 </span>
 `;
 
-exports[`Card matches the snapshot Case 1 Card with supporting text: ("Title") => HTML 1`] = `
+exports[`Card > matches the snapshot > Case 1 Card with supporting text: ('Title') => HTML 1`] = `
 <span
   class="cdx-card"
 >
@@ -73,7 +73,7 @@ exports[`Card matches the snapshot Case 1 Card with supporting text: ("Title") =
 </span>
 `;
 
-exports[`Card matches the snapshot Case 2 Card with icon: ("Title") => HTML 1`] = `
+exports[`Card > matches the snapshot > Case 2 Card with icon: ('Title') => HTML 1`] = `
 <span
   class="cdx-card cdx-card--title-only"
 >
@@ -122,7 +122,7 @@ exports[`Card matches the snapshot Case 2 Card with icon: ("Title") => HTML 1`] 
 </span>
 `;
 
-exports[`Card matches the snapshot Case 3 Card with icon and thumbnail (icon should not render): ("Title") => HTML 1`] = `
+exports[`Card > matches the snapshot > Case 3 Card with icon and thumbnail (icon should not render): ('Title') => HTML 1`] = `
 <span
   class="cdx-card cdx-card--title-only"
 >
@@ -182,7 +182,7 @@ exports[`Card matches the snapshot Case 3 Card with icon and thumbnail (icon sho
 </span>
 `;
 
-exports[`Card matches the snapshot Case 4 Card with icon and forceThumbnail (icon should not render): ("Title") => HTML 1`] = `
+exports[`Card > matches the snapshot > Case 4 Card with icon and forceThumbnail (icon should not render): ('Title') => HTML 1`] = `
 <span
   class="cdx-card cdx-card--title-only"
 >
@@ -242,7 +242,7 @@ exports[`Card matches the snapshot Case 4 Card with icon and forceThumbnail (ico
 </span>
 `;
 
-exports[`Card matches the snapshot Case 5 Card with header-start: ("Title") => HTML 1`] = `
+exports[`Card > matches the snapshot > Case 5 Card with header-start: ('Title') => HTML 1`] = `
 <span
   class="cdx-card"
 >
@@ -275,7 +275,7 @@ exports[`Card matches the snapshot Case 5 Card with header-start: ("Title") => H
 </span>
 `;
 
-exports[`Card matches the snapshot Case 6 Card with header-end: ("Title") => HTML 1`] = `
+exports[`Card > matches the snapshot > Case 6 Card with header-end: ('Title') => HTML 1`] = `
 <span
   class="cdx-card"
 >
@@ -308,7 +308,7 @@ exports[`Card matches the snapshot Case 6 Card with header-end: ("Title") => HTM
 </span>
 `;
 
-exports[`Card matches the snapshot Case 7 Card with footer: ("Title") => HTML 1`] = `
+exports[`Card > matches the snapshot > Case 7 Card with footer: ('Title') => HTML 1`] = `
 <span
   class="cdx-card"
 >
@@ -341,7 +341,7 @@ exports[`Card matches the snapshot Case 7 Card with footer: ("Title") => HTML 1`
 </span>
 `;
 
-exports[`Card matches the snapshot Case 8 Card with all slots: ("Title") => HTML 1`] = `
+exports[`Card > matches the snapshot > Case 8 Card with all slots: ('Title') => HTML 1`] = `
 <span
   class="cdx-card"
 >
@@ -402,7 +402,7 @@ exports[`Card matches the snapshot Case 8 Card with all slots: ("Title") => HTML
 </span>
 `;
 
-exports[`Card matches the snapshot Case 9 Card with thumbnail: ("Title") => HTML 1`] = `
+exports[`Card > matches the snapshot > Case 9 Card with thumbnail: ('Title') => HTML 1`] = `
 <span
   class="cdx-card cdx-card--title-only"
 >
@@ -462,7 +462,7 @@ exports[`Card matches the snapshot Case 9 Card with thumbnail: ("Title") => HTML
 </span>
 `;
 
-exports[`Card matches the snapshot Case 10 Card with thumbnail placeholder: ("Title") => HTML 1`] = `
+exports[`Card > matches the snapshot > Case 10 Card with thumbnail placeholder: ('Title') => HTML 1`] = `
 <span
   class="cdx-card cdx-card--title-only"
 >
@@ -522,7 +522,7 @@ exports[`Card matches the snapshot Case 10 Card with thumbnail placeholder: ("Ti
 </span>
 `;
 
-exports[`Card matches the snapshot Case 11 Card with custom placeholder icon: ("Title") => HTML 1`] = `
+exports[`Card > matches the snapshot > Case 11 Card with custom placeholder icon: ('Title') => HTML 1`] = `
 <span
   class="cdx-card cdx-card--title-only"
 >
@@ -587,7 +587,7 @@ exports[`Card matches the snapshot Case 11 Card with custom placeholder icon: ("
 </span>
 `;
 
-exports[`Card matches the snapshot Case 12 Card with link: ("Title") => HTML 1`] = `
+exports[`Card > matches the snapshot > Case 12 Card with link: ('Title') => HTML 1`] = `
 <a
   class="cdx-card cdx-card--is-link cdx-card--title-only"
   href="https://example.com"

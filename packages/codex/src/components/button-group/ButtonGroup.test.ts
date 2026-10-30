@@ -58,7 +58,7 @@ describe( 'ButtonGroup', () => {
 			]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, { buttons, disabled = false }, slots = {} ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, { buttons, disabled = false }, slots = {} ) => {
 			const wrapper = shallowMount( CdxButtonGroup, {
 				props: {
 					buttons,

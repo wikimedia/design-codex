@@ -20,7 +20,7 @@ describe( 'Thumbnail', () => {
 			[ 'With custom placeholder icon', cdxIconArticle ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, placeholderIcon = undefined ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, placeholderIcon = undefined ) => {
 			const wrapper = mount( CdxThumbnail, {
 				props: { placeholderIcon }
 			} );
@@ -29,7 +29,7 @@ describe( 'Thumbnail', () => {
 	} );
 
 	beforeEach( () => {
-		jest.useFakeTimers();
+		vi.useFakeTimers();
 		Object.defineProperty( Image.prototype, 'src', {
 			set() {
 				setTimeout( () => this.onload(), 1000 );
@@ -38,7 +38,7 @@ describe( 'Thumbnail', () => {
 	} );
 
 	afterEach( () => {
-		jest.useRealTimers();
+		vi.useRealTimers();
 	} );
 
 	describe( 'when the thumbnail property is not set', () => {
@@ -69,7 +69,7 @@ describe( 'Thumbnail', () => {
 				props: { thumbnail: testThumbnail }
 			} );
 
-			jest.runAllTimers();
+			vi.runAllTimers();
 			await wrapper.vm.$nextTick();
 			const placeholderIcon = wrapper.findComponent( CdxIcon );
 			const thumbnail = wrapper.find( '.cdx-thumbnail__image' );

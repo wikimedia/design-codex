@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Dialog matches the snapshot Case 0 Basic usage 1`] = `
+exports[`Dialog > matches the snapshot > Case 0 Basic usage 1`] = `
 <teleport-stub
   disabled="false"
   to="body"
@@ -90,7 +90,7 @@ exports[`Dialog matches the snapshot Case 0 Basic usage 1`] = `
 </teleport-stub>
 `;
 
-exports[`Dialog matches the snapshot Case 1 Open dialog 1`] = `
+exports[`Dialog > matches the snapshot > Case 1 Open dialog 1`] = `
 <teleport-stub
   disabled="false"
   to="body"
@@ -180,7 +180,7 @@ exports[`Dialog matches the snapshot Case 1 Open dialog 1`] = `
 </teleport-stub>
 `;
 
-exports[`Dialog matches the snapshot Case 2 With hidden title 1`] = `
+exports[`Dialog > matches the snapshot > Case 2 With hidden title 1`] = `
 <teleport-stub
   disabled="false"
   to="body"
@@ -260,7 +260,7 @@ exports[`Dialog matches the snapshot Case 2 With hidden title 1`] = `
 </teleport-stub>
 `;
 
-exports[`Dialog matches the snapshot Case 3 With custom close button label 1`] = `
+exports[`Dialog > matches the snapshot > Case 3 With custom close button label 1`] = `
 <teleport-stub
   disabled="false"
   to="body"
@@ -350,7 +350,7 @@ exports[`Dialog matches the snapshot Case 3 With custom close button label 1`] =
 </teleport-stub>
 `;
 
-exports[`Dialog matches the snapshot Case 4 Using deprecated API for close button 1`] = `
+exports[`Dialog > matches the snapshot > Case 4 Using deprecated API for close button 1`] = `
 <teleport-stub
   disabled="false"
   to="body"
@@ -440,7 +440,7 @@ exports[`Dialog matches the snapshot Case 4 Using deprecated API for close butto
 </teleport-stub>
 `;
 
-exports[`Dialog matches the snapshot Case 5 With default action 1`] = `
+exports[`Dialog > matches the snapshot > Case 5 With default action 1`] = `
 <teleport-stub
   disabled="false"
   to="body"
@@ -550,7 +550,7 @@ exports[`Dialog matches the snapshot Case 5 With default action 1`] = `
 </teleport-stub>
 `;
 
-exports[`Dialog matches the snapshot Case 6 With default disabled action 1`] = `
+exports[`Dialog > matches the snapshot > Case 6 With default disabled action 1`] = `
 <teleport-stub
   disabled="false"
   to="body"
@@ -661,7 +661,7 @@ exports[`Dialog matches the snapshot Case 6 With default disabled action 1`] = `
 </teleport-stub>
 `;
 
-exports[`Dialog matches the snapshot Case 7 With default and primary actions 1`] = `
+exports[`Dialog > matches the snapshot > Case 7 With default and primary actions 1`] = `
 <teleport-stub
   disabled="false"
   to="body"
@@ -778,7 +778,7 @@ exports[`Dialog matches the snapshot Case 7 With default and primary actions 1`]
 </teleport-stub>
 `;
 
-exports[`Dialog matches the snapshot Case 8 With stacked default and primary actions 1`] = `
+exports[`Dialog > matches the snapshot > Case 8 With stacked default and primary actions 1`] = `
 <teleport-stub
   disabled="false"
   to="body"
@@ -895,7 +895,7 @@ exports[`Dialog matches the snapshot Case 8 With stacked default and primary act
 </teleport-stub>
 `;
 
-exports[`Dialog matches the snapshot Case 9 With subtitle 1`] = `
+exports[`Dialog > matches the snapshot > Case 9 With subtitle 1`] = `
 <teleport-stub
   disabled="false"
   to="body"
@@ -1016,7 +1016,7 @@ exports[`Dialog matches the snapshot Case 9 With subtitle 1`] = `
 </teleport-stub>
 `;
 
-exports[`Dialog matches the snapshot Case 10 With footer text 1`] = `
+exports[`Dialog > matches the snapshot > Case 10 With footer text 1`] = `
 <teleport-stub
   disabled="false"
   to="body"
@@ -1150,7 +1150,7 @@ exports[`Dialog matches the snapshot Case 10 With footer text 1`] = `
 </teleport-stub>
 `;
 
-exports[`Dialog matches the snapshot Case 11 With custom header and footer 1`] = `
+exports[`Dialog > matches the snapshot > Case 11 With custom header and footer 1`] = `
 <teleport-stub
   disabled="false"
   to="body"

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Lookup matches the snapshot Case 0 Default: ({"menuItems": [Array], "selected": null}) => HTML 1`] = `
+exports[`Lookup > matches the snapshot > Case 0 Default: ({ menuItems: [], selected: null }) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >
@@ -51,7 +51,7 @@ exports[`Lookup matches the snapshot Case 0 Default: ({"menuItems": [Array], "se
 </div>
 `;
 
-exports[`Lookup matches the snapshot Case 1 With initial input: ({"inputValue": "Opt", "menuItems": [Array], "selected": null}) => HTML 1`] = `
+exports[`Lookup > matches the snapshot > Case 1 With initial input: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true } ], selected: null, inputValue: 'Opt' }) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >
@@ -247,7 +247,7 @@ exports[`Lookup matches the snapshot Case 1 With initial input: ({"inputValue": 
 </div>
 `;
 
-exports[`Lookup matches the snapshot Case 2 With selection: ({"inputValue": "Option A", "menuItems": [Array], "selected": "a"}) => HTML 1`] = `
+exports[`Lookup > matches the snapshot > Case 2 With selection: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true } ], selected: 'a', inputValue: 'Option A' }) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >
@@ -444,7 +444,7 @@ exports[`Lookup matches the snapshot Case 2 With selection: ({"inputValue": "Opt
 </div>
 `;
 
-exports[`Lookup matches the snapshot Case 3 Disabled: ({"disabled": true, "menuItems": [Array], "selected": null}) => HTML 1`] = `
+exports[`Lookup > matches the snapshot > Case 3 Disabled: ({ menuItems: [], selected: null, disabled: true }) => HTML 1`] = `
 <div
   class="cdx-lookup cdx-lookup--disabled"
 >
@@ -496,7 +496,7 @@ exports[`Lookup matches the snapshot Case 3 Disabled: ({"disabled": true, "menuI
 </div>
 `;
 
-exports[`Lookup matches the snapshot Case 4 With no results content: ({"inputValue": "asdf", "menuItems": [Array], "selected": null}) => HTML 1`] = `
+exports[`Lookup > matches the snapshot > Case 4 With no results content: ({ menuItems: [], selected: null, inputValue: 'asdf' }) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >
@@ -553,7 +553,7 @@ exports[`Lookup matches the snapshot Case 4 With no results content: ({"inputVal
 </div>
 `;
 
-exports[`Lookup matches the snapshot Case 5 With class attributes: ({"menuItems": [Array], "selected": null}) => HTML 1`] = `
+exports[`Lookup > matches the snapshot > Case 5 With class attributes: ({ menuItems: [], selected: null }) => HTML 1`] = `
 <div
   class="cdx-lookup class-one class-two"
 >
@@ -604,7 +604,7 @@ exports[`Lookup matches the snapshot Case 5 With class attributes: ({"menuItems"
 </div>
 `;
 
-exports[`Lookup matches the snapshot Case 6 With type and placeholder attributes: ({"menuItems": [Array], "selected": null}) => HTML 1`] = `
+exports[`Lookup > matches the snapshot > Case 6 With type and placeholder attributes: ({ menuItems: [], selected: null }) => HTML 1`] = `
 <div
   class="cdx-lookup"
 >

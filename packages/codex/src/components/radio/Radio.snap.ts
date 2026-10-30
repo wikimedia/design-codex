@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Radio matches the snapshot Case 0 String value: ({"inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
+exports[`Radio > matches the snapshot > Case 0 String value: ({ modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-string' }) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--status-default"
 >
@@ -52,7 +52,7 @@ exports[`Radio matches the snapshot Case 0 String value: ({"inputValue": "radio-
 </div>
 `;
 
-exports[`Radio matches the snapshot Case 1 Number value: ({"inputValue": 2, "modelValue": 2, "name": "radios-number"}) => HTML 1`] = `
+exports[`Radio > matches the snapshot > Case 1 Number value: ({ modelValue: 2, inputValue: 2, name: 'radios-number' }) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--status-default"
 >
@@ -104,7 +104,7 @@ exports[`Radio matches the snapshot Case 1 Number value: ({"inputValue": 2, "mod
 </div>
 `;
 
-exports[`Radio matches the snapshot Case 2 Boolean value: ({"inputValue": true, "modelValue": true, "name": "radios-boolean"}) => HTML 1`] = `
+exports[`Radio > matches the snapshot > Case 2 Boolean value: ({ modelValue: true, inputValue: true, name: 'radios-boolean' }) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--status-default"
 >
@@ -156,7 +156,7 @@ exports[`Radio matches the snapshot Case 2 Boolean value: ({"inputValue": true, 
 </div>
 `;
 
-exports[`Radio matches the snapshot Case 3 Disabled: ({"disabled": true, "inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
+exports[`Radio > matches the snapshot > Case 3 Disabled: ({ modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-string', disabled: true }) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--status-default"
 >
@@ -209,7 +209,7 @@ exports[`Radio matches the snapshot Case 3 Disabled: ({"disabled": true, "inputV
 </div>
 `;
 
-exports[`Radio matches the snapshot Case 4 Inline: ({"inline": true, "inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
+exports[`Radio > matches the snapshot > Case 4 Inline: ({ modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-string', inline: true }) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--inline cdx-radio--status-default"
 >
@@ -261,7 +261,7 @@ exports[`Radio matches the snapshot Case 4 Inline: ({"inline": true, "inputValue
 </div>
 `;
 
-exports[`Radio matches the snapshot Case 5 With description: ({"inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-string"}) => HTML 1`] = `
+exports[`Radio > matches the snapshot > Case 5 With description: ({ modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-string' }) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--status-default"
 >
@@ -325,7 +325,7 @@ exports[`Radio matches the snapshot Case 5 With description: ({"inputValue": "ra
 </div>
 `;
 
-exports[`Radio matches the snapshot Case 6 With custom input: ({"inputValue": "radio-1", "modelValue": "radio-1", "name": "radios-custom-input"}) => HTML 1`] = `
+exports[`Radio > matches the snapshot > Case 6 With custom input: ({ modelValue: 'radio-1', inputValue: 'radio-1', name: 'radios-custom-input' }) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--status-default"
 >
@@ -404,7 +404,7 @@ exports[`Radio matches the snapshot Case 6 With custom input: ({"inputValue": "r
 </div>
 `;
 
-exports[`Radio matches the snapshot Case 7 With error: ({"inputValue": "", "modelValue": "", "name": "radios-string", "status": "error"}) => HTML 1`] = `
+exports[`Radio > matches the snapshot > Case 7 With error: ({ modelValue: '', inputValue: '', name: 'radios-string', status: 'error' }) => HTML 1`] = `
 <div
   class="cdx-radio cdx-radio--status-error"
 >

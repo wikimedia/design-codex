@@ -31,7 +31,7 @@ describe( 'Radio', () => {
 			[ 'With error', { modelValue: '', inputValue: '', name: 'radios-string', status: 'error' }, 'Radio with error' ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, defaultSlot, description = undefined, customInput = undefined ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, defaultSlot, description = undefined, customInput = undefined ) => {
 			const wrapper = mount( CdxRadio, {
 				props,
 				slots: {
@@ -102,7 +102,7 @@ describe( 'Radio', () => {
 			};
 			const wrapper = shallowMount( CdxRadio, { props: props, slots: { default: 'Label' } } );
 			const input = wrapper.find( 'input' ).element;
-			input.focus = jest.fn();
+			input.focus = vi.fn();
 
 			await wrapper.find( '.cdx-radio__label' ).trigger( 'click' );
 

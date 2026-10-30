@@ -25,7 +25,7 @@ describe( 'Tooltip', () => {
 			[ 'Left-end placement', 'Tooltip on left-end', 'left-end' ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, textContent, placement = 'bottom' ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, textContent, placement = 'bottom' ) => {
 			const wrapper = mount( {
 				template: `<div><button v-tooltip:${ placement }="'${ textContent }'">Button with tooltip</button></div>`,
 				directives: { tooltip: CdxTooltip }

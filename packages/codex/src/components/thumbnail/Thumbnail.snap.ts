@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Thumbnail matches the snapshot Case 0 With default placeholder icon: (%p) => HTML 1`] = `
+exports[`Thumbnail > matches the snapshot > Case 0 With default placeholder icon: (undefined) => HTML 1`] = `
 <span
   class="cdx-thumbnail"
 >
@@ -38,7 +38,7 @@ exports[`Thumbnail matches the snapshot Case 0 With default placeholder icon: (%
 </span>
 `;
 
-exports[`Thumbnail matches the snapshot Case 1 With custom placeholder icon: ({"ltr": "<path d=\\"M2 0h16v20H2zm2 2v16h12V2zm2 2h3v1H6zm0 2h3v1H6zm0 2h3v1H6zm0 3h8v1H6zm0 2h8v1H6zm0 2h8v1H6zm4-11h4v5h-4z\\"/>", "shouldFlip": true}) => HTML 1`] = `
+exports[`Thumbnail > matches the snapshot > Case 1 With custom placeholder icon: ({ ltr: '<path d="M2 0h16v20H2zm2 2v16h12V2zm2 2h3v1H6zm0 2h3v1H6zm0 2h3v1H6zm0 3h8v1H6zm0 2h8v1H6zm0 2h8v1H6zm4-11h4v5h-4z"/>', shouldFlip: true }) => HTML 1`] = `
 <span
   class="cdx-thumbnail"
 >

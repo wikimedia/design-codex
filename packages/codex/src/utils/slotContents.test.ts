@@ -31,14 +31,12 @@ describe( 'isComponentVNode', () => {
 		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 		const vnode = parseSlotContents( vnodeAsText, { MockComponent } )![ 0 ];
 
-		/* eslint-disable jest/no-conditional-expect */
 		if ( typeof componentVNode === 'string' ) {
 			expect( isComponentVNode( vnode ) ).toBe( true );
 			expect( isComponentVNode( vnode, componentVNode ) ).toBe( true );
 		} else {
 			expect( isComponentVNode( vnode ) ).toBe( componentVNode );
 		}
-		/* eslint-enable jest/no-conditional-expect */
 	} );
 } );
 
@@ -47,13 +45,11 @@ describe( 'isTagVNode', () => {
 		// eslint-disable-next-line @typescript-eslint/no-non-null-assertion
 		const vnode = parseSlotContents( vnodeAsText, { MockComponent } )![ 0 ];
 
-		/* eslint-disable jest/no-conditional-expect */
 		if ( typeof tagVNode === 'string' ) {
 			expect( isTagVNode( vnode ) ).toBe( true );
 			expect( isTagVNode( vnode, tagVNode ) ).toBe( true );
 		} else {
 			expect( isTagVNode( vnode ) ).toBe( tagVNode );
 		}
-		/* eslint-enable jest/no-conditional-expect */
 	} );
 } );

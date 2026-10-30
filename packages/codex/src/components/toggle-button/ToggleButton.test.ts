@@ -30,7 +30,7 @@ describe( 'ToggleButton', () => {
 			[ 'Icon-only (CdxIcon)', { disabled: false, quiet: false, modelValue: false }, '<cdx-icon icon=\'<path d="M11 9V4H9v5H4v2h5v5h2v-5h5V9z"/>\' />', { 'aria-hidden': true } ],
 			...ButtonSizes.map( ( size ) : Case => [ `${ size } size`, { size }, 'Button text' ] )
 		];
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, slot, attrs = {} ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, slot, attrs = {} ) => {
 			const wrapper = shallowMount(
 				CdxToggleButton,
 				{

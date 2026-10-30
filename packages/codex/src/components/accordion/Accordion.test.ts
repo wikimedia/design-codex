@@ -43,7 +43,7 @@ describe( 'Accordion', () => {
 			[ 'actionAlwaysVisible makes action button visible even when collapsed', { actionIcon: cdxIconEdit, actionButtonLabel: 'Edit', actionAlwaysVisible: true }, 'Title', 'Content' ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, slotTitle, slotContent ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, slotTitle, slotContent ) => {
 			const wrapper = mount( CdxAccordion, {
 				props,
 				slots: {

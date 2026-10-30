@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Container matches the snapshot Case 0 No props and no slot: ({}) => HTML 1`] = `
+exports[`Container > matches the snapshot > Case 0 No props and no slot: ({}) => HTML 1`] = `
 <div
   class="cdx-container cdx-container--full"
 >
@@ -10,7 +10,7 @@ exports[`Container matches the snapshot Case 0 No props and no slot: ({}) => HTM
 </div>
 `;
 
-exports[`Container matches the snapshot Case 1 renders a $( size ) container with a custom slot content: ({"size": "medium"}) => HTML 1`] = `
+exports[`Container > matches the snapshot > Case 1 renders a $( size ) container with a custom slot content: ({ size: 'medium' }) => HTML 1`] = `
 <div
   class="cdx-container cdx-container--medium"
 >
@@ -20,7 +20,7 @@ exports[`Container matches the snapshot Case 1 renders a $( size ) container wit
 </div>
 `;
 
-exports[`Container matches the snapshot Case 2 renders a $( size ) container with a custom slot content: ({"size": "large"}) => HTML 1`] = `
+exports[`Container > matches the snapshot > Case 2 renders a $( size ) container with a custom slot content: ({ size: 'large' }) => HTML 1`] = `
 <div
   class="cdx-container cdx-container--large"
 >
@@ -30,7 +30,7 @@ exports[`Container matches the snapshot Case 2 renders a $( size ) container wit
 </div>
 `;
 
-exports[`Container matches the snapshot Case 3 renders a $( size ) container with a custom slot content: ({"size": "x-large"}) => HTML 1`] = `
+exports[`Container > matches the snapshot > Case 3 renders a $( size ) container with a custom slot content: ({ size: 'x-large' }) => HTML 1`] = `
 <div
   class="cdx-container cdx-container--x-large"
 >
@@ -40,7 +40,7 @@ exports[`Container matches the snapshot Case 3 renders a $( size ) container wit
 </div>
 `;
 
-exports[`Container matches the snapshot Case 4 renders a $( size ) container with a custom slot content: ({"size": "full"}) => HTML 1`] = `
+exports[`Container > matches the snapshot > Case 4 renders a $( size ) container with a custom slot content: ({ size: 'full' }) => HTML 1`] = `
 <div
   class="cdx-container cdx-container--full"
 >

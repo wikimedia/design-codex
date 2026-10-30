@@ -131,8 +131,8 @@ describe( 'Tabs', () => {
 				attachTo: '#attach'
 			} );
 			const listElement = wrapper.find( '.cdx-tabs__list' );
-			// Note: jsdom does not provide scrollBy, so jest.spyOn() doesn't work
-			const spy = jest.fn();
+			// Note: jsdom does not provide scrollBy, so vi.spyOn() doesn't work
+			const spy = vi.fn();
 			listElement.element.scrollBy = spy;
 			await wrapper.setProps( { active: 'banana' } );
 			// TODO this doesn't work for some reason, maybe because document.getElementById is used
@@ -444,8 +444,8 @@ describe( 'Tabs', () => {
 			} );
 
 			const listElement = wrapper.find( '.cdx-tabs__list' );
-			// Note: jsdom does not provide scrollBy, so jest.spyOn() doesn't work
-			const spy = jest.fn();
+			// Note: jsdom does not provide scrollBy, so vi.spyOn() doesn't work
+			const spy = vi.fn();
 			listElement.element.scrollBy = spy;
 
 			const nextScroller = wrapper.find( '.cdx-tabs__next-scroller .cdx-tabs__scroll-button' );

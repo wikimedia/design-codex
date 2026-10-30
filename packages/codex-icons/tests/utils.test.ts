@@ -27,7 +27,7 @@ describe( 'resolveIcon', () => {
 		[ 'Complex lang icon (default)', complexLangIcon, 'zh', 'ltr', complexLangIcon.default.ltr ]
 
 	];
-	test.each( cases )( 'Case %# %s: (%p)', ( _, icon, lang, dir, expected ) => {
+	test.each( cases )( 'Case %# %s: (%O)', ( _, icon, lang, dir, expected ) => {
 		expect( resolveIcon( icon, lang, dir ) ).toEqual( expected );
 	} );
 } );
@@ -48,7 +48,7 @@ describe( 'shouldIconFlip', () => {
 		[ 'Complex lang icon (fy)', complexLangIcon, 'fy', false ],
 		[ 'Complex lang icon (default)', complexLangIcon, 'zh', true ]
 	];
-	test.each( cases )( 'Case %# %s: (%p)', ( _, icon, lang, expected ) => {
+	test.each( cases )( 'Case %# %s: (%O)', ( _, icon, lang, expected ) => {
 		expect( shouldIconFlip( icon, lang ) ).toEqual( expected );
 	} );
 } );

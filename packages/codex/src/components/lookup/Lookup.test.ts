@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils';
+import { ComponentMountingOptions, enableAutoUnmount, mount as vtuMount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import CdxLookup from './Lookup.vue';
 import CdxTextInput from '../text-input/TextInput.vue';
@@ -49,6 +49,14 @@ const menuItemDataWithGroups: ( MenuItemData|MenuGroupData )[] = [
 	}
 ];
 
+// jsdom doesn't invalidate the cached computed style of detached elements, so isVisible()
+// would keep reporting the menu as hidden after v-show reveals it.
+const mount = (
+	component: typeof CdxLookup,
+	options: ComponentMountingOptions<typeof CdxLookup> = {}
+) => vtuMount( component, { attachTo: document.body, ...options } );
+enableAutoUnmount( afterEach );
+
 describe( 'Lookup', () => {
 	describe( 'matches the snapshot', () => {
 		type Case = [
@@ -76,7 +84,7 @@ describe( 'Lookup', () => {
 			} ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', (
+		test.each( cases )( 'Case %# %s: (%O) => HTML', (
 			_,
 			{
 				menuItems,
@@ -532,15 +540,12 @@ describe( 'Lookup', () => {
 
 		it( 'focuses the internal input when focus() is called', () => {
 			const wrapper = mount( CdxLookup, {
-				props: defaultProps,
-				attachTo: document.body
+				props: defaultProps
 			} );
 
 			const input = wrapper.get( 'input' ).element as HTMLInputElement;
 			wrapper.vm.focus();
 			expect( document.activeElement ).toBe( input );
-
-			wrapper.unmount();
 		} );
 	} );
 } );

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Accordion matches the snapshot Case 0 Renders with basic basic title and text content: ({}) => HTML 1`] = `
+exports[`Accordion > matches the snapshot > Case 0 Renders with basic basic title and text content: ({}) => HTML 1`] = `
 <details
   class="cdx-accordion cdx-accordion--separation-divider"
 >
@@ -36,7 +36,7 @@ exports[`Accordion matches the snapshot Case 0 Renders with basic basic title an
 </details>
 `;
 
-exports[`Accordion matches the snapshot Case 1 Action button is not visible when collapsed: ({"actionButtonLabel": "Edit", "actionIcon": "<path d=\\"m15.4.4 4.2 4.2-3.2 3.2-4.2-4.2zM10.8 5 15 9.2l-8.6 8.6-4.5 1.5-1.2-1.2 1.5-4.5z\\"/>"}) => HTML 1`] = `
+exports[`Accordion > matches the snapshot > Case 1 Action button is not visible when collapsed: ({ actionIcon: '<path d="m15.4.4 4.2 4.2-3.2 3.2-4.2-4.2zM10.8 5 15 9.2l-8.6 8.6-4.5 1.5-1.2-1.2 1.5-4.5z"/>', actionButtonLabel: 'Edit' }) => HTML 1`] = `
 <details
   class="cdx-accordion cdx-accordion--separation-divider"
 >
@@ -72,7 +72,7 @@ exports[`Accordion matches the snapshot Case 1 Action button is not visible when
 </details>
 `;
 
-exports[`Accordion matches the snapshot Case 2 actionAlwaysVisible makes action button visible even when collapsed: ({"actionAlwaysVisible": true, "actionButtonLabel": "Edit", "actionIcon": "<path d=\\"m15.4.4 4.2 4.2-3.2 3.2-4.2-4.2zM10.8 5 15 9.2l-8.6 8.6-4.5 1.5-1.2-1.2 1.5-4.5z\\"/>"}) => HTML 1`] = `
+exports[`Accordion > matches the snapshot > Case 2 actionAlwaysVisible makes action button visible even when collapsed: ({ actionIcon: '<path d="m15.4.4 4.2 4.2-3.2 3.2-4.2-4.2zM10.8 5 15 9.2l-8.6 8.6-4.5 1.5-1.2-1.2 1.5-4.5z"/>', actionButtonLabel: 'Edit', actionAlwaysVisible: true }) => HTML 1`] = `
 <details
   class="cdx-accordion cdx-accordion--has-icon cdx-accordion--separation-divider"
 >

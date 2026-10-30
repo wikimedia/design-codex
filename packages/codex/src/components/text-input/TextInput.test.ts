@@ -41,7 +41,7 @@ describe( 'TextInput', () => {
 			[ 'With error status', { status: 'error' } ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, attrs = {} ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, attrs = {} ) => {
 			const wrapper = mount( CdxTextInput, { props: props, attrs: attrs } );
 
 			expect( wrapper.element ).toMatchSnapshot();
@@ -131,7 +131,7 @@ describe( 'TextInput', () => {
 					modelValue: 'foo', // invalid input
 					inputType: 'email'
 				} } );
-				const onInvalid = jest.spyOn( wrapper.vm, 'onInvalid' );
+				const onInvalid = vi.spyOn( wrapper.vm, 'onInvalid' );
 				wrapper.vm.checkValidity();
 				expect( onInvalid ).toHaveBeenCalledWith( expect.objectContaining( {} ), true );
 			} );
@@ -143,7 +143,7 @@ describe( 'TextInput', () => {
 					modelValue: 'foo',
 					inputType: 'email'
 				} } );
-				const onInvalid = jest.spyOn( wrapper.vm, 'onInvalid' );
+				const onInvalid = vi.spyOn( wrapper.vm, 'onInvalid' );
 				wrapper.vm.reportValidity();
 				// Mocked `onInvalid` method runs...
 				expect( onInvalid ).toHaveBeenCalledWith( expect.objectContaining( {} ), false );

@@ -243,7 +243,7 @@ Alternatively, if you really really need to inline the validator, you can do so 
 the type, with `makeStringTypeValidator<SomeStringType>( SomeStringTypeValues )`, but this is
 not recommended. For readability, it is recommended that you use a variable instead.
 
-### Wrong types for props in Jest tests
+### Wrong types for props in unit tests
 If you have a prop definition like this:
 ```typescript
 	props: {
@@ -254,7 +254,7 @@ If you have a prop definition like this:
 		}
 	}
 ```
-And you have a Jest unit test testing this component that looks like this:
+And you have a unit test testing this component that looks like this:
 ```typescript
 describe( 'matches the snapshot', () => {
 	type Case = [msg: string, myPropName: string, /* ...other props... */ ];

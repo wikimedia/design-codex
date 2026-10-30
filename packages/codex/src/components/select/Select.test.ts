@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils';
+import { ComponentMountingOptions, enableAutoUnmount, mount as vtuMount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import CdxSelect from './Select.vue';
 import CdxMenuItem from '../menu-item/MenuItem.vue';
@@ -36,11 +36,19 @@ const dataWithGroups: ( MenuItemData|MenuGroupData )[] = [
 	}
 ];
 
-// Jest doesn't support the scrollIntoView method in jsdom, which is used by our Menu component.
+// jsdom doesn't implement the scrollIntoView method, which is used by our Menu component.
 // We stub it here to prevent errors.
 beforeAll( () => {
-	window.HTMLElement.prototype.scrollIntoView = jest.fn();
+	window.HTMLElement.prototype.scrollIntoView = vi.fn();
 } );
+
+// jsdom doesn't invalidate the cached computed style of detached elements, so isVisible()
+// would keep reporting the menu as hidden after v-show reveals it.
+const mount = (
+	component: typeof CdxSelect,
+	options: ComponentMountingOptions<typeof CdxSelect> = {}
+) => vtuMount( component, { attachTo: document.body, ...options } );
+enableAutoUnmount( afterEach );
 
 describe( 'Select', () => {
 	describe( 'matches the snapshot', () => {
@@ -67,7 +75,7 @@ describe( 'Select', () => {
 		];
 
 		test.each( cases )(
-			'Case %# %s: (%p) => HTML',
+			'Case %# %s: (%O) => HTML',
 			async ( _, { menuItems, selected, name = undefined, defaultIcon = undefined, status = 'default' } ) => {
 				const wrapper = mount( CdxSelect, {
 					props: { menuItems, defaultLabel: 'Choose an option', selected, name, defaultIcon, status }
@@ -247,7 +255,7 @@ describe( 'Select', () => {
 
 	describe( 'when the name prop is set', () => {
 		it( 'Reports data to HTML forms', () => {
-			const wrapper = mount( {
+			const wrapper = vtuMount( {
 				template: '<form id="form"><CdxSelect v-bind="$props" /></form>',
 				components: { CdxSelect },
 				props: CdxSelect.props
@@ -261,7 +269,7 @@ describe( 'Select', () => {
 		} );
 
 		it( 'Updates HTML form data with selection', async () => {
-			const wrapper = mount( {
+			const wrapper = vtuMount( {
 				template: '<form id="form"><CdxSelect v-bind="$props" /></form>',
 				components: { CdxSelect },
 				props: CdxSelect.props

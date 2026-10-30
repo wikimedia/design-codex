@@ -31,7 +31,7 @@ describe( 'Label', () => {
 			[ 'With description and description ID', 'Label text', { descriptionId: 'my-description-123' }, 'Description text' ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, labelText, props, description = undefined ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, labelText, props, description = undefined ) => {
 			const wrapper = shallowMount( CdxLabel, { props, slots: {
 				default: labelText,
 				...( description === undefined ? {} : { description } )

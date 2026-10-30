@@ -53,7 +53,7 @@ Patches related to components should include the following as applicable:
 - **Vite Sandbox demo:** Each component should have a simple demo in the
   [Vite Sandbox](./developing-components.md#vite-sandbox) for testing the basic functionality of
   the component locally and within MediaWiki.
-- **Jest snapshots:** Include snapshots for all variations of props and slots.
+- **Snapshots:** Include snapshots for all variations of props and slots.
 - **Unit tests (not required for [WIP components](./developing-components.md#wip-components)):** Attempt to meet the established coverage
   threshold, which will be calculated and output in the command line interface when you run tests.
 - **Demos (not required for WIP components):** Each component should have a demo page on the

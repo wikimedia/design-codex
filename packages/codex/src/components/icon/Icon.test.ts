@@ -36,7 +36,7 @@ describe( 'Icon', () => {
 			[ 'Flippable icon (RTL, exception language)', { icon: exampleFlipIcon, dir: 'rtl', lang: 'he' } ],
 			[ 'Extra small icon', { icon: examplePathIcon, size: 'x-small' } ]
 		];
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props ) => {
 			const wrapper = mount( CdxIcon, { props } );
 			expect( wrapper.element ).toMatchSnapshot();
 		} );

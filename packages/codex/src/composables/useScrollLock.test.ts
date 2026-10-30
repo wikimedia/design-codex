@@ -1,6 +1,7 @@
 import { defineComponent, ref } from 'vue';
 
 import { mount } from '@vue/test-utils';
+import type { MockInstance } from 'vitest';
 import useScrollLock from './useScrollLock';
 
 describe( 'useScrollLock', () => {
@@ -30,7 +31,7 @@ describe( 'useScrollLock', () => {
 
 	function mockScrollbarWidth( width: number ) {
 		const originalCreateElement = document.createElement.bind( document );
-		return jest.spyOn( document, 'createElement' ).mockImplementation( ( tagName: string ) => {
+		return vi.spyOn( document, 'createElement' ).mockImplementation( ( tagName: string ) => {
 			const element = originalCreateElement( tagName );
 			if ( tagName === 'div' ) {
 				Object.defineProperty( element, 'offsetWidth', {
@@ -52,8 +53,7 @@ describe( 'useScrollLock', () => {
 		overflow: string;
 		paddingRight: string;
 	};
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	let createElementSpy: jest.SpyInstance<any, any> | null = null;
+	let createElementSpy: MockInstance | null = null;
 
 	beforeEach( () => {
 		originalBodyStyle = {
@@ -119,7 +119,7 @@ describe( 'useScrollLock', () => {
 				}
 			} );
 
-			const rafSpy = jest.spyOn( window, 'requestAnimationFrame' ).mockImplementation(
+			const rafSpy = vi.spyOn( window, 'requestAnimationFrame' ).mockImplementation(
 				( fn: FrameRequestCallback ) => {
 					fn( 0 );
 					return 0;

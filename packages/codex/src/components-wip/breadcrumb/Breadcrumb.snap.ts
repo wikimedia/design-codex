@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Breadcrumb matches the snapshot Case 0 With empty Items: ({"items": [Array]}) => HTML 1`] = `
+exports[`Breadcrumb > matches the snapshot > Case 0 With empty Items: ({ items: [] }) => HTML 1`] = `
 <nav
   aria-label="Breadcrumb"
   class="cdx-breadcrumb"
@@ -15,7 +15,7 @@ exports[`Breadcrumb matches the snapshot Case 0 With empty Items: ({"items": [Ar
 </nav>
 `;
 
-exports[`Breadcrumb matches the snapshot Case 1 With a single item: ({"items": [Array]}) => HTML 1`] = `
+exports[`Breadcrumb > matches the snapshot > Case 1 With a single item: ({ items: [ { label: 'Some Home', url: '/some-home' } ] }) => HTML 1`] = `
 <nav
   aria-label="Breadcrumb"
   class="cdx-breadcrumb"
@@ -42,7 +42,7 @@ exports[`Breadcrumb matches the snapshot Case 1 With a single item: ({"items": [
 </nav>
 `;
 
-exports[`Breadcrumb matches the snapshot Case 2 With exact items: ({"items": [Array], "maxVisible": 4, "truncateLength": 10}) => HTML 1`] = `
+exports[`Breadcrumb > matches the snapshot > Case 2 With exact items: ({ items: [ { label: 'Some Home', url: '/some-home' }, { label: 'Some Section', url: '/some-section' }, { label: 'Some Subsection', url: '/some-subsection' }, { label: 'Some Active Breadcrumb', url: '' } ], maxVisible: 4, truncateLength: 10 }) => HTML 1`] = `
 <nav
   aria-label="Breadcrumb"
   class="cdx-breadcrumb"
@@ -115,6 +115,7 @@ exports[`Breadcrumb matches the snapshot Case 2 With exact items: ({"items": [Ar
       <div
         class="cdx-tooltip"
         id="cdx-tooltip-10a3dwc"
+        role="tooltip"
       >
         Some Section
       </div>
@@ -152,6 +153,7 @@ exports[`Breadcrumb matches the snapshot Case 2 With exact items: ({"items": [Ar
       <div
         class="cdx-tooltip"
         id="cdx-tooltip-35vvzo"
+        role="tooltip"
       >
         Some Subsection
       </div>
@@ -171,6 +173,7 @@ exports[`Breadcrumb matches the snapshot Case 2 With exact items: ({"items": [Ar
       <div
         class="cdx-tooltip"
         id="cdx-tooltip-ry706s"
+        role="tooltip"
       >
         Some Active Breadcrumb
       </div>
@@ -180,7 +183,7 @@ exports[`Breadcrumb matches the snapshot Case 2 With exact items: ({"items": [Ar
 </nav>
 `;
 
-exports[`Breadcrumb matches the snapshot Case 3 With overflow: ({"items": [Array], "maxVisible": 3}) => HTML 1`] = `
+exports[`Breadcrumb > matches the snapshot > Case 3 With overflow: ({ items: [ { label: 'Some Home', url: '/some-home' }, { label: 'Some Section', url: '/some-section' }, { label: 'Some Subsection', url: '/some-subsection' }, { label: 'Some Active Breadcrumb', url: '' } ], maxVisible: 3 }) => HTML 1`] = `
 <nav
   aria-label="Breadcrumb"
   class="cdx-breadcrumb"
@@ -255,6 +258,7 @@ exports[`Breadcrumb matches the snapshot Case 3 With overflow: ({"items": [Array
       <div
         class="cdx-tooltip"
         id="cdx-tooltip-10a3dwd"
+        role="tooltip"
       >
         Some Section
       </div>
@@ -292,6 +296,7 @@ exports[`Breadcrumb matches the snapshot Case 3 With overflow: ({"items": [Array
       <div
         class="cdx-tooltip"
         id="cdx-tooltip-35vvzp"
+        role="tooltip"
       >
         Some Subsection
       </div>
@@ -311,6 +316,7 @@ exports[`Breadcrumb matches the snapshot Case 3 With overflow: ({"items": [Array
       <div
         class="cdx-tooltip"
         id="cdx-tooltip-ry706t"
+        role="tooltip"
       >
         Some Active Breadcrumb
       </div>
@@ -320,7 +326,7 @@ exports[`Breadcrumb matches the snapshot Case 3 With overflow: ({"items": [Array
 </nav>
 `;
 
-exports[`Breadcrumb matches the snapshot Case 4 With truncation and overflow: ({"items": [Array], "maxVisible": 2, "truncateLength": 10}) => HTML 1`] = `
+exports[`Breadcrumb > matches the snapshot > Case 4 With truncation and overflow: ({ items: [ { label: 'Some Home', url: '/some-home' }, { label: 'Some Section', url: '/some-section' }, { label: 'Some Subsection', url: '/some-subsection' }, { label: 'Some Active Breadcrumb', url: '' } ], maxVisible: 2, truncateLength: 10 }) => HTML 1`] = `
 <nav
   aria-label="Breadcrumb"
   class="cdx-breadcrumb"
@@ -395,6 +401,7 @@ exports[`Breadcrumb matches the snapshot Case 4 With truncation and overflow: ({
       <div
         class="cdx-tooltip"
         id="cdx-tooltip-35vvzq"
+        role="tooltip"
       >
         Some Subsection
       </div>
@@ -414,6 +421,7 @@ exports[`Breadcrumb matches the snapshot Case 4 With truncation and overflow: ({
       <div
         class="cdx-tooltip"
         id="cdx-tooltip-ry706u"
+        role="tooltip"
       >
         Some Active Breadcrumb
       </div>

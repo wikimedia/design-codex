@@ -2,17 +2,18 @@ import { Icon, cdxIconInfoFilled } from '@wikimedia/codex-icons';
 import { ModalAction, PrimaryModalAction } from '../../types';
 import { config, mount, shallowMount } from '@vue/test-utils';
 import { nextTick, reactive, ref } from 'vue';
+import type { Mock } from 'vitest';
 
 import CdxPopover from './Popover.vue';
 import CdxToggleButton from '../../components/toggle-button/ToggleButton.vue';
 import { Placement, useFloating } from '@floating-ui/vue';
 
-// Mock `useFloating` from FloatingUI. If we use the real composable, Jest will crash in an
-// infinite loop of repositioning.
-// TODO: Consider moving this to a jest setup file to provide a global mock.
-jest.mock( '@floating-ui/vue', () => ( {
-	__esModule: true,
-	useFloating: jest.fn( () => ( {
+// Mock `useFloating` from FloatingUI. If we use the real composable, the test will crash in an
+// infinite loop of repositioning. The middleware helpers stay real, as Popover reads them eagerly.
+// TODO: Consider moving this to a Vitest setup file to provide a global mock.
+vi.mock( '@floating-ui/vue', async ( importOriginal ) => ( {
+	...await importOriginal<typeof import( '@floating-ui/vue' )>(),
+	useFloating: vi.fn( () => ( {
 		floatingStyles: {
 			position: 'absolute',
 			left: '0px',
@@ -32,9 +33,8 @@ const mockBreakpoint = reactive( {
 	desktop: true,
 	'desktop-wide': false
 } );
-jest.mock( '../../composables/useBreakpoint', () => ( {
-	__esModule: true,
-	default: jest.fn( () => mockBreakpoint )
+vi.mock( '../../composables/useBreakpoint', () => ( {
+	default: vi.fn( () => mockBreakpoint )
 } ) );
 
 describe( 'Popover', () => {
@@ -147,7 +147,7 @@ describe( 'Popover', () => {
 				props: { anchor: toggleButton.vm.$el, renderInPlace: true, open: true },
 				slots: { default: 'Popover Content' }
 			} );
-			const useFloatingResults = ( useFloating as jest.Mock ).mock.results;
+			const useFloatingResults = ( useFloating as Mock ).mock.results;
 			const { x, middlewareData } = useFloatingResults[ useFloatingResults.length - 1 ].value;
 
 			// Simulate Floating UI placing the arrow at the popover's left edge.

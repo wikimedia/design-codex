@@ -6,8 +6,8 @@ import useResizeObserver from './useResizeObserver';
 
 describe( 'useResizeObserver', () => {
 	let lastCallback: ( ( entries: ResizeObserverEntry[] ) => void ) | null = null;
-	const observeSpy = jest.fn();
-	const disconnectSpy = jest.fn();
+	const observeSpy = vi.fn();
+	const disconnectSpy = vi.fn();
 
 	let OriginalResizeObserver: typeof ResizeObserver;
 	let OriginalResizeObserverEntry: typeof ResizeObserverEntry | undefined;

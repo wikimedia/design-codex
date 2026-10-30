@@ -1,5 +1,5 @@
 /**
- * Jest setup file for suppressing expected warnings during tests.
+ * Vitest setup file for suppressing expected warnings during tests.
  *
  * This file filters out specific console warnings that are expected test noise
  * rather than actual issues. Additional strings can be added to the array

@@ -6,10 +6,8 @@
 // };
 //
 // Note that when all components in this list are removed, you should remove the imports and the
-// `export` statement and instead uncomment the line with `export default {};`.
-// This export default is needed to prevent Jest from failing with
-// "Coverage data for src/components-wip was not found". When adding a new component here, you
-// should CHANGE THIS to "export", removing the "default". See also the import+export example above.
+// `export` statement and instead add `export default {};`. src/lib-wip.ts re-exports this file,
+// and the file must stay an ES module for that to compile.
 import CdxBreadcrumb from './breadcrumb/Breadcrumb.vue';
 import CdxContainer from './container/Container.vue';
 

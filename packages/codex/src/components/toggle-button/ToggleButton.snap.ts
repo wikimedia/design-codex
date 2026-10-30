@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ToggleButton matches the snapshot Case 0 Default: ({"disabled": false, "modelValue": false, "quiet": false}) => HTML 1`] = `
+exports[`ToggleButton > matches the snapshot > Case 0 Default: ({ disabled: false, quiet: false, modelValue: false }) => HTML 1`] = `
 <button
   aria-pressed="false"
   class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
@@ -13,7 +13,7 @@ exports[`ToggleButton matches the snapshot Case 0 Default: ({"disabled": false, 
 </button>
 `;
 
-exports[`ToggleButton matches the snapshot Case 1 Active: ({"disabled": false, "modelValue": true, "quiet": false}) => HTML 1`] = `
+exports[`ToggleButton > matches the snapshot > Case 1 Active: ({ disabled: false, quiet: false, modelValue: true }) => HTML 1`] = `
 <button
   aria-pressed="true"
   class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-on"
@@ -26,7 +26,7 @@ exports[`ToggleButton matches the snapshot Case 1 Active: ({"disabled": false, "
 </button>
 `;
 
-exports[`ToggleButton matches the snapshot Case 2 Disabled, inactive: ({"disabled": true, "modelValue": false, "quiet": false}) => HTML 1`] = `
+exports[`ToggleButton > matches the snapshot > Case 2 Disabled, inactive: ({ disabled: true, quiet: false, modelValue: false }) => HTML 1`] = `
 <button
   aria-pressed="false"
   class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
@@ -40,7 +40,7 @@ exports[`ToggleButton matches the snapshot Case 2 Disabled, inactive: ({"disable
 </button>
 `;
 
-exports[`ToggleButton matches the snapshot Case 3 Disabled, active: ({"disabled": true, "modelValue": true, "quiet": false}) => HTML 1`] = `
+exports[`ToggleButton > matches the snapshot > Case 3 Disabled, active: ({ disabled: true, quiet: false, modelValue: true }) => HTML 1`] = `
 <button
   aria-pressed="true"
   class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-on"
@@ -54,7 +54,7 @@ exports[`ToggleButton matches the snapshot Case 3 Disabled, active: ({"disabled"
 </button>
 `;
 
-exports[`ToggleButton matches the snapshot Case 4 Quiet: ({"disabled": false, "modelValue": false, "quiet": true}) => HTML 1`] = `
+exports[`ToggleButton > matches the snapshot > Case 4 Quiet: ({ disabled: false, quiet: true, modelValue: false }) => HTML 1`] = `
 <button
   aria-pressed="false"
   class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--quiet cdx-toggle-button--toggled-off"
@@ -67,7 +67,7 @@ exports[`ToggleButton matches the snapshot Case 4 Quiet: ({"disabled": false, "m
 </button>
 `;
 
-exports[`ToggleButton matches the snapshot Case 5 Quiet, active: ({"disabled": false, "modelValue": true, "quiet": true}) => HTML 1`] = `
+exports[`ToggleButton > matches the snapshot > Case 5 Quiet, active: ({ disabled: false, quiet: true, modelValue: true }) => HTML 1`] = `
 <button
   aria-pressed="true"
   class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--quiet cdx-toggle-button--toggled-on"
@@ -80,7 +80,7 @@ exports[`ToggleButton matches the snapshot Case 5 Quiet, active: ({"disabled": f
 </button>
 `;
 
-exports[`ToggleButton matches the snapshot Case 6 Quiet, disabled, inactive: ({"disabled": true, "modelValue": false, "quiet": true}) => HTML 1`] = `
+exports[`ToggleButton > matches the snapshot > Case 6 Quiet, disabled, inactive: ({ disabled: true, quiet: true, modelValue: false }) => HTML 1`] = `
 <button
   aria-pressed="false"
   class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--quiet cdx-toggle-button--toggled-off"
@@ -94,7 +94,7 @@ exports[`ToggleButton matches the snapshot Case 6 Quiet, disabled, inactive: ({"
 </button>
 `;
 
-exports[`ToggleButton matches the snapshot Case 7 Quiet, disabled, active: ({"disabled": true, "modelValue": true, "quiet": true}) => HTML 1`] = `
+exports[`ToggleButton > matches the snapshot > Case 7 Quiet, disabled, active: ({ disabled: true, quiet: true, modelValue: true }) => HTML 1`] = `
 <button
   aria-pressed="true"
   class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--quiet cdx-toggle-button--toggled-on"
@@ -108,7 +108,7 @@ exports[`ToggleButton matches the snapshot Case 7 Quiet, disabled, active: ({"di
 </button>
 `;
 
-exports[`ToggleButton matches the snapshot Case 8 Icon-only (SVG): ({"disabled": false, "modelValue": false, "quiet": false}) => HTML 1`] = `
+exports[`ToggleButton > matches the snapshot > Case 8 Icon-only (SVG): ({ disabled: false, quiet: false, modelValue: false }) => HTML 1`] = `
 <button
   aria-label="Icon-only example"
   aria-pressed="false"
@@ -122,7 +122,7 @@ exports[`ToggleButton matches the snapshot Case 8 Icon-only (SVG): ({"disabled":
 </button>
 `;
 
-exports[`ToggleButton matches the snapshot Case 9 Icon-only (CdxIcon): ({"disabled": false, "modelValue": false, "quiet": false}) => HTML 1`] = `
+exports[`ToggleButton > matches the snapshot > Case 9 Icon-only (CdxIcon): ({ disabled: false, quiet: false, modelValue: false }) => HTML 1`] = `
 <button
   aria-hidden="true"
   aria-pressed="false"
@@ -140,7 +140,7 @@ exports[`ToggleButton matches the snapshot Case 9 Icon-only (CdxIcon): ({"disabl
 </button>
 `;
 
-exports[`ToggleButton matches the snapshot Case 10 small size: ({"size": "small"}) => HTML 1`] = `
+exports[`ToggleButton > matches the snapshot > Case 10 small size: ({ size: 'small' }) => HTML 1`] = `
 <button
   aria-pressed="false"
   class="cdx-toggle-button cdx-toggle-button--size-small cdx-toggle-button--framed cdx-toggle-button--toggled-off"
@@ -153,7 +153,7 @@ exports[`ToggleButton matches the snapshot Case 10 small size: ({"size": "small"
 </button>
 `;
 
-exports[`ToggleButton matches the snapshot Case 11 medium size: ({"size": "medium"}) => HTML 1`] = `
+exports[`ToggleButton > matches the snapshot > Case 11 medium size: ({ size: 'medium' }) => HTML 1`] = `
 <button
   aria-pressed="false"
   class="cdx-toggle-button cdx-toggle-button--size-medium cdx-toggle-button--framed cdx-toggle-button--toggled-off"
@@ -166,7 +166,7 @@ exports[`ToggleButton matches the snapshot Case 11 medium size: ({"size": "mediu
 </button>
 `;
 
-exports[`ToggleButton matches the snapshot Case 12 large size: ({"size": "large"}) => HTML 1`] = `
+exports[`ToggleButton > matches the snapshot > Case 12 large size: ({ size: 'large' }) => HTML 1`] = `
 <button
   aria-pressed="false"
   class="cdx-toggle-button cdx-toggle-button--size-large cdx-toggle-button--framed cdx-toggle-button--toggled-off"

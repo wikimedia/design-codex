@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Select matches the snapshot Case 0 No selection: ({"menuItems": [Array], "name": "foo", "selected": null}) => HTML 1`] = `
+exports[`Select > matches the snapshot > Case 0 No selection: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true }, { value: 'e', label: 'Option E', icon: '<path d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"/>' } ], name: 'foo', selected: null }) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-default"
@@ -46,7 +46,7 @@ exports[`Select matches the snapshot Case 0 No selection: ({"menuItems": [Array]
   <!--teleport start-->
   <div
     class="cdx-menu"
-    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; right: unset; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"
@@ -277,7 +277,7 @@ exports[`Select matches the snapshot Case 0 No selection: ({"menuItems": [Array]
 </div>
 `;
 
-exports[`Select matches the snapshot Case 1 No selection with empty string: ({"menuItems": [Array], "name": "foo", "selected": null}) => HTML 1`] = `
+exports[`Select > matches the snapshot > Case 1 No selection with empty string: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true }, { value: 'e', label: 'Option E', icon: '<path d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"/>' } ], name: 'foo', selected: null }) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-default"
@@ -323,7 +323,7 @@ exports[`Select matches the snapshot Case 1 No selection with empty string: ({"m
   <!--teleport start-->
   <div
     class="cdx-menu"
-    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; right: unset; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"
@@ -554,7 +554,7 @@ exports[`Select matches the snapshot Case 1 No selection with empty string: ({"m
 </div>
 `;
 
-exports[`Select matches the snapshot Case 2 Menu item with label selected: ({"menuItems": [Array], "name": "foo", "selected": "a"}) => HTML 1`] = `
+exports[`Select > matches the snapshot > Case 2 Menu item with label selected: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true }, { value: 'e', label: 'Option E', icon: '<path d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"/>' } ], name: 'foo', selected: 'a' }) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
@@ -600,7 +600,7 @@ exports[`Select matches the snapshot Case 2 Menu item with label selected: ({"me
   <!--teleport start-->
   <div
     class="cdx-menu"
-    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; right: unset; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"
@@ -833,7 +833,7 @@ exports[`Select matches the snapshot Case 2 Menu item with label selected: ({"me
 </div>
 `;
 
-exports[`Select matches the snapshot Case 3 Menu item with no label selected: ({"menuItems": [Array], "name": "foo", "selected": "c"}) => HTML 1`] = `
+exports[`Select > matches the snapshot > Case 3 Menu item with no label selected: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true }, { value: 'e', label: 'Option E', icon: '<path d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"/>' } ], name: 'foo', selected: 'c' }) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
@@ -879,7 +879,7 @@ exports[`Select matches the snapshot Case 3 Menu item with no label selected: ({
   <!--teleport start-->
   <div
     class="cdx-menu"
-    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; right: unset; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"
@@ -1112,7 +1112,7 @@ exports[`Select matches the snapshot Case 3 Menu item with no label selected: ({
 </div>
 `;
 
-exports[`Select matches the snapshot Case 4 Menu item with icon selected: ({"menuItems": [Array], "name": "foo", "selected": "e"}) => HTML 1`] = `
+exports[`Select > matches the snapshot > Case 4 Menu item with icon selected: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true }, { value: 'e', label: 'Option E', icon: '<path d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"/>' } ], name: 'foo', selected: 'e' }) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--has-start-icon cdx-select-vue--status-default"
@@ -1176,7 +1176,7 @@ exports[`Select matches the snapshot Case 4 Menu item with icon selected: ({"men
   <!--teleport start-->
   <div
     class="cdx-menu"
-    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; right: unset; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"
@@ -1409,7 +1409,7 @@ exports[`Select matches the snapshot Case 4 Menu item with icon selected: ({"men
 </div>
 `;
 
-exports[`Select matches the snapshot Case 5 With Start icon: ({"defaultIcon": "<path d=\\"M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3\\"/>", "menuItems": [Array], "selected": null}) => HTML 1`] = `
+exports[`Select > matches the snapshot > Case 5 With Start icon: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true }, { value: 'e', label: 'Option E', icon: '<path d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"/>' } ], selected: null, defaultIcon: '<path d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"/>' }) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--has-start-icon cdx-select-vue--status-default"
@@ -1473,7 +1473,7 @@ exports[`Select matches the snapshot Case 5 With Start icon: ({"defaultIcon": "<
   <!--teleport start-->
   <div
     class="cdx-menu"
-    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; right: unset; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"
@@ -1701,7 +1701,7 @@ exports[`Select matches the snapshot Case 5 With Start icon: ({"defaultIcon": "<
 </div>
 `;
 
-exports[`Select matches the snapshot Case 6 With Start icon and selection: ({"defaultIcon": "<path d=\\"M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3\\"/>", "menuItems": [Array], "selected": "c"}) => HTML 1`] = `
+exports[`Select > matches the snapshot > Case 6 With Start icon and selection: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true }, { value: 'e', label: 'Option E', icon: '<path d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"/>' } ], selected: 'c', defaultIcon: '<path d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"/>' }) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--value-selected cdx-select-vue--status-default"
@@ -1747,7 +1747,7 @@ exports[`Select matches the snapshot Case 6 With Start icon and selection: ({"de
   <!--teleport start-->
   <div
     class="cdx-menu"
-    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; right: unset; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"
@@ -1976,7 +1976,7 @@ exports[`Select matches the snapshot Case 6 With Start icon and selection: ({"de
 </div>
 `;
 
-exports[`Select matches the snapshot Case 7 With error status: ({"menuItems": [Array], "selected": null, "status": "error"}) => HTML 1`] = `
+exports[`Select > matches the snapshot > Case 7 With error status: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true }, { value: 'e', label: 'Option E', icon: '<path d="M8 1a7 7 0 015.605 11.191l5.102 5.102-1.414 1.414-5.102-5.102A7 7 0 118 1m0 2a5 5 0 100 10A5 5 0 008 3"/>' } ], selected: null, status: 'error' }) => HTML 1`] = `
 <div
   aria-disabled="false"
   class="cdx-select-vue cdx-select-vue--enabled cdx-select-vue--no-selections cdx-select-vue--status-error"
@@ -2022,7 +2022,7 @@ exports[`Select matches the snapshot Case 7 With error status: ({"menuItems": [A
   <!--teleport start-->
   <div
     class="cdx-menu"
-    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; right: unset; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"

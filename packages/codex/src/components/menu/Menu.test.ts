@@ -88,10 +88,10 @@ async function delegateKeydownEvent(
 }
 
 describe( 'Menu', () => {
-	// Jest doesn't support the scrollIntoView method in jsdom, which is used by our Menu component.
+	// jsdom doesn't implement the scrollIntoView method, which is used by our Menu component.
 	// We stub it here to prevent errors.
 	beforeAll( () => {
-		window.HTMLElement.prototype.scrollIntoView = jest.fn();
+		window.HTMLElement.prototype.scrollIntoView = vi.fn();
 	} );
 
 	describe( 'matches the snapshots', () => {
@@ -881,7 +881,7 @@ describe( 'Menu', () => {
 
 	describe( 'when the user types characters', () => {
 		afterEach( () => {
-			jest.useRealTimers();
+			vi.useRealTimers();
 		} );
 
 		it( 'highlights the first matching item', async () => {
@@ -1044,7 +1044,7 @@ describe( 'Menu', () => {
 		} );
 
 		it( 'all typed characters are forgotten after the timeout elapses', async () => {
-			jest.useFakeTimers();
+			vi.useFakeTimers();
 
 			const menuItems = [
 				{ value: 'Foo' },
@@ -1057,13 +1057,13 @@ describe( 'Menu', () => {
 			} } );
 			await delegateKeydownEvent( wrapper, 'b' );
 			expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 1 ] );
-			jest.advanceTimersByTime( 1400 );
+			vi.advanceTimersByTime( 1400 );
 			await delegateKeydownEvent( wrapper, 'f' );
 			expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 2 ] );
-			jest.advanceTimersByTime( 1500 );
+			vi.advanceTimersByTime( 1500 );
 			await delegateKeydownEvent( wrapper, 'b' );
 			expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 1 ] );
-			jest.advanceTimersByTime( 1500 );
+			vi.advanceTimersByTime( 1500 );
 			await delegateKeydownEvent( wrapper, 'f' );
 			expect( wrapper.vm.getHighlightedMenuItem() ).toMatchObject( menuItems[ 0 ] );
 		} );

@@ -45,8 +45,8 @@
 		"minify:svg:dist": "svgo --config=.svgo.config.dist.js --quiet --recursive --folder ./dist/images",
 		"minify:svg:src": "svgo --config=.svgo.config.js --quiet --recursive --folder ./src/images",
 		"test": "npm run lint && npm run build && npm run test:clean-git && npm run test:unit",
-		"test:unit": "NODE_OPTIONS=--experimental-vm-modules jest -c .jest/jest.config.json",
-		"test:output": "npm run test:unit -- tests/outputTypes.test.ts --coverage=false",
+		"test:unit": "vitest run",
+		"test:output": "npm run test:unit -- tests/outputTypes.test.ts --coverage.enabled=false",
 		"test:clean-git": "test $(git diff ./src/images | wc -l) -eq 0 || (echo 'Uncommitted SVG changes:'; git diff ./src/images; false)",
 		"prepublishOnly": "cp dist/codex-icon-paths.less .",
 		"postpublish": "rm codex-icon-paths.less"
@@ -54,14 +54,12 @@
 	"devDependencies": {
 		"@rollup/plugin-typescript": "12.1.2",
 		"@types/estree": "1.0.8",
-		"@types/jest": "29.5.14",
+		"@vitest/coverage-istanbul": "5.0.5",
 		"glob": "11.1.0",
-		"jest": "29.7.0",
-		"jest-environment-jsdom": "29.7.0",
 		"svglint": "4.2.1",
 		"svgo": "4.0.2",
-		"ts-jest": "29.4.9",
 		"typescript": "5.9.3",
-		"vite": "7.0.4"
+		"vite": "7.0.4",
+		"vitest": "5.0.5"
 	}
 }

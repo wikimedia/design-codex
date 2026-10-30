@@ -161,7 +161,7 @@ describe( 'Table', () => {
 		];
 
 		test.each( cases )(
-			'Case %# %s: (%p) => HTML',
+			'Case %# %s: (%O) => HTML',
 			async (
 				_,
 				{

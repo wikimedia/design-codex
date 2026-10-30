@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`MenuButton matches the snapshot Case 0 No selection: ({"menuItems": [Array], "selected": ""}) => HTML 1`] = `
+exports[`MenuButton > matches the snapshot > Case 0 No selection: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true } ], selected: '' }) => HTML 1`] = `
 <div
   class="cdx-menu-button"
 >
@@ -194,7 +194,7 @@ exports[`MenuButton matches the snapshot Case 0 No selection: ({"menuItems": [Ar
 </div>
 `;
 
-exports[`MenuButton matches the snapshot Case 1 Menu item with label selected: ({"menuItems": [Array], "selected": "a"}) => HTML 1`] = `
+exports[`MenuButton > matches the snapshot > Case 1 Menu item with label selected: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true } ], selected: 'a' }) => HTML 1`] = `
 <div
   class="cdx-menu-button"
 >
@@ -389,7 +389,7 @@ exports[`MenuButton matches the snapshot Case 1 Menu item with label selected: (
 </div>
 `;
 
-exports[`MenuButton matches the snapshot Case 2 Menu item with no label selected: ({"menuItems": [Array], "selected": "c"}) => HTML 1`] = `
+exports[`MenuButton > matches the snapshot > Case 2 Menu item with no label selected: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true } ], selected: 'c' }) => HTML 1`] = `
 <div
   class="cdx-menu-button"
 >
@@ -584,7 +584,7 @@ exports[`MenuButton matches the snapshot Case 2 Menu item with no label selected
 </div>
 `;
 
-exports[`MenuButton matches the snapshot Case 3 Disabled: ({"disabled": true, "menuItems": [Array], "selected": ""}) => HTML 1`] = `
+exports[`MenuButton > matches the snapshot > Case 3 Disabled: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true } ], selected: '', disabled: true }) => HTML 1`] = `
 <div
   class="cdx-menu-button"
 >
@@ -779,7 +779,7 @@ exports[`MenuButton matches the snapshot Case 3 Disabled: ({"disabled": true, "m
 </div>
 `;
 
-exports[`MenuButton matches the snapshot Case 4 With footer: ({"footer": [Object], "menuItems": [Array], "selected": ""}) => HTML 1`] = `
+exports[`MenuButton > matches the snapshot > Case 4 With footer: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true } ], selected: '', footer: { value: 'footer', label: 'Footer item' } }) => HTML 1`] = `
 <div
   class="cdx-menu-button"
 >
@@ -1011,7 +1011,7 @@ exports[`MenuButton matches the snapshot Case 4 With footer: ({"footer": [Object
 </div>
 `;
 
-exports[`MenuButton matches the snapshot Case 5 With primary progressive action button: ({"action": "progressive", "menuItems": [Array], "selected": "", "weight": "primary"}) => HTML 1`] = `
+exports[`MenuButton > matches the snapshot > Case 5 With primary progressive action button: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true } ], selected: '', action: 'progressive', weight: 'primary' }) => HTML 1`] = `
 <div
   class="cdx-menu-button"
 >
@@ -1205,7 +1205,7 @@ exports[`MenuButton matches the snapshot Case 5 With primary progressive action 
 </div>
 `;
 
-exports[`MenuButton matches the snapshot Case 6 With normal destructive action button: ({"action": "destructive", "menuItems": [Array], "selected": "", "weight": "normal"}) => HTML 1`] = `
+exports[`MenuButton > matches the snapshot > Case 6 With normal destructive action button: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true } ], selected: '', action: 'destructive', weight: 'normal' }) => HTML 1`] = `
 <div
   class="cdx-menu-button"
 >

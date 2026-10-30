@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ProgressBar matches the snapshot Case 0 Indeterminate: ({}) => HTML 1`] = `
+exports[`ProgressBar > matches the snapshot > Case 0 Indeterminate: ({}) => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -20,7 +20,7 @@ exports[`ProgressBar matches the snapshot Case 0 Indeterminate: ({}) => HTML 1`]
 </div>
 `;
 
-exports[`ProgressBar matches the snapshot Case 1 Indeterminate, inline: ({"inline": true}) => HTML 1`] = `
+exports[`ProgressBar > matches the snapshot > Case 1 Indeterminate, inline: ({ inline: true }) => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -40,7 +40,7 @@ exports[`ProgressBar matches the snapshot Case 1 Indeterminate, inline: ({"inlin
 </div>
 `;
 
-exports[`ProgressBar matches the snapshot Case 2 Indeterminate, disabled: ({"disabled": true, "inline": true}) => HTML 1`] = `
+exports[`ProgressBar > matches the snapshot > Case 2 Indeterminate, disabled: ({ inline: true, disabled: true }) => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -60,7 +60,7 @@ exports[`ProgressBar matches the snapshot Case 2 Indeterminate, disabled: ({"dis
 </div>
 `;
 
-exports[`ProgressBar matches the snapshot Case 3 Indeterminate, with aria-hidden: ({"inline": true}) => HTML 1`] = `
+exports[`ProgressBar > matches the snapshot > Case 3 Indeterminate, with aria-hidden: ({ inline: true }) => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -80,7 +80,7 @@ exports[`ProgressBar matches the snapshot Case 3 Indeterminate, with aria-hidden
 </div>
 `;
 
-exports[`ProgressBar matches the snapshot Case 4 Indeterminate, with labels: ({"endLabel": "End", "startLabel": "Progress bar"}) => HTML 1`] = `
+exports[`ProgressBar > matches the snapshot > Case 4 Indeterminate, with labels: ({ startLabel: 'Progress bar', endLabel: 'End' }) => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -115,7 +115,7 @@ exports[`ProgressBar matches the snapshot Case 4 Indeterminate, with labels: ({"
 </div>
 `;
 
-exports[`ProgressBar matches the snapshot Case 5 Determinate: ({"value": 50}) => HTML 1`] = `
+exports[`ProgressBar > matches the snapshot > Case 5 Determinate: ({ value: 50 }) => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -139,7 +139,7 @@ exports[`ProgressBar matches the snapshot Case 5 Determinate: ({"value": 50}) =>
 </div>
 `;
 
-exports[`ProgressBar matches the snapshot Case 6 Determinate, inline: ({"inline": true, "value": 50}) => HTML 1`] = `
+exports[`ProgressBar > matches the snapshot > Case 6 Determinate, inline: ({ value: 50, inline: true }) => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -163,7 +163,7 @@ exports[`ProgressBar matches the snapshot Case 6 Determinate, inline: ({"inline"
 </div>
 `;
 
-exports[`ProgressBar matches the snapshot Case 7 Determinate, disabled: ({"disabled": true, "inline": true, "value": 50}) => HTML 1`] = `
+exports[`ProgressBar > matches the snapshot > Case 7 Determinate, disabled: ({ value: 50, inline: true, disabled: true }) => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -187,7 +187,7 @@ exports[`ProgressBar matches the snapshot Case 7 Determinate, disabled: ({"disab
 </div>
 `;
 
-exports[`ProgressBar matches the snapshot Case 8 Determinate, with aria-hidden: ({"inline": true, "value": 50}) => HTML 1`] = `
+exports[`ProgressBar > matches the snapshot > Case 8 Determinate, with aria-hidden: ({ value: 50, inline: true }) => HTML 1`] = `
 <div
   data-v-app=""
 >
@@ -211,7 +211,7 @@ exports[`ProgressBar matches the snapshot Case 8 Determinate, with aria-hidden: 
 </div>
 `;
 
-exports[`ProgressBar matches the snapshot Case 9 Determinate, with labels: ({"endLabel": "End", "startLabel": "Progress bar", "value": 50}) => HTML 1`] = `
+exports[`ProgressBar > matches the snapshot > Case 9 Determinate, with labels: ({ value: 50, startLabel: 'Progress bar', endLabel: 'End' }) => HTML 1`] = `
 <div
   data-v-app=""
 >

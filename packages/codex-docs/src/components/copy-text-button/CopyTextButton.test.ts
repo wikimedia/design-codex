@@ -8,7 +8,7 @@ const SuccessIconSelector = '.cdx-docs-copy-text-button__icon';
 describe( 'CopyTextButton', () => {
 	afterEach( () => {
 		// Some tests use fake timers
-		jest.useRealTimers();
+		vi.useRealTimers();
 	} );
 
 	it( 'uses button text', async () => {
@@ -42,7 +42,7 @@ describe( 'CopyTextButton', () => {
 		// Clicking the button should call document.execCommand,
 		// testing both failure (return false, or throws exception) and success
 		// (return true)
-		const mockCommand = jest.fn();
+		const mockCommand = vi.fn();
 		document.execCommand = mockCommand;
 		mockCommand.mockReturnValue( false );
 		await wrapper.get( CopyButtonSelector ).trigger( 'click' );
@@ -107,11 +107,11 @@ describe( 'CopyTextButton', () => {
 		expect( wrapper.find( SuccessIconSelector ).exists() ).toBe( false );
 
 		// using fake timers
-		jest.useFakeTimers();
-		jest.spyOn( global, 'setTimeout' );
+		vi.useFakeTimers();
+		vi.spyOn( global, 'setTimeout' );
 
 		// make sure the button click will be successful
-		const mockCommand = jest.fn();
+		const mockCommand = vi.fn();
 		document.execCommand = mockCommand;
 		mockCommand.mockReturnValue( true );
 		await wrapper.get( CopyButtonSelector ).trigger( 'click' );
@@ -131,7 +131,7 @@ describe( 'CopyTextButton', () => {
 
 		// advance 3 seconds, callback will have run and restored the state (indicator
 		// only hidden after the next tick)
-		jest.advanceTimersByTime( 3000 );
+		vi.advanceTimersByTime( 3000 );
 		expect( wrapper.vm.copySuccess ).toBe( false );
 		await nextTick();
 		expect( wrapper.find( SuccessIconSelector ).exists() ).toBe( false );
@@ -139,14 +139,8 @@ describe( 'CopyTextButton', () => {
 
 	it( 'works with undefined selection', async () => {
 		// Cover the case of window.getSelection() returning undefined, which is the
-		// default return value for jest.fn()
-		window.getSelection = jest.fn();
-
-		// For some reason, this was failing with
-		// `Error: Uncaught [ReferenceError: setTimeout is not defined]`
-		// installing fake timers fixes it, though we aren't quite sure why, since the
-		// setTimeout() call works fine in the 'executes copy command on click' test above
-		jest.useFakeTimers();
+		// default return value for vi.fn()
+		window.getSelection = vi.fn();
 
 		const wrapper = mount( CdxDocsCopyTextButton, {
 			props: {
@@ -155,7 +149,7 @@ describe( 'CopyTextButton', () => {
 		} );
 		// Try clicking, should still reach the document.execCommand() execution
 		// without breaking from no selection
-		const mockCommand = jest.fn();
+		const mockCommand = vi.fn();
 		document.execCommand = mockCommand;
 		mockCommand.mockReturnValue( true );
 		await wrapper.get( CopyButtonSelector ).trigger( 'click' );
@@ -178,12 +172,12 @@ describe( 'CopyTextButton', () => {
 		expect( wrapper.find( SuccessIconSelector ).exists() ).toBe( false );
 
 		// using fake timers
-		jest.useFakeTimers();
-		jest.spyOn( global, 'setTimeout' );
-		jest.spyOn( global, 'clearTimeout' );
+		vi.useFakeTimers();
+		vi.spyOn( global, 'setTimeout' );
+		vi.spyOn( global, 'clearTimeout' );
 
 		// make sure the button click will be successful
-		const mockCommand = jest.fn();
+		const mockCommand = vi.fn();
 		document.execCommand = mockCommand;
 		mockCommand.mockReturnValue( true );
 		await wrapper.get( CopyButtonSelector ).trigger( 'click' );
@@ -222,7 +216,7 @@ describe( 'CopyTextButton', () => {
 		expect( wrapper.find( SuccessIconSelector ).exists() ).toBe( true );
 
 		// advance past when the callback would have run
-		jest.advanceTimersByTime( 3000 );
+		vi.advanceTimersByTime( 3000 );
 		// should not have changed
 		expect( wrapper.vm.copySuccess ).toBe( true );
 	} );

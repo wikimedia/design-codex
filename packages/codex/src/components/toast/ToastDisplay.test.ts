@@ -68,11 +68,11 @@ describe( 'ToastDisplay', () => {
 		} );
 
 		it( 'does not auto-dismiss when autoDismiss is false', () => {
-			jest.useFakeTimers();
+			vi.useFakeTimers();
 			const wrapper = mountDisplay( { autoDismiss: false } );
-			jest.advanceTimersByTime( 10000 );
+			vi.advanceTimersByTime( 10000 );
 			expect( wrapper.emitted( 'auto-dismissed' ) ).toBeFalsy();
-			jest.useRealTimers();
+			vi.useRealTimers();
 			wrapper.unmount();
 		} );
 	} );
@@ -112,11 +112,11 @@ describe( 'ToastDisplay', () => {
 		} );
 
 		it( 'sets leaveActiveClass to system variant for auto-dismissed', () => {
-			jest.useFakeTimers();
+			vi.useFakeTimers();
 			const wrapper = mountDisplay( { autoDismiss: 100 } );
-			jest.advanceTimersByTime( 150 );
+			vi.advanceTimersByTime( 150 );
 			expect( wrapper.vm.leaveActiveClass ).toBe( 'cdx-toast-leave-active-system' );
-			jest.useRealTimers();
+			vi.useRealTimers();
 			wrapper.unmount();
 		} );
 
@@ -131,25 +131,25 @@ describe( 'ToastDisplay', () => {
 
 	describe( 'auto dismissal', () => {
 		it( 'emits auto-dismissed after timeout once leave transition finishes', () => {
-			jest.useFakeTimers();
+			vi.useFakeTimers();
 			const wrapper = mountDisplay( { autoDismiss: 100 } );
 			expect( wrapper.emitted( 'auto-dismissed' ) ).toBeFalsy();
-			jest.advanceTimersByTime( 150 );
+			vi.advanceTimersByTime( 150 );
 			wrapper.vm.onAfterLeave();
 			expect( wrapper.emitted( 'auto-dismissed' ) ).toHaveLength( 1 );
-			jest.useRealTimers();
+			vi.useRealTimers();
 			wrapper.unmount();
 		} );
 
 		it( 'uses default 4000ms when autoDismiss is true', () => {
-			jest.useFakeTimers();
+			vi.useFakeTimers();
 			const wrapper = mountDisplay( { autoDismiss: true } );
-			jest.advanceTimersByTime( 3500 );
+			vi.advanceTimersByTime( 3500 );
 			expect( wrapper.emitted( 'auto-dismissed' ) ).toBeFalsy();
-			jest.advanceTimersByTime( 500 );
+			vi.advanceTimersByTime( 500 );
 			wrapper.vm.onAfterLeave();
 			expect( wrapper.emitted( 'auto-dismissed' ) ).toHaveLength( 1 );
-			jest.useRealTimers();
+			vi.useRealTimers();
 			wrapper.unmount();
 		} );
 	} );
@@ -165,16 +165,16 @@ describe( 'ToastDisplay', () => {
 
 	describe( 'hover pause', () => {
 		it( 'pauses auto-dismiss on mouseenter and resumes on mouseleave', async () => {
-			jest.useFakeTimers();
+			vi.useFakeTimers();
 			const wrapper = mountDisplay( { autoDismiss: 200 } );
 			await wrapper.find( '.cdx-toast' ).trigger( 'mouseenter' );
-			jest.advanceTimersByTime( 300 );
+			vi.advanceTimersByTime( 300 );
 			expect( wrapper.emitted( 'auto-dismissed' ) ).toBeFalsy();
 			await wrapper.find( '.cdx-toast' ).trigger( 'mouseleave' );
-			jest.advanceTimersByTime( 250 );
+			vi.advanceTimersByTime( 250 );
 			wrapper.vm.onAfterLeave();
 			expect( wrapper.emitted( 'auto-dismissed' ) ).toHaveLength( 1 );
-			jest.useRealTimers();
+			vi.useRealTimers();
 			wrapper.unmount();
 		} );
 
@@ -188,22 +188,22 @@ describe( 'ToastDisplay', () => {
 
 	describe( 'touch pause and watcher', () => {
 		it( 'does not auto-dismiss while user is touching and restarts timer when touch ends', async () => {
-			jest.useFakeTimers();
+			vi.useFakeTimers();
 			isUserTouchingToastRef.value = false;
 			const wrapper = mountDisplay( { autoDismiss: 200 } );
 			await nextTick();
 			isUserTouchingToastRef.value = true;
-			jest.advanceTimersByTime( 300 );
+			vi.advanceTimersByTime( 300 );
 			await nextTick();
 			expect( wrapper.emitted( 'auto-dismissed' ) ).toBeFalsy();
 			isUserTouchingToastRef.value = false;
 			await nextTick();
-			jest.advanceTimersByTime( 250 );
+			vi.advanceTimersByTime( 250 );
 			await nextTick();
 			wrapper.vm.onAfterLeave();
 			await nextTick();
 			expect( wrapper.emitted( 'auto-dismissed' ) ).toHaveLength( 1 );
-			jest.useRealTimers();
+			vi.useRealTimers();
 			isUserTouchingToastRef.value = false;
 			wrapper.unmount();
 		} );

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Checkbox matches the snapshot Case 0 Single checkbox: ({"modelValue": true}) => HTML 1`] = `
+exports[`Checkbox > matches the snapshot > Case 0 Single checkbox: ({ modelValue: true }) => HTML 1`] = `
 <div
   class="cdx-checkbox cdx-checkbox--status-default"
 >
@@ -51,7 +51,7 @@ exports[`Checkbox matches the snapshot Case 0 Single checkbox: ({"modelValue": t
 </div>
 `;
 
-exports[`Checkbox matches the snapshot Case 1 Group checkbox, string value: ({"inputValue": "checkbox-1", "modelValue": [Array]}) => HTML 1`] = `
+exports[`Checkbox > matches the snapshot > Case 1 Group checkbox, string value: ({ modelValue: [ 'checkbox-1' ], inputValue: 'checkbox-1' }) => HTML 1`] = `
 <div
   class="cdx-checkbox cdx-checkbox--status-default"
 >
@@ -102,7 +102,7 @@ exports[`Checkbox matches the snapshot Case 1 Group checkbox, string value: ({"i
 </div>
 `;
 
-exports[`Checkbox matches the snapshot Case 2 Group checkbox, number value: ({"inputValue": 1, "modelValue": [Array]}) => HTML 1`] = `
+exports[`Checkbox > matches the snapshot > Case 2 Group checkbox, number value: ({ modelValue: [ 1 ], inputValue: 1 }) => HTML 1`] = `
 <div
   class="cdx-checkbox cdx-checkbox--status-default"
 >
@@ -153,7 +153,7 @@ exports[`Checkbox matches the snapshot Case 2 Group checkbox, number value: ({"i
 </div>
 `;
 
-exports[`Checkbox matches the snapshot Case 3 Disabled: ({"disabled": true, "modelValue": false}) => HTML 1`] = `
+exports[`Checkbox > matches the snapshot > Case 3 Disabled: ({ modelValue: false, disabled: true }) => HTML 1`] = `
 <div
   class="cdx-checkbox cdx-checkbox--status-default"
 >
@@ -205,7 +205,7 @@ exports[`Checkbox matches the snapshot Case 3 Disabled: ({"disabled": true, "mod
 </div>
 `;
 
-exports[`Checkbox matches the snapshot Case 4 Indeterminate: ({"indeterminate": true, "modelValue": false}) => HTML 1`] = `
+exports[`Checkbox > matches the snapshot > Case 4 Indeterminate: ({ modelValue: false, indeterminate: true }) => HTML 1`] = `
 <div
   class="cdx-checkbox cdx-checkbox--status-default"
 >
@@ -256,7 +256,7 @@ exports[`Checkbox matches the snapshot Case 4 Indeterminate: ({"indeterminate": 
 </div>
 `;
 
-exports[`Checkbox matches the snapshot Case 5 Inline: ({"inline": true, "inputValue": "checkbox-1", "modelValue": [Array]}) => HTML 1`] = `
+exports[`Checkbox > matches the snapshot > Case 5 Inline: ({ modelValue: [], inputValue: 'checkbox-1', inline: true }) => HTML 1`] = `
 <div
   class="cdx-checkbox cdx-checkbox--inline cdx-checkbox--status-default"
 >
@@ -307,7 +307,7 @@ exports[`Checkbox matches the snapshot Case 5 Inline: ({"inline": true, "inputVa
 </div>
 `;
 
-exports[`Checkbox matches the snapshot Case 6 With description: ({"modelValue": true}) => HTML 1`] = `
+exports[`Checkbox > matches the snapshot > Case 6 With description: ({ modelValue: true }) => HTML 1`] = `
 <div
   class="cdx-checkbox cdx-checkbox--status-default"
 >
@@ -370,7 +370,7 @@ exports[`Checkbox matches the snapshot Case 6 With description: ({"modelValue": 
 </div>
 `;
 
-exports[`Checkbox matches the snapshot Case 7 With error: ({"modelValue": false, "status": "error"}) => HTML 1`] = `
+exports[`Checkbox > matches the snapshot > Case 7 With error: ({ modelValue: false, status: 'error' }) => HTML 1`] = `
 <div
   class="cdx-checkbox cdx-checkbox--status-error"
 >
@@ -421,7 +421,7 @@ exports[`Checkbox matches the snapshot Case 7 With error: ({"modelValue": false,
 </div>
 `;
 
-exports[`Checkbox matches the snapshot Case 8 With hidden label: ({"hideLabel": true, "modelValue": false}) => HTML 1`] = `
+exports[`Checkbox > matches the snapshot > Case 8 With hidden label: ({ modelValue: false, hideLabel: true }) => HTML 1`] = `
 <div
   class="cdx-checkbox cdx-checkbox--status-default"
 >
@@ -472,7 +472,7 @@ exports[`Checkbox matches the snapshot Case 8 With hidden label: ({"hideLabel": 
 </div>
 `;
 
-exports[`Checkbox matches the snapshot Case 9 With custom input: ({"inputValue": "checkbox-1", "modelValue": [Array]}) => HTML 1`] = `
+exports[`Checkbox > matches the snapshot > Case 9 With custom input: ({ modelValue: [ 'checkbox-1' ], inputValue: 'checkbox-1' }) => HTML 1`] = `
 <div
   class="cdx-checkbox cdx-checkbox--status-default"
 >

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`IconLookup matches the snapshot icon lookup (no default icon) => HTML 1`] = `
+exports[`IconLookup > matches the snapshot > icon lookup (no default icon) => HTML 1`] = `
 <div
   class="cdx-lookup cdx-docs-icon-lookup"
 >
@@ -50,7 +50,7 @@ exports[`IconLookup matches the snapshot icon lookup (no default icon) => HTML 1
 </div>
 `;
 
-exports[`IconLookup matches the snapshot icon lookup (with default icon) => HTML 1`] = `
+exports[`IconLookup > matches the snapshot > icon lookup (with default icon) => HTML 1`] = `
 <div
   class="cdx-lookup cdx-docs-icon-lookup"
 >
@@ -95,7 +95,7 @@ exports[`IconLookup matches the snapshot icon lookup (with default icon) => HTML
   <!--teleport start-->
   <div
     class="cdx-menu"
-    style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+    style="display: none; visibility: hidden; position: absolute; top: 0px; right: unset; left: 0px; transform: translate(0px, 0px);"
   >
     <ul
       class="cdx-menu__listbox"

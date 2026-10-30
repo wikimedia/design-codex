@@ -33,7 +33,7 @@ describe( 'Message', () => {
 
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, slot ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, slot ) => {
 			const wrapper = mount( CdxMessage, { props: props, slots: { default: slot } } );
 			expect( wrapper.element ).toMatchSnapshot();
 		} );
@@ -41,7 +41,7 @@ describe( 'Message', () => {
 
 	afterEach( () => {
 		// Some tests use fake timers.
-		jest.useRealTimers();
+		vi.useRealTimers();
 	} );
 
 	describe( 'when user dismissal is enabled', () => {
@@ -54,7 +54,7 @@ describe( 'Message', () => {
 		} );
 
 		it( 'does not emit an auto-dismissed event when user-dismissed', async () => {
-			jest.useFakeTimers();
+			vi.useFakeTimers();
 
 			// Set up a Message that is both auto and user dismissable.
 			const wrapper = mount( CdxMessage, { props: {
@@ -67,7 +67,7 @@ describe( 'Message', () => {
 			expect( wrapper.emitted()[ 'user-dismissed' ] ).toBeTruthy();
 
 			// Let the default displayTime of 4000 milliseconds pass.
-			jest.advanceTimersByTime( 4000 );
+			vi.advanceTimersByTime( 4000 );
 			expect( wrapper.emitted()[ 'auto-dismissed' ] ).toBeFalsy();
 		} );
 
@@ -85,45 +85,45 @@ describe( 'Message', () => {
 
 	describe( 'when automatic dismissal is enabled', () => {
 		it( 'automatically dismisses the message', () => {
-			jest.useFakeTimers();
+			vi.useFakeTimers();
 
 			// We'll use the default displayTime of 4000 milliseconds.
 			const wrapper = mount( CdxMessage, { props: { autoDismiss: true } } );
 			expect( wrapper.vm.dismissed ).toBeFalsy();
 
 			// Check right before the displayTime elapses.
-			jest.advanceTimersByTime( 3950 );
+			vi.advanceTimersByTime( 3950 );
 			expect( wrapper.emitted()[ 'auto-dismissed' ] ).toBeFalsy();
 			expect( wrapper.vm.dismissed ).toBeFalsy();
 
 			// Check right after the displayTime elapses.
-			jest.advanceTimersByTime( 50 );
+			vi.advanceTimersByTime( 50 );
 			expect( wrapper.emitted()[ 'auto-dismissed' ] ).toBeTruthy();
 			expect( wrapper.vm.dismissed ).toBeTruthy();
 			expect( wrapper.vm.leaveActiveClass ).toBe( 'cdx-message-leave-active-system' );
 		} );
 
 		it( 'handles automatic dismissal with custom display time', () => {
-			jest.useFakeTimers();
+			vi.useFakeTimers();
 
 			const wrapper = mount( CdxMessage, { props: { autoDismiss: 1000 } } );
 			expect( wrapper.emitted()[ 'auto-dismissed' ] ).toBeFalsy();
 			expect( wrapper.vm.dismissed ).toBeFalsy();
 
-			jest.advanceTimersByTime( 1000 );
+			vi.advanceTimersByTime( 1000 );
 			expect( wrapper.emitted()[ 'auto-dismissed' ] ).toBeTruthy();
 			expect( wrapper.vm.dismissed ).toBeTruthy();
 		} );
 
 		it( 'does not allow auto-dismissal for error messages', () => {
-			jest.useFakeTimers();
-			const warnSpy = jest.spyOn( console, 'warn' ).mockImplementation( () => undefined );
+			vi.useFakeTimers();
+			const warnSpy = vi.spyOn( console, 'warn' ).mockImplementation( () => undefined );
 
 			const wrapper = mount( CdxMessage, { props: { type: 'error', autoDismiss: 1000 } } );
 			expect( wrapper.emitted()[ 'auto-dismissed' ] ).toBeFalsy();
 			expect( wrapper.vm.dismissed ).toBeFalsy();
 
-			jest.advanceTimersByTime( 1000 );
+			vi.advanceTimersByTime( 1000 );
 			expect( wrapper.emitted()[ 'auto-dismissed' ] ).toBeFalsy();
 			expect( wrapper.vm.dismissed ).toBeFalsy();
 			expect( warnSpy ).toHaveBeenCalledWith(

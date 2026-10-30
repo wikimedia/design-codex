@@ -1,4 +1,4 @@
-import { mount, config } from '@vue/test-utils';
+import { mount, config, enableAutoUnmount } from '@vue/test-utils';
 import { ref, nextTick } from 'vue';
 import Wrapper from './Wrapper.vue';
 import { ControlsConfig } from './../../types';
@@ -55,9 +55,8 @@ config.global.provide = {
 
 // Mock as if we are on the ToggleButton component page, for autoCodeTag tests - this is
 // set for all test cases to avoid duplication
-jest.mock( 'vitepress', () => ( {
-	__esModule: true,
-	useRoute: jest.fn( () => ( {
+vi.mock( 'vitepress', () => ( {
+	useRoute: vi.fn( () => ( {
 		data: {
 			title: 'ToggleButton'
 		}
@@ -69,6 +68,8 @@ const CodeToggleSelector = '.cdx-demo-wrapper__demo-pane__code-toggle';
 const ResetButtonSelector = '.cdx-demo-wrapper__demo-pane__reset-button';
 
 describe( 'Wrapper', () => {
+	enableAutoUnmount( afterEach );
+
 	it( 'includes code sample when code is provided', () => {
 		const wrapper = mount( Wrapper, {
 			slots: {
@@ -100,10 +101,13 @@ describe( 'Wrapper', () => {
 	} );
 
 	it( 'allows code to be copied', async () => {
+		// jsdom doesn't invalidate the cached computed style of detached elements, so
+		// isVisible() would keep reporting the copy button as hidden after v-show reveals it.
 		const wrapper = mount( Wrapper, {
 			slots: {
 				code: '<p>Hello world</p>'
-			}
+			},
+			attachTo: document.body
 		} );
 
 		// copy not visible until code is shown
@@ -213,7 +217,7 @@ describe( 'Wrapper', () => {
 	} );
 
 	it( 'calls Prism.highlightAllUnder()', async () => {
-		const highlightSpy = jest.spyOn( Prism, 'highlightAllUnder' );
+		const highlightSpy = vi.spyOn( Prism, 'highlightAllUnder' );
 
 		// Calls highlightAllUnder after mounting
 		// toggleButtonConfig is a copy of the actual controls config for toggle button

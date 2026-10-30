@@ -8,11 +8,16 @@
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
 		"lib": [ "esnext", "dom" ],
-		"types": [ "node", "jest" ],
+		"types": [ "node", "vitest/globals" ],
 		"skipLibCheck": true,
 		"outDir": "dist",
 		"allowJs": true,
 		"checkJs": true
 	},
-	"include": [ ".style-dictionary/**/*.js", ".style-dictionary/**/*.d.ts", "tests/**/*.js" ]
+	"include": [
+		".style-dictionary/**/*.js",
+		".style-dictionary/**/*.d.ts",
+		"tests/**/*.js",
+		"vitest.config.js"
+	]
 }

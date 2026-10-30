@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`InfoChip matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
+exports[`InfoChip > matches the snapshot > Case 0 Default props: ({}) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--notice"
 >
@@ -18,7 +18,7 @@ exports[`InfoChip matches the snapshot Case 0 Default props: ({}) => HTML 1`] = 
 </div>
 `;
 
-exports[`InfoChip matches the snapshot Case 1 subtle status: ({"status": "subtle"}) => HTML 1`] = `
+exports[`InfoChip > matches the snapshot > Case 1 subtle status: ({ status: 'subtle' }) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--subtle"
 >
@@ -36,7 +36,7 @@ exports[`InfoChip matches the snapshot Case 1 subtle status: ({"status": "subtle
 </div>
 `;
 
-exports[`InfoChip matches the snapshot Case 2 notice status: ({"status": "notice"}) => HTML 1`] = `
+exports[`InfoChip > matches the snapshot > Case 2 notice status: ({ status: 'notice' }) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--notice"
 >
@@ -54,7 +54,7 @@ exports[`InfoChip matches the snapshot Case 2 notice status: ({"status": "notice
 </div>
 `;
 
-exports[`InfoChip matches the snapshot Case 3 progressive status: ({"status": "progressive"}) => HTML 1`] = `
+exports[`InfoChip > matches the snapshot > Case 3 progressive status: ({ status: 'progressive' }) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--progressive"
 >
@@ -72,7 +72,7 @@ exports[`InfoChip matches the snapshot Case 3 progressive status: ({"status": "p
 </div>
 `;
 
-exports[`InfoChip matches the snapshot Case 4 warning status: ({"status": "warning"}) => HTML 1`] = `
+exports[`InfoChip > matches the snapshot > Case 4 warning status: ({ status: 'warning' }) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--warning"
 >
@@ -95,7 +95,7 @@ exports[`InfoChip matches the snapshot Case 4 warning status: ({"status": "warni
 </div>
 `;
 
-exports[`InfoChip matches the snapshot Case 5 error status: ({"status": "error"}) => HTML 1`] = `
+exports[`InfoChip > matches the snapshot > Case 5 error status: ({ status: 'error' }) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--error"
 >
@@ -118,7 +118,7 @@ exports[`InfoChip matches the snapshot Case 5 error status: ({"status": "error"}
 </div>
 `;
 
-exports[`InfoChip matches the snapshot Case 6 success status: ({"status": "success"}) => HTML 1`] = `
+exports[`InfoChip > matches the snapshot > Case 6 success status: ({ status: 'success' }) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--success"
 >
@@ -141,7 +141,7 @@ exports[`InfoChip matches the snapshot Case 6 success status: ({"status": "succe
 </div>
 `;
 
-exports[`InfoChip matches the snapshot Case 7 Custom icon: ({"icon": [Object]}) => HTML 1`] = `
+exports[`InfoChip > matches the snapshot > Case 7 Custom icon: ({ icon: { ltr: '<path d="M2 0h16v20H2zm2 2v16h12V2zm2 2h3v1H6zm0 2h3v1H6zm0 2h3v1H6zm0 3h8v1H6zm0 2h8v1H6zm0 2h8v1H6zm4-11h4v5h-4z"/>', shouldFlip: true } }) => HTML 1`] = `
 <div
   class="cdx-info-chip cdx-info-chip--notice"
 >

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0 Basic field: ({"isFieldset": true}) => HTML 1`] = `
+exports[`Field > matches the snapshot > as a fieldset with a Checkbox control > Case 0 Basic field: ({ isFieldset: true }) => HTML 1`] = `
 <fieldset
   class="cdx-field cdx-field--is-fieldset"
 >
@@ -96,7 +96,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 0
 </fieldset>
 `;
 
-exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1 Disabled: ({"disabled": true, "isFieldset": true}) => HTML 1`] = `
+exports[`Field > matches the snapshot > as a fieldset with a Checkbox control > Case 1 Disabled: ({ isFieldset: true, disabled: true }) => HTML 1`] = `
 <fieldset
   class="cdx-field cdx-field--disabled cdx-field--is-fieldset"
   disabled=""
@@ -194,7 +194,7 @@ exports[`Field matches the snapshot as a fieldset with a Checkbox control Case 1
 </fieldset>
 `;
 
-exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a Select control > Case 0 Basic field: ({}) => HTML 1`] = `
 <div
   class="cdx-field"
 >
@@ -339,7 +339,7 @@ exports[`Field matches the snapshot with a Select control Case 0 Basic field: ({
 </div>
 `;
 
-exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"disabled": true}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a Select control > Case 1 Disabled: ({ disabled: true }) => HTML 1`] = `
 <div
   aria-disabled="true"
   class="cdx-field cdx-field--disabled"
@@ -485,7 +485,7 @@ exports[`Field matches the snapshot with a Select control Case 1 Disabled: ({"di
 </div>
 `;
 
-exports[`Field matches the snapshot with a Select control Case 2 Error status with message: ({"messages": [Object], "status": "error"}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a Select control > Case 2 Error status with message: ({ status: 'error', messages: { error: 'Error' } }) => HTML 1`] = `
 <div
   class="cdx-field"
 >
@@ -678,7 +678,7 @@ exports[`Field matches the snapshot with a Select control Case 2 Error status wi
 </div>
 `;
 
-exports[`Field matches the snapshot with a Select control Case 3 With description: ({}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a Select control > Case 3 With description: ({}) => HTML 1`] = `
 <div
   class="cdx-field"
 >
@@ -835,7 +835,7 @@ exports[`Field matches the snapshot with a Select control Case 3 With descriptio
 </div>
 `;
 
-exports[`Field matches the snapshot with a TextInput control Case 0 Basic field: ({}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a TextInput control > Case 0 Basic field: ({}) => HTML 1`] = `
 <div
   class="cdx-field"
 >
@@ -893,7 +893,7 @@ exports[`Field matches the snapshot with a TextInput control Case 0 Basic field:
 </div>
 `;
 
-exports[`Field matches the snapshot with a TextInput control Case 1 With label icon: ({"labelIcon": "<path d=\\"M9.15 19.07h1.7l5.5-8a7.16 7.2 0 10-12.7 0zM10 16.8l-4.1-6a5.16 5.14 0 118.2 0z\\"/><circle cx=\\"10\\" cy=\\"8\\" r=\\"2\\"/>"}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a TextInput control > Case 1 With label icon: ({ labelIcon: '<path d="M9.15 19.07h1.7l5.5-8a7.16 7.2 0 10-12.7 0zM10 16.8l-4.1-6a5.16 5.14 0 118.2 0z"/><circle cx="10" cy="8" r="2"/>' }) => HTML 1`] = `
 <div
   class="cdx-field"
 >
@@ -974,7 +974,7 @@ exports[`Field matches the snapshot with a TextInput control Case 1 With label i
 </div>
 `;
 
-exports[`Field matches the snapshot with a TextInput control Case 2 With optional flag using deprecated API: ({"optional": true, "optionalFlag": "(optional)"}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a TextInput control > Case 2 With optional flag using deprecated API: ({ optional: true, optionalFlag: '(optional)' }) => HTML 1`] = `
 <div
   class="cdx-field"
 >
@@ -1040,7 +1040,7 @@ exports[`Field matches the snapshot with a TextInput control Case 2 With optiona
 </div>
 `;
 
-exports[`Field matches the snapshot with a TextInput control Case 3 With optional flag: ({"optional": true}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a TextInput control > Case 3 With optional flag: ({ optional: true }) => HTML 1`] = `
 <div
   class="cdx-field"
 >
@@ -1106,7 +1106,7 @@ exports[`Field matches the snapshot with a TextInput control Case 3 With optiona
 </div>
 `;
 
-exports[`Field matches the snapshot with a TextInput control Case 4 With visually hidden label: ({"hideLabel": true}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a TextInput control > Case 4 With visually hidden label: ({ hideLabel: true }) => HTML 1`] = `
 <div
   class="cdx-field"
 >
@@ -1164,7 +1164,7 @@ exports[`Field matches the snapshot with a TextInput control Case 4 With visuall
 </div>
 `;
 
-exports[`Field matches the snapshot with a TextInput control Case 5 Disabled: ({"disabled": true}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a TextInput control > Case 5 Disabled: ({ disabled: true }) => HTML 1`] = `
 <div
   aria-disabled="true"
   class="cdx-field cdx-field--disabled"
@@ -1224,7 +1224,7 @@ exports[`Field matches the snapshot with a TextInput control Case 5 Disabled: ({
 </div>
 `;
 
-exports[`Field matches the snapshot with a TextInput control Case 6 Error status with message: ({"messages": [Object], "status": "error"}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a TextInput control > Case 6 Error status with message: ({ status: 'error', messages: { error: 'Error' } }) => HTML 1`] = `
 <div
   class="cdx-field"
 >
@@ -1330,7 +1330,7 @@ exports[`Field matches the snapshot with a TextInput control Case 6 Error status
 </div>
 `;
 
-exports[`Field matches the snapshot with a TextInput control Case 7 With description: ({}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a TextInput control > Case 7 With description: ({}) => HTML 1`] = `
 <div
   class="cdx-field"
 >
@@ -1400,7 +1400,7 @@ exports[`Field matches the snapshot with a TextInput control Case 7 With descrip
 </div>
 `;
 
-exports[`Field matches the snapshot with a TextInput control Case 8 With help text: ({}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a TextInput control > Case 8 With help text: ({}) => HTML 1`] = `
 <div
   class="cdx-field"
 >
@@ -1458,7 +1458,7 @@ exports[`Field matches the snapshot with a TextInput control Case 8 With help te
 </div>
 `;
 
-exports[`Field matches the snapshot with a Textarea control Case 0 Basic field: ({}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a Textarea control > Case 0 Basic field: ({}) => HTML 1`] = `
 <div
   class="cdx-field"
 >
@@ -1512,7 +1512,7 @@ exports[`Field matches the snapshot with a Textarea control Case 0 Basic field: 
 </div>
 `;
 
-exports[`Field matches the snapshot with a Textarea control Case 1 Disabled: ({"disabled": true}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a Textarea control > Case 1 Disabled: ({ disabled: true }) => HTML 1`] = `
 <div
   aria-disabled="true"
   class="cdx-field cdx-field--disabled"
@@ -1568,7 +1568,7 @@ exports[`Field matches the snapshot with a Textarea control Case 1 Disabled: ({"
 </div>
 `;
 
-exports[`Field matches the snapshot with a Textarea control Case 2 Error status with message: ({"messages": [Object], "status": "error"}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a Textarea control > Case 2 Error status with message: ({ status: 'error', messages: { error: 'Error' } }) => HTML 1`] = `
 <div
   class="cdx-field"
 >
@@ -1670,7 +1670,7 @@ exports[`Field matches the snapshot with a Textarea control Case 2 Error status 
 </div>
 `;
 
-exports[`Field matches the snapshot with a Textarea control Case 3 With description: ({}) => HTML 1`] = `
+exports[`Field > matches the snapshot > with a Textarea control > Case 3 With description: ({}) => HTML 1`] = `
 <div
   class="cdx-field"
 >

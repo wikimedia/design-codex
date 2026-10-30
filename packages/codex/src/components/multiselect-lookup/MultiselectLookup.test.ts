@@ -1,4 +1,4 @@
-import { mount } from '@vue/test-utils';
+import { ComponentMountingOptions, enableAutoUnmount, mount as vtuMount } from '@vue/test-utils';
 import { nextTick } from 'vue';
 import CdxMultiselectLookup from './MultiselectLookup.vue';
 import CdxInputChip from '../input-chip/InputChip.vue';
@@ -57,6 +57,14 @@ const menuItemsWithGroups: ( MenuItemData|MenuGroupData )[] = [
 	}
 ];
 
+// jsdom doesn't invalidate the cached computed style of detached elements, so isVisible()
+// would keep reporting the menu as hidden after v-show reveals it.
+const mount = (
+	component: typeof CdxMultiselectLookup,
+	options: ComponentMountingOptions<typeof CdxMultiselectLookup> = {}
+) => vtuMount( component, { attachTo: document.body, ...options } );
+enableAutoUnmount( afterEach );
+
 describe( 'MultiselectLookup', () => {
 	describe( 'matches the snapshot', () => {
 		type Case = [
@@ -82,7 +90,7 @@ describe( 'MultiselectLookup', () => {
 			[ 'Disabled', { ...defaultProps, inputChips, disabled: true } ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props ) => {
 			const wrapper = mount( CdxMultiselectLookup, { props } );
 			expect( wrapper.element ).toMatchSnapshot();
 		} );

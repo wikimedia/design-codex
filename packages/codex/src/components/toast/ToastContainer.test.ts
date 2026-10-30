@@ -153,7 +153,7 @@ describe( 'ToastContainer', () => {
 
 	describe( 'programmatic toasts (useToast)', () => {
 		it( 'calls onUserDismissed when user dismisses', async () => {
-			const onUserDismissed = jest.fn();
+			const onUserDismissed = vi.fn();
 			const wrapper = mount( ProgrammaticToastApp, {
 				props: {
 					showOptions: {
@@ -172,8 +172,8 @@ describe( 'ToastContainer', () => {
 		} );
 
 		it( 'calls onAutoDismissed when toast auto-dismisses', async () => {
-			jest.useFakeTimers();
-			const onAutoDismissed = jest.fn();
+			vi.useFakeTimers();
+			const onAutoDismissed = vi.fn();
 			const wrapper = mount( ProgrammaticToastApp, {
 				props: {
 					showOptions: {
@@ -185,15 +185,15 @@ describe( 'ToastContainer', () => {
 				attachTo: document.body
 			} );
 			await wrapper.find( '.show-btn' ).trigger( 'click' );
-			jest.advanceTimersByTime( 150 );
+			vi.advanceTimersByTime( 150 );
 			simulateToastLeaveEnd( wrapper );
 			expect( onAutoDismissed ).toHaveBeenCalled();
-			jest.useRealTimers();
+			vi.useRealTimers();
 			wrapper.unmount();
 		} );
 
 		it( 'calls actionButton onClick when action is clicked', async () => {
-			const onAction = jest.fn();
+			const onAction = vi.fn();
 			const wrapper = mount( ProgrammaticToastApp, {
 				props: {
 					showOptions: {
@@ -220,7 +220,7 @@ describe( 'ToastContainer', () => {
 		} );
 
 		it( 'warns when multiple containers are mounted and second does not render', async () => {
-			const warnSpy = jest.spyOn( console, 'warn' ).mockImplementation( () => undefined );
+			const warnSpy = vi.spyOn( console, 'warn' ).mockImplementation( () => undefined );
 			const TwoContainers = defineComponent( {
 				name: 'TwoContainers',
 				template: `

@@ -62,7 +62,7 @@ describe( 'Combobox', () => {
 		];
 
 		test.each( cases )(
-			'Case %# %s: (%p) => HTML',
+			'Case %# %s: (%O) => HTML',
 			( _, { menuItems, selected, disabled = false, status = 'default' }, attrs = {} ) => {
 				const wrapper = mount( CdxCombobox, {
 					props: { menuItems, selected, disabled, status },

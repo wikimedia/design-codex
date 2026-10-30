@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`MultiselectLookup matches the snapshot Case 0 Default props: ({"inputChips": [Array], "menuItems": [Array], "selected": [Array]}) => HTML 1`] = `
+exports[`MultiselectLookup > matches the snapshot > Case 0 Default props: ({ inputChips: [], selected: [], menuItems: [] }) => HTML 1`] = `
 <div
   class="cdx-multiselect-lookup"
 >
@@ -61,7 +61,7 @@ exports[`MultiselectLookup matches the snapshot Case 0 Default props: ({"inputCh
 </div>
 `;
 
-exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"inputChips": [Array], "menuItems": [Array], "selected": [Array]}) => HTML 1`] = `
+exports[`MultiselectLookup > matches the snapshot > Case 1 With menu items: ({ inputChips: [], selected: [], menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D' } ] }) => HTML 1`] = `
 <div
   class="cdx-multiselect-lookup"
 >
@@ -267,7 +267,7 @@ exports[`MultiselectLookup matches the snapshot Case 1 With menu items: ({"input
 </div>
 `;
 
-exports[`MultiselectLookup matches the snapshot Case 2 With input chips: ({"inputChips": [Array], "menuItems": [Array], "selected": [Array]}) => HTML 1`] = `
+exports[`MultiselectLookup > matches the snapshot > Case 2 With input chips: ({ inputChips: [ { value: 'chip1' }, { value: 'chip 2', label: 'Chip 2' } ], selected: [], menuItems: [] }) => HTML 1`] = `
 <div
   class="cdx-multiselect-lookup"
 >
@@ -418,7 +418,7 @@ exports[`MultiselectLookup matches the snapshot Case 2 With input chips: ({"inpu
 </div>
 `;
 
-exports[`MultiselectLookup matches the snapshot Case 3 With input value: ({"inputChips": [Array], "inputValue": "Foo", "menuItems": [Array], "selected": [Array]}) => HTML 1`] = `
+exports[`MultiselectLookup > matches the snapshot > Case 3 With input value: ({ inputChips: [], selected: [], menuItems: [], inputValue: 'Foo' }) => HTML 1`] = `
 <div
   class="cdx-multiselect-lookup"
 >
@@ -479,7 +479,7 @@ exports[`MultiselectLookup matches the snapshot Case 3 With input value: ({"inpu
 </div>
 `;
 
-exports[`MultiselectLookup matches the snapshot Case 4 With separate input: ({"inputChips": [Array], "menuItems": [Array], "selected": [Array], "separateInput": true}) => HTML 1`] = `
+exports[`MultiselectLookup > matches the snapshot > Case 4 With separate input: ({ inputChips: [ { value: 'chip1' }, { value: 'chip 2', label: 'Chip 2' } ], selected: [], menuItems: [], separateInput: true }) => HTML 1`] = `
 <div
   class="cdx-multiselect-lookup"
 >
@@ -634,7 +634,7 @@ exports[`MultiselectLookup matches the snapshot Case 4 With separate input: ({"i
 </div>
 `;
 
-exports[`MultiselectLookup matches the snapshot Case 5 With error: ({"inputChips": [Array], "menuItems": [Array], "selected": [Array], "status": "error"}) => HTML 1`] = `
+exports[`MultiselectLookup > matches the snapshot > Case 5 With error: ({ inputChips: [ { value: 'chip1' }, { value: 'chip 2', label: 'Chip 2' } ], selected: [], menuItems: [], status: 'error' }) => HTML 1`] = `
 <div
   class="cdx-multiselect-lookup"
 >
@@ -785,7 +785,7 @@ exports[`MultiselectLookup matches the snapshot Case 5 With error: ({"inputChips
 </div>
 `;
 
-exports[`MultiselectLookup matches the snapshot Case 6 Disabled: ({"disabled": true, "inputChips": [Array], "menuItems": [Array], "selected": [Array]}) => HTML 1`] = `
+exports[`MultiselectLookup > matches the snapshot > Case 6 Disabled: ({ inputChips: [ { value: 'chip1' }, { value: 'chip 2', label: 'Chip 2' } ], selected: [], menuItems: [], disabled: true }) => HTML 1`] = `
 <div
   class="cdx-multiselect-lookup cdx-multiselect-lookup--disabled"
 >

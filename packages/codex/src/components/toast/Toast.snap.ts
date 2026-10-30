@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Toast snapshots Case 0 Default props: ({}) => HTML 1`] = `
+exports[`Toast > snapshots > Case 0 Default props: ({}) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--notice"
   tabindex="-1"
@@ -85,7 +85,7 @@ exports[`Toast snapshots Case 0 Default props: ({}) => HTML 1`] = `
 </div>
 `;
 
-exports[`Toast snapshots Case 1 subtle toast: ({"type": "subtle"}) => HTML 1`] = `
+exports[`Toast > snapshots > Case 1 subtle toast: ({ type: 'subtle' }) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--subtle"
   tabindex="-1"
@@ -170,7 +170,7 @@ exports[`Toast snapshots Case 1 subtle toast: ({"type": "subtle"}) => HTML 1`] =
 </div>
 `;
 
-exports[`Toast snapshots Case 2 notice toast: ({"type": "notice"}) => HTML 1`] = `
+exports[`Toast > snapshots > Case 2 notice toast: ({ type: 'notice' }) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--notice"
   tabindex="-1"
@@ -255,7 +255,7 @@ exports[`Toast snapshots Case 2 notice toast: ({"type": "notice"}) => HTML 1`] =
 </div>
 `;
 
-exports[`Toast snapshots Case 3 progressive toast: ({"type": "progressive"}) => HTML 1`] = `
+exports[`Toast > snapshots > Case 3 progressive toast: ({ type: 'progressive' }) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--progressive"
   tabindex="-1"
@@ -340,7 +340,7 @@ exports[`Toast snapshots Case 3 progressive toast: ({"type": "progressive"}) => 
 </div>
 `;
 
-exports[`Toast snapshots Case 4 warning toast: ({"type": "warning"}) => HTML 1`] = `
+exports[`Toast > snapshots > Case 4 warning toast: ({ type: 'warning' }) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--warning"
   tabindex="-1"
@@ -425,7 +425,7 @@ exports[`Toast snapshots Case 4 warning toast: ({"type": "warning"}) => HTML 1`]
 </div>
 `;
 
-exports[`Toast snapshots Case 5 error toast: ({"type": "error"}) => HTML 1`] = `
+exports[`Toast > snapshots > Case 5 error toast: ({ type: 'error' }) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--error"
   tabindex="-1"
@@ -510,7 +510,7 @@ exports[`Toast snapshots Case 5 error toast: ({"type": "error"}) => HTML 1`] = `
 </div>
 `;
 
-exports[`Toast snapshots Case 6 success toast: ({"type": "success"}) => HTML 1`] = `
+exports[`Toast > snapshots > Case 6 success toast: ({ type: 'success' }) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--success"
   tabindex="-1"
@@ -595,7 +595,7 @@ exports[`Toast snapshots Case 6 success toast: ({"type": "success"}) => HTML 1`]
 </div>
 `;
 
-exports[`Toast snapshots Case 7 With action button: ({"actionButtonLabel": "Undo"}) => HTML 1`] = `
+exports[`Toast > snapshots > Case 7 With action button: ({ actionButtonLabel: 'Undo' }) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--notice"
   tabindex="-1"
@@ -688,7 +688,7 @@ exports[`Toast snapshots Case 7 With action button: ({"actionButtonLabel": "Undo
 </div>
 `;
 
-exports[`Toast snapshots Case 8 Dismissable: ({}) => HTML 1`] = `
+exports[`Toast > snapshots > Case 8 Dismissable: ({}) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--notice"
   tabindex="-1"
@@ -773,7 +773,7 @@ exports[`Toast snapshots Case 8 Dismissable: ({}) => HTML 1`] = `
 </div>
 `;
 
-exports[`Toast snapshots Case 9 Not dismissable: ({"preventUserDismiss": true}) => HTML 1`] = `
+exports[`Toast > snapshots > Case 9 Not dismissable: ({ preventUserDismiss: true }) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--notice"
   tabindex="-1"
@@ -831,7 +831,7 @@ exports[`Toast snapshots Case 9 Not dismissable: ({"preventUserDismiss": true}) 
 </div>
 `;
 
-exports[`Toast snapshots Case 10 Custom icon: ({"icon": [Object]}) => HTML 1`] = `
+exports[`Toast > snapshots > Case 10 Custom icon: ({ icon: { ltr: '<path d="M2 0h16v20H2zm2 2v16h12V2zm2 2h3v1H6zm0 2h3v1H6zm0 2h3v1H6zm0 3h8v1H6zm0 2h8v1H6zm0 2h8v1H6zm4-11h4v5h-4z"/>', shouldFlip: true } }) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--notice"
   tabindex="-1"
@@ -916,7 +916,7 @@ exports[`Toast snapshots Case 10 Custom icon: ({"icon": [Object]}) => HTML 1`] =
 </div>
 `;
 
-exports[`Toast snapshots Case 11 Auto-dismiss disabled: ({"autoDismiss": false}) => HTML 1`] = `
+exports[`Toast > snapshots > Case 11 Auto-dismiss disabled: ({ autoDismiss: false }) => HTML 1`] = `
 <div
   class="cdx-toast cdx-toast--notice"
   tabindex="-1"

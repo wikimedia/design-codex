@@ -2,9 +2,8 @@ import { shallowMount } from '@vue/test-utils';
 import useCurrentComponentName from './useCurrentComponentName';
 
 // Mock as if we are on the ToggleButton component page
-jest.mock( 'vitepress', () => ( {
-	__esModule: true,
-	useRoute: jest.fn( () => ( {
+vi.mock( 'vitepress', () => ( {
+	useRoute: vi.fn( () => ( {
 		data: {
 			title: 'ToggleButton'
 		}

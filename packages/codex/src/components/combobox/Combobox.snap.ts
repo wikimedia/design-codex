@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Combobox matches the snapshot Case 0 No selection: ({"menuItems": [Array], "selected": ""}) => HTML 1`] = `
+exports[`Combobox > matches the snapshot > Case 0 No selection: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true } ], selected: '' }) => HTML 1`] = `
 <div
   class="cdx-combobox"
 >
@@ -230,7 +230,7 @@ exports[`Combobox matches the snapshot Case 0 No selection: ({"menuItems": [Arra
 </div>
 `;
 
-exports[`Combobox matches the snapshot Case 1 Menu item with label selected: ({"menuItems": [Array], "selected": "a"}) => HTML 1`] = `
+exports[`Combobox > matches the snapshot > Case 1 Menu item with label selected: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true } ], selected: 'a' }) => HTML 1`] = `
 <div
   class="cdx-combobox"
 >
@@ -461,7 +461,7 @@ exports[`Combobox matches the snapshot Case 1 Menu item with label selected: ({"
 </div>
 `;
 
-exports[`Combobox matches the snapshot Case 2 Menu item with no label selected: ({"menuItems": [Array], "selected": "c"}) => HTML 1`] = `
+exports[`Combobox > matches the snapshot > Case 2 Menu item with no label selected: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true } ], selected: 'c' }) => HTML 1`] = `
 <div
   class="cdx-combobox"
 >
@@ -692,7 +692,7 @@ exports[`Combobox matches the snapshot Case 2 Menu item with no label selected: 
 </div>
 `;
 
-exports[`Combobox matches the snapshot Case 3 Disabled: ({"disabled": true, "menuItems": [Array], "selected": ""}) => HTML 1`] = `
+exports[`Combobox > matches the snapshot > Case 3 Disabled: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true } ], selected: '', disabled: true }) => HTML 1`] = `
 <div
   class="cdx-combobox cdx-combobox--disabled"
 >
@@ -924,7 +924,7 @@ exports[`Combobox matches the snapshot Case 3 Disabled: ({"disabled": true, "men
 </div>
 `;
 
-exports[`Combobox matches the snapshot Case 4 With error status: ({"menuItems": [Array], "selected": "", "status": "error"}) => HTML 1`] = `
+exports[`Combobox > matches the snapshot > Case 4 With error status: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true } ], selected: '', status: 'error' }) => HTML 1`] = `
 <div
   class="cdx-combobox"
 >
@@ -1154,7 +1154,7 @@ exports[`Combobox matches the snapshot Case 4 With error status: ({"menuItems": 
 </div>
 `;
 
-exports[`Combobox matches the snapshot Case 5 With placeholder: ({"menuItems": [Array], "selected": ""}) => HTML 1`] = `
+exports[`Combobox > matches the snapshot > Case 5 With placeholder: ({ menuItems: [ { value: 'a', label: 'Option A' }, { value: 'b', label: 'Option B' }, { value: 'c' }, { value: 'd', label: 'Option D', disabled: true } ], selected: '' }) => HTML 1`] = `
 <div
   class="cdx-combobox"
 >

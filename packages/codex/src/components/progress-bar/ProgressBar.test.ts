@@ -31,7 +31,7 @@ describe( 'ProgressBar', () => {
 			[ 'Determinate, with labels', { value: 50, startLabel: 'Progress bar', endLabel: 'End' }, { 'aria-label': 'Progress bar' } ],
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, attrs = {} ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, attrs = {} ) => {
 			const wrapper = shallowMount( CdxProgressBar, { props, attrs } );
 			expect( wrapper.element ).toMatchSnapshot();
 		} );

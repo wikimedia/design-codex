@@ -29,7 +29,7 @@ describe( 'TextArea', () => {
 			[ 'with start and end icons', { startIcon: cdxIconNotBright, endIcon: cdxIconInfoFilled }, { placeholder: 'Start typing...' } ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, attrs = {} ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, attrs = {} ) => {
 			const wrapper = mount( CdxTextArea, { props, attrs } );
 
 			expect( wrapper.element ).toMatchSnapshot();
@@ -81,7 +81,7 @@ describe( 'TextArea', () => {
 					props: { modelValue: '' }, // invalid input
 					attrs: { required: true }
 				} );
-				const onInvalid = jest.spyOn( wrapper.vm, 'onInvalid' );
+				const onInvalid = vi.spyOn( wrapper.vm, 'onInvalid' );
 				wrapper.vm.checkValidity();
 				expect( onInvalid ).toHaveBeenCalledWith( expect.objectContaining( {} ), true );
 			} );
@@ -93,7 +93,7 @@ describe( 'TextArea', () => {
 					props: { modelValue: '' },
 					attrs: { required: true }
 				} );
-				const onInvalid = jest.spyOn( wrapper.vm, 'onInvalid' );
+				const onInvalid = vi.spyOn( wrapper.vm, 'onInvalid' );
 				wrapper.vm.reportValidity();
 				// Mocked `onInvalid` method runs...
 				expect( onInvalid ).toHaveBeenCalledWith( expect.objectContaining( {} ), false );

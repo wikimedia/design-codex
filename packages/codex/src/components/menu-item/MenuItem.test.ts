@@ -57,7 +57,7 @@ describe( 'MenuItem', () => {
 		];
 
 		test.each( cases )(
-			'Case %# %s: (%p) => HTML',
+			'Case %# %s: (%O) => HTML',
 			(
 				_,
 				item,

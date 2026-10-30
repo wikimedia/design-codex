@@ -40,7 +40,7 @@ describe( 'getIconOutput', () => {
 		[ 'Icon with ID reference', getLessVariableName( 'exampleIconWithUse' ), exampleIconWithUse, expectedIconOutput.exampleIconWithUse ],
 		[ 'Icon with ID reference in multiple languages', getLessVariableName( 'exampleIconWithUseMultiLang' ), exampleIconWithUseMultiLang, expectedIconOutput.exampleIconWithUseMultiLang ]
 	];
-	test.each( cases )( 'Case %# %s: (%p)', ( _, lessVariableName, icon, expected ) => {
+	test.each( cases )( 'Case %# %s: (%O)', ( _, lessVariableName, icon, expected ) => {
 		expect( getIconOutput( lessVariableName, icon ) ).toEqual( expected );
 	} );
 } );

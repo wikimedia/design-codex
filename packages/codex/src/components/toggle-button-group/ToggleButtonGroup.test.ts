@@ -83,7 +83,7 @@ describe( 'ToggleButtonGroup', () => {
 			]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, { buttons, modelValue, disabled = false }, slots = {} ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, { buttons, modelValue, disabled = false }, slots = {} ) => {
 			const wrapper = shallowMount( CdxToggleButtonGroup, {
 				props: {
 					buttons,

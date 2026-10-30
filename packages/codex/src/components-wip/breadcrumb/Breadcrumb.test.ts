@@ -61,7 +61,7 @@ describe( 'Breadcrumb', () => {
 			]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props ) => {
 			const wrapper = shallowMount( CdxBreadcrumb, {
 				props,
 				global: {

@@ -27,7 +27,7 @@ describe( 'ChipInput', () => {
 			[ 'Input chips with icon', { inputChips: [ { value: 'Sample chip', icon: cdxIconArticle } ] } ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props ) => {
 			const wrapper = shallowMount( CdxChipInput, { props } );
 			expect( wrapper.element ).toMatchSnapshot();
 		} );

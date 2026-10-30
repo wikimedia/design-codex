@@ -15,7 +15,7 @@ describe( 'ToggleSwitch', () => {
 			[ 'With description', { modelValue: false }, 'Description text' ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, description = undefined ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, description = undefined ) => {
 			const wrapper = mount( CdxToggleSwitch, { props, slots: {
 				default: 'Label',
 				...( description === undefined ? {} : { description } )
@@ -71,7 +71,7 @@ describe( 'ToggleSwitch', () => {
 		it( 'clicks the input', async () => {
 			const wrapper = shallowMount( CdxToggleSwitch, { props: { modelValue: false }, slots: { default: 'Label' } } );
 			const input = wrapper.find( 'input' ).element as HTMLInputElement;
-			input.click = jest.fn();
+			input.click = vi.fn();
 
 			await wrapper.find( 'input' ).trigger( 'keydown', { key: 'Enter' } );
 

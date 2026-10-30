@@ -36,7 +36,7 @@ describe( 'Button', () => {
 
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, slot, attrs = {} ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, slot, attrs = {} ) => {
 			const wrapper = shallowMount( CdxButton,
 				{
 					props,

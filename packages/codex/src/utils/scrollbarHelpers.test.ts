@@ -1,3 +1,4 @@
+import type { MockInstance } from 'vitest';
 import { getScrollbarWidth } from './scrollbarHelpers';
 
 describe( 'getScrollbarWidth', () => {
@@ -33,8 +34,7 @@ describe( 'getScrollbarWidth', () => {
 
 	let originalScrollHeight: number;
 	let originalClientHeight: number;
-	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	let createElementSpy: jest.SpyInstance<any, any> | null = null;
+	let createElementSpy: MockInstance | null = null;
 
 	beforeEach( () => {
 		originalScrollHeight = document.documentElement.scrollHeight;
@@ -70,9 +70,9 @@ describe( 'getScrollbarWidth', () => {
 		setDocumentDimensions( 2000, 1000 );
 
 		const mockElement = createMockElement( 117, 100 );
-		createElementSpy = jest.spyOn( document, 'createElement' ).mockReturnValue( mockElement );
-		const appendChildSpy = jest.spyOn( document.body, 'appendChild' );
-		const removeChildSpy = jest.spyOn( document.body, 'removeChild' );
+		createElementSpy = vi.spyOn( document, 'createElement' ).mockReturnValue( mockElement );
+		const appendChildSpy = vi.spyOn( document.body, 'appendChild' );
+		const removeChildSpy = vi.spyOn( document.body, 'removeChild' );
 
 		const result = getScrollbarWidth();
 
@@ -87,7 +87,7 @@ describe( 'getScrollbarWidth', () => {
 		setDocumentDimensions( 2000, 1000 );
 
 		const mockElement = createMockElement( 117, 100 );
-		createElementSpy = jest.spyOn( document, 'createElement' ).mockReturnValue( mockElement );
+		createElementSpy = vi.spyOn( document, 'createElement' ).mockReturnValue( mockElement );
 
 		getScrollbarWidth();
 
@@ -109,8 +109,8 @@ describe( 'getScrollbarWidth', () => {
 
 		testCases.forEach( ( { offsetWidth, clientWidth, expected } ) => {
 			const mockElement = createMockElement( offsetWidth, clientWidth );
-			createElementSpy = jest.spyOn( document, 'createElement' ).mockReturnValue( mockElement );
-			jest.spyOn( document.body, 'removeChild' ).mockClear();
+			createElementSpy = vi.spyOn( document, 'createElement' ).mockReturnValue( mockElement );
+			vi.spyOn( document.body, 'removeChild' ).mockClear();
 
 			const result = getScrollbarWidth();
 

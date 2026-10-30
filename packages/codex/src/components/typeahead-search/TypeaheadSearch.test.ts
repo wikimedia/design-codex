@@ -56,10 +56,10 @@ const searchResults : SearchResult[] = [
 
 const searchFooterUrl = 'https://foo.org/search?query=Co';
 
-// Jest doesn't support the scrollIntoView method in jsdom, which is used by our Menu component.
+// jsdom doesn't implement the scrollIntoView method, which is used by our Menu component.
 // We stub it here to prevent errors.
 beforeAll( () => {
-	window.HTMLElement.prototype.scrollIntoView = jest.fn();
+	window.HTMLElement.prototype.scrollIntoView = vi.fn();
 } );
 
 describe( 'TypeaheadSearch', () => {
@@ -88,7 +88,7 @@ describe( 'TypeaheadSearch', () => {
 			[ 'With custom visible button label using the deprecated API', { ...propsDataDeprecated, useButton: true, autoExpandWidth: true, showThumbnail: true } ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props ) => {
 			const wrapper = mount( CdxTypeaheadSearch, {
 				props,
 				slots: {
@@ -256,7 +256,7 @@ describe( 'TypeaheadSearch', () => {
 					}
 				} );
 				const searchInput = wrapper.findComponent( CdxSearchInput );
-				searchInput.vm.focus = jest.fn();
+				searchInput.vm.focus = vi.fn();
 				await wrapper.vm.focus();
 				expect( searchInput.vm.focus ).toHaveBeenCalled();
 			} );
@@ -285,10 +285,10 @@ describe( 'TypeaheadSearch', () => {
 		let input: DOMWrapper<Element>;
 		let inputElement: HTMLInputElement;
 		const oldLocation = window.location;
-		const assignMock = jest.fn();
+		const assignMock = vi.fn();
 
 		beforeEach( async () => {
-			jest.useFakeTimers();
+			vi.useFakeTimers();
 
 			wrapper = mount( CdxTypeaheadSearch, {
 				// Add in an initial input value so we don't have to simulate entering input.
@@ -299,7 +299,7 @@ describe( 'TypeaheadSearch', () => {
 				}
 			} );
 
-			jest.advanceTimersByTime( DebounceInterval );
+			vi.advanceTimersByTime( DebounceInterval );
 			await wrapper.setProps( { searchResults } );
 
 			input = wrapper.find( '.cdx-text-input__input' );
@@ -312,7 +312,7 @@ describe( 'TypeaheadSearch', () => {
 		} );
 
 		afterEach( () => {
-			jest.useRealTimers();
+			vi.useRealTimers();
 			assignMock.mockReset();
 			// eslint-disable-next-line
 			( window as any ).location = oldLocation;
@@ -421,7 +421,7 @@ describe( 'TypeaheadSearch', () => {
 				expect( wrapper.vm.selection ).toBe( searchResults[ 0 ].value );
 
 				await input.setValue( 'C' );
-				jest.advanceTimersByTime( DebounceInterval );
+				vi.advanceTimersByTime( DebounceInterval );
 
 				expect( wrapper.vm.selection ).toBe( null );
 			} );
@@ -432,7 +432,7 @@ describe( 'TypeaheadSearch', () => {
 				await input.trigger( 'focus' );
 				expect( wrapper.vm.expanded ).toStrictEqual( true );
 				await input.setValue( '' );
-				jest.advanceTimersByTime( DebounceInterval );
+				vi.advanceTimersByTime( DebounceInterval );
 				expect( wrapper.vm.expanded ).toBeFalsy();
 			} );
 		} );
@@ -457,11 +457,11 @@ describe( 'TypeaheadSearch', () => {
 
 	describe( 'pending state behavior', () => {
 		beforeEach( () => {
-			jest.useFakeTimers();
+			vi.useFakeTimers();
 		} );
 
 		afterEach( () => {
-			jest.useRealTimers();
+			vi.useRealTimers();
 		} );
 
 		describe( 'when the pending slot is populated', () => {
@@ -480,7 +480,7 @@ describe( 'TypeaheadSearch', () => {
 					const searchInput = wrapper.findComponent( CdxSearchInput );
 					await searchInput.vm.$emit( 'update:modelValue', 'a' );
 
-					jest.advanceTimersByTime( PendingDelay );
+					vi.advanceTimersByTime( PendingDelay );
 
 					expect( wrapper.vm.showPending ).toBe( true );
 					expect( wrapper.vm.expanded ).toBe( true );
@@ -501,7 +501,7 @@ describe( 'TypeaheadSearch', () => {
 					const searchInput = wrapper.findComponent( CdxSearchInput );
 					await searchInput.vm.$emit( 'update:modelValue', 'a' );
 
-					jest.advanceTimersByTime( PendingDelay );
+					vi.advanceTimersByTime( PendingDelay );
 
 					expect( wrapper.vm.showPending ).toBe( true );
 					expect( wrapper.vm.expanded ).toBe( false );
@@ -525,7 +525,7 @@ describe( 'TypeaheadSearch', () => {
 
 					expect( wrapper.vm.showPending ).toBe( false );
 
-					jest.advanceTimersByTime( PendingDelay );
+					vi.advanceTimersByTime( PendingDelay );
 
 					expect( wrapper.vm.showPending ).toBe( false );
 				} );
@@ -545,7 +545,7 @@ describe( 'TypeaheadSearch', () => {
 				const searchInput = wrapper.findComponent( CdxSearchInput );
 				await searchInput.vm.$emit( 'update:modelValue', 'a' );
 
-				jest.advanceTimersByTime( PendingDelay );
+				vi.advanceTimersByTime( PendingDelay );
 
 				expect( wrapper.vm.showPending ).toBe( false );
 				expect( wrapper.vm.expanded ).toBe( false );
@@ -567,7 +567,7 @@ describe( 'TypeaheadSearch', () => {
 					const searchInput = wrapper.findComponent( CdxSearchInput );
 					await searchInput.vm.$emit( 'update:modelValue', 'a' );
 
-					jest.advanceTimersByTime( PendingDelay );
+					vi.advanceTimersByTime( PendingDelay );
 
 					expect( wrapper.vm.showPending ).toBe( true );
 					expect( wrapper.vm.expanded ).toBe( false );

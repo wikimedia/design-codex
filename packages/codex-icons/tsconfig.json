@@ -8,7 +8,7 @@
 		"resolveJsonModule": true,
 		"esModuleInterop": true,
 		"lib": [ "es2017", "dom" ],
-		"types": [ "jest" ],
+		"types": [ "vitest/globals" ],
 		"skipLibCheck": true,
 		"allowJs": true,
 		"checkJs": true,

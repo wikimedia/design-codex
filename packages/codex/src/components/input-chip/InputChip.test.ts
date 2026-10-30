@@ -22,7 +22,7 @@ describe( 'InputChip', () => {
 			[ 'CSS class', { className: 'my-css-class' }, '<p>Chip content</p>' ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, slot ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, slot ) => {
 			const wrapper = shallowMount( CdxInputChip,
 				{
 					props,

@@ -397,7 +397,7 @@ describe( 'useFocusTrap', () => {
 			const wrapper = mount( TestComponent, { attachTo: document.body } );
 
 			const button = wrapper.find( '#first' ).element as HTMLButtonElement;
-			const focusSpy = jest.spyOn( button, 'focus' );
+			const focusSpy = vi.spyOn( button, 'focus' );
 
 			wrapper.vm.focusFirst();
 
@@ -425,7 +425,7 @@ describe( 'useFocusTrap', () => {
 			const wrapper = mount( TestComponent, { attachTo: document.body } );
 
 			const button = wrapper.find( '#first' ).element as HTMLButtonElement;
-			const focusSpy = jest.spyOn( button, 'focus' );
+			const focusSpy = vi.spyOn( button, 'focus' );
 
 			wrapper.vm.focusFirst();
 
@@ -434,7 +434,7 @@ describe( 'useFocusTrap', () => {
 		} );
 
 		it( 'scrolls focused element into view when preventScroll is true', async () => {
-			jest.useFakeTimers();
+			vi.useFakeTimers();
 			try {
 				const TestComponent = defineComponent( {
 					template: `
@@ -459,7 +459,7 @@ describe( 'useFocusTrap', () => {
 
 				const wrapper = mount( TestComponent, { attachTo: document.body } );
 				const field = wrapper.find( '#field' ).element as HTMLElement;
-				const scrollIntoSpy = jest.fn();
+				const scrollIntoSpy = vi.fn();
 				field.scrollIntoView = scrollIntoSpy;
 
 				await wrapper.vm.activateFocusTrap();
@@ -467,7 +467,7 @@ describe( 'useFocusTrap', () => {
 
 				expect( document.activeElement ).toBe( field );
 
-				jest.advanceTimersByTime( 500 );
+				vi.advanceTimersByTime( 500 );
 
 				expect( scrollIntoSpy ).toHaveBeenCalledWith( {
 					behavior: 'smooth',
@@ -475,7 +475,7 @@ describe( 'useFocusTrap', () => {
 					inline: 'nearest'
 				} );
 			} finally {
-				jest.useRealTimers();
+				vi.useRealTimers();
 			}
 		} );
 	} );

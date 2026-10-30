@@ -22,7 +22,7 @@ describe( 'SearchInput', () => {
 			[ 'With attributes', { modelValue: '' }, { disabled: true, placeholder: 'Start typing...' } ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, attrs = {} ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, attrs = {} ) => {
 			const wrapper = mount( CdxSearchInput, { props: props, attrs: attrs } );
 
 			expect( wrapper.element ).toMatchSnapshot();
@@ -33,7 +33,7 @@ describe( 'SearchInput', () => {
 		it( 'calls TextInput focus method', async () => {
 			const wrapper = mount( CdxSearchInput );
 			const textInput = wrapper.findComponent( CdxTextInput );
-			textInput.vm.focus = jest.fn();
+			textInput.vm.focus = vi.fn();
 			await wrapper.vm.focus();
 			expect( textInput.vm.focus ).toHaveBeenCalled();
 		} );

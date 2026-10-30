@@ -51,7 +51,7 @@ describe( 'useIconOnlyButton', () => {
 		}
 	} );
 
-	test.each( cases )( 'Case %# %s: %s => %p', ( _, content, expectedIconOnly ) => {
+	test.each( cases )( 'Case %# %s: %s => %O', ( _, content, expectedIconOnly ) => {
 		const wrapper = mount( TestComponent, {
 			attrs: { 'aria-hidden': true },
 			slots: { default: content },

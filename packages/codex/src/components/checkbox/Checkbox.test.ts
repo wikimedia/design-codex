@@ -34,7 +34,7 @@ describe( 'Checkbox', () => {
 			[ 'With custom input', { modelValue: [ 'checkbox-1' ], inputValue: 'checkbox-1' }, 'Checkbox with custom input', 'Description text', '<cdx-text-area />' ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, defaultSlot, description = undefined, customInput = undefined ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, defaultSlot, description = undefined, customInput = undefined ) => {
 			const wrapper = mount( CdxCheckbox, {
 				props,
 				slots: {

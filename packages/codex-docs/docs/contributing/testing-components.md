@@ -7,13 +7,13 @@ outline: deep
 ## Unit tests
 
 ::: tip TL;DR
-- Every component needs [Jest unit tests](#test-cases-pattern) and [snapshots](#snapshot-tests).
+- Every component needs [Vitest unit tests](#test-cases-pattern) and [snapshots](#snapshot-tests).
 - Unit tests can use the [Vue test utils](#vue-test-utils) library.
 - To run unit tests: `npm run -w @wikimedia/codex test:unit`.
 - To update all snapshots: `npm run build-and-update-snapshots`.
 :::
 
-Every component should have Jest unit tests. For a component named `FooBar`, the tests should be
+Every component should have Vitest unit tests. For a component named `FooBar`, the tests should be
 in the file `src/components/foo-bar/FooBar.test.ts`.
 
 ### Structuring unit tests
@@ -97,7 +97,7 @@ describe( 'TypeaheadSearch', () => {
 		// Before each test, we'll set up a component wrapper, advance past the debounce
 		// interval of the input handler, then set search results.
 		beforeEach( async () => {
-			jest.useFakeTimers( 'modern' );
+			vi.useFakeTimers();
 
 			wrapper = mount( CdxTypeaheadSearch, {
 				// Add in an initial input value so we don't have to simulate entering input.
@@ -108,7 +108,7 @@ describe( 'TypeaheadSearch', () => {
 				}
 			} );
 
-			jest.advanceTimersByTime( DebounceInterval );
+			vi.advanceTimersByTime( DebounceInterval );
 			await wrapper.setProps( { searchResults } );
 
 			// Grab the input and menu, which we'll need for a few tests.
@@ -118,7 +118,7 @@ describe( 'TypeaheadSearch', () => {
 
 		// After each test, we'll reset timers.
 		afterEach( () => {
-			jest.useRealTimers();
+			vi.useRealTimers();
 		} );
 
 		it( 'matches the snapshot', () => {
@@ -129,7 +129,7 @@ describe( 'TypeaheadSearch', () => {
 			await input.trigger( 'focus' );
 			expect( menu.isVisible() ).toBe( true );
 			await input.setValue( '' );
-			jest.advanceTimersByTime( DebounceInterval );
+			vi.advanceTimersByTime( DebounceInterval );
 			expect( menu.isVisible() ).toBe( false );
 		} );
 	} );
@@ -181,7 +181,7 @@ const cases: Case[] = [
 ```
 
 Finally, write the code that iterates over these test cases and executes them. This involves some
-Jest boilerplate code that extracts the values from the test case, but other than that it should
+test boilerplate code that extracts the values from the test case, but other than that it should
 be simple: call the function and check that the result is as expected.
 ```typescript
 test.each( cases )( 'Case %# %s', ( _, a, b, expected ) => {
@@ -245,19 +245,19 @@ describe( 'ComponentName', () => {
 	// ...other tests...
 } );
 ```
-When these snapshot tests are run for the first time, Jest will create a file called
+When these snapshot tests are run for the first time, Vitest will create a file called
 `ComponentName.snap.ts` with the HTML resulting from each of these test cases. Verify that these are
 as expected, then commit the file to the repository.
 
-When the tests are run again later, Jest will check that the test cases still produce the same HTML,
+When the tests are run again later, Vitest will check that the test cases still produce the same HTML,
 and the tests will fail if they don't. If you made a change to the component that results in a
 legitimate change in the snapshot output, run `npm run build-and-update-snapshots` to update
 the snapshot file. Both the author and the code reviewers should review the changes to the snapshot
 file to verify that they are as expected.
 
-For more information on snapshot testing in Jest, visit [the Jest documentation](https://jestjs.io/docs/snapshot-testing).
+For more information on snapshot testing in Vitest, visit [the Vitest documentation](https://vitest.dev/guide/snapshot).
 
-### Type errors in Jest tests
+### Type errors in unit tests
 If the type of one of the props in the `Case` type doesn't match the type of the prop as defined
 in the component, or if a prop is otherwise passed into `mount()` with the wrong type, `vue-tsc`
 will throw a lengthy and confusing error on the line where `mount()` is called, containing the
@@ -265,4 +265,4 @@ phrases `No overload matches this call`, `Types of property 'setup' are incompat
 `Types of parameters 'props and 'props' are incompatible`. Most IDEs don't surface these errors,
 so they may not be discovered until `vue-tsc` is run (locally or in CI). To fix this error, make
 sure that the types of the props passed into the mount function match the types that the component
-expects. For more on how these errors happen and how to fix them, refer to [the TypeScript guidelines](./typescript.md#wrong-types-for-props-in-jest-tests).
+expects. For more on how these errors happen and how to fix them, refer to [the TypeScript guidelines](./typescript.md#wrong-types-for-props-in-unit-tests).

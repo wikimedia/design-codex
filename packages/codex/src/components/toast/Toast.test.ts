@@ -27,7 +27,7 @@ function simulateToastLeaveEnd( wrapper: VueWrapper ): void {
 
 describe( 'Toast', () => {
 	afterEach( () => {
-		jest.useRealTimers();
+		vi.useRealTimers();
 		toastStore.toasts.splice( 0 );
 		contentRefsById.clear();
 		document.body.innerHTML = '';
@@ -60,7 +60,7 @@ describe( 'Toast', () => {
 			[ 'Auto-dismiss disabled', { autoDismiss: false }, '<p>Toast content</p>' ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, slot ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, slot ) => {
 			const wrapper = mount( CdxToast, {
 				props: { ...props, ...standaloneDisplayProps },
 				slots: { default: slot },

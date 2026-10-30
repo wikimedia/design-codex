@@ -41,7 +41,7 @@ describe( 'Field', () => {
 				[ 'With help text', {}, 'Label text', undefined, 'Help text' ]
 			];
 
-			test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, label, description = undefined, helpText = undefined ) => {
+			test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, label, description = undefined, helpText = undefined ) => {
 				const wrapper = mount( CdxField, { props, slots: {
 					default: h( CdxTextInput, { modelValue: '' } ),
 					...( label === undefined ? {} : { label } ),
@@ -60,7 +60,7 @@ describe( 'Field', () => {
 				[ 'With description', {}, 'Label text', 'Field description' ]
 			];
 
-			test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, label, description = undefined ) => {
+			test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, label, description = undefined ) => {
 				const wrapper = mount( CdxField, { props, slots: {
 					default: h( CdxSelect, { selected: null, menuItems: [ { value: '1' } ] } ),
 					...( label === undefined ? {} : { label } ),
@@ -78,7 +78,7 @@ describe( 'Field', () => {
 				[ 'With description', {}, 'Label text', 'Field description' ]
 			];
 
-			test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, label, description = undefined ) => {
+			test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, label, description = undefined ) => {
 				const wrapper = mount( CdxField, { props, slots: {
 					default: h( CdxTextArea, { modelValue: '' } ),
 					...( label === undefined ? {} : { label } ),
@@ -94,7 +94,7 @@ describe( 'Field', () => {
 				[ 'Disabled', { isFieldset: true, disabled: true }, 'Label text' ]
 			];
 
-			test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, label ) => {
+			test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, label ) => {
 				const wrapper = mount( CdxField, { props, slots: {
 					default: h(
 						CdxCheckbox,

@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TypeaheadSearch initial state Case 0 Default: ({"formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "useButton": true}) => HTML 1`] = `
+exports[`TypeaheadSearch > initial state > Case 0 Default: ({ useButton: true, placeholder: 'Search Wikipedia', formAction: '/w/index.php', searchResults: [], id: 'foo' }) => HTML 1`] = `
 <div
   class="cdx-typeahead-search"
 >
@@ -106,7 +106,7 @@ exports[`TypeaheadSearch initial state Case 0 Default: ({"formAction": "/w/index
 </div>
 `;
 
-exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and \`showThumbnail\` true: ({"autoExpandWidth": true, "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "showThumbnail": true, "useButton": true}) => HTML 1`] = `
+exports[`TypeaheadSearch > initial state > Case 1 With \`autoExpandWidth\` true and \`showThumbnail\` true: ({ useButton: true, placeholder: 'Search Wikipedia', formAction: '/w/index.php', searchResults: [], id: 'foo', autoExpandWidth: true, showThumbnail: true }) => HTML 1`] = `
 <div
   class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail cdx-typeahead-search--auto-expand-width"
 >
@@ -212,7 +212,7 @@ exports[`TypeaheadSearch initial state Case 1 With \`autoExpandWidth\` true and 
 </div>
 `;
 
-exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and \`showThumbnail\` false: ({"autoExpandWidth": true, "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "showThumbnail": false, "useButton": true}) => HTML 1`] = `
+exports[`TypeaheadSearch > initial state > Case 2 With \`autoExpandWidth\` true and \`showThumbnail\` false: ({ useButton: true, placeholder: 'Search Wikipedia', formAction: '/w/index.php', searchResults: [], id: 'foo', autoExpandWidth: true, showThumbnail: false }) => HTML 1`] = `
 <div
   class="cdx-typeahead-search"
 >
@@ -318,7 +318,7 @@ exports[`TypeaheadSearch initial state Case 2 With \`autoExpandWidth\` true and 
 </div>
 `;
 
-exports[`TypeaheadSearch initial state Case 3 With \`showThumbnail\` and \`isMobileView\`: ({"formAction": "/w/index.php", "id": "foo", "isMobileView": true, "placeholder": "Search Wikipedia", "searchResults": [Array], "showThumbnail": true, "useButton": true}) => HTML 1`] = `
+exports[`TypeaheadSearch > initial state > Case 3 With \`showThumbnail\` and \`isMobileView\`: ({ useButton: true, placeholder: 'Search Wikipedia', formAction: '/w/index.php', searchResults: [], id: 'foo', showThumbnail: true, isMobileView: true }) => HTML 1`] = `
 <div
   class="cdx-typeahead-search cdx-typeahead-search--is-mobile-view cdx-typeahead-search--show-thumbnail"
 >
@@ -399,7 +399,7 @@ exports[`TypeaheadSearch initial state Case 3 With \`showThumbnail\` and \`isMob
 </div>
 `;
 
-exports[`TypeaheadSearch initial state Case 4 With custom visible button label: ({"buttonLabel": "Search Results", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "useButton": true}) => HTML 1`] = `
+exports[`TypeaheadSearch > initial state > Case 4 With custom visible button label: ({ useButton: true, placeholder: 'Search Wikipedia', formAction: '/w/index.php', searchResults: [], id: 'foo', buttonLabel: 'Search Results' }) => HTML 1`] = `
 <div
   class="cdx-typeahead-search"
 >
@@ -505,7 +505,7 @@ exports[`TypeaheadSearch initial state Case 4 With custom visible button label: 
 </div>
 `;
 
-exports[`TypeaheadSearch initial state Case 5 With custom visible button label using the deprecated API: ({"autoExpandWidth": true, "buttonLabel": "Search", "formAction": "/w/index.php", "id": "foo", "placeholder": "Search Wikipedia", "searchResults": [Array], "showThumbnail": true, "useButton": true}) => HTML 1`] = `
+exports[`TypeaheadSearch > initial state > Case 5 With custom visible button label using the deprecated API: ({ buttonLabel: 'Search', placeholder: 'Search Wikipedia', formAction: '/w/index.php', searchResults: [], id: 'foo', useButton: true, autoExpandWidth: true, showThumbnail: true }) => HTML 1`] = `
 <div
   class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail cdx-typeahead-search--auto-expand-width"
 >
@@ -611,7 +611,7 @@ exports[`TypeaheadSearch initial state Case 5 With custom visible button label u
 </div>
 `;
 
-exports[`TypeaheadSearch with no results matches the snapshot 1`] = `
+exports[`TypeaheadSearch > with no results > matches the snapshot 1`] = `
 <div
   class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail"
 >
@@ -793,7 +793,7 @@ exports[`TypeaheadSearch with no results matches the snapshot 1`] = `
 </div>
 `;
 
-exports[`TypeaheadSearch with search results matches the snapshot 1`] = `
+exports[`TypeaheadSearch > with search results > matches the snapshot 1`] = `
 <div
   class="cdx-typeahead-search cdx-typeahead-search--show-thumbnail"
 >

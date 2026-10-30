@@ -26,7 +26,7 @@ describe( 'InfoChip', () => {
 
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props, slot ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props, slot ) => {
 			const wrapper = shallowMount( CdxInfoChip,
 				{
 					props: props,

@@ -264,7 +264,7 @@ If any new design tokens have been introduced as part of the release, add them t
 
 ### Update Jest snapshots when necessary
 
-Codex uses Jest for testing, Jest snapshots allow developers to capture the rendered output of a
+MediaWiki core uses Jest for front-end unit testing. Jest snapshots allow developers to capture the rendered output of a
 component at a specific point in time. And some tests in MediaWiki core use snapshots to verify
 the output of components. In case of a test failure on an intended markup change, you have to
 update the snapshots by running in core repository's root directory:

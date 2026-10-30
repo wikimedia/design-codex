@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Table matches the snapshot Case 0 Basic table: ({"columns": [Array], "data": [Array]}) => HTML 1`] = `
+exports[`Table > matches the snapshot > Case 0 Basic table: ({ columns: [ { id: 'col1', label: 'Column 1' }, { id: 'col2', label: 'Column 2' }, { id: 'col3', label: 'Column 3' } ], data: [ { col1: 'One', col2: 'Two', col3: 'Three' }, { col1: 1, col2: 2, col3: 3 }, { col1: 'Four', col2: 'Five', col3: 'Six' }, { col1: 4, col2: 5, col3: 6 } ] }) => HTML 1`] = `
 <div
   class="cdx-table"
   tabindex="0"
@@ -270,7 +270,7 @@ exports[`Table matches the snapshot Case 0 Basic table: ({"columns": [Array], "d
 </div>
 `;
 
-exports[`Table matches the snapshot Case 1 With out-of-order data: ({"columns": [Array], "data": [Array]}) => HTML 1`] = `
+exports[`Table > matches the snapshot > Case 1 With out-of-order data: ({ columns: [ { id: 'col1', label: 'Column 1' }, { id: 'col2', label: 'Column 2' }, { id: 'col3', label: 'Column 3' } ], data: [ { col2: 'Two', col1: 'One', col3: 'Three' }, { col2: 2, col3: 3, col1: 1 }, { col1: 'Four', col3: 'Six', col2: 'Five' }, { col3: 6, col1: 4, col2: 5 } ] }) => HTML 1`] = `
 <div
   class="cdx-table"
   tabindex="0"
@@ -540,7 +540,7 @@ exports[`Table matches the snapshot Case 1 With out-of-order data: ({"columns": 
 </div>
 `;
 
-exports[`Table matches the snapshot Case 2 With text alignment: ({"columns": [Array], "data": [Array]}) => HTML 1`] = `
+exports[`Table > matches the snapshot > Case 2 With text alignment: ({ columns: [ { id: 'col1', label: 'Column 1', textAlign: 'start' }, { id: 'col2', label: 'Column 2', textAlign: 'center' }, { id: 'col3', label: 'Column 3', textAlign: 'end' }, { id: 'col4', label: 'Column 4', textAlign: 'number' } ], data: [ { col1: 'One', col2: 'Two', col3: 'Three' }, { col1: 1, col2: 2, col3: 3 }, { col1: 'Four', col2: 'Five', col3: 'Six' }, { col1: 4, col2: 5, col3: 6 } ] }) => HTML 1`] = `
 <div
   class="cdx-table"
   tabindex="0"
@@ -866,7 +866,7 @@ exports[`Table matches the snapshot Case 2 With text alignment: ({"columns": [Ar
 </div>
 `;
 
-exports[`Table matches the snapshot Case 3 With hidden caption: ({"columns": [Array], "data": [Array], "hideCaption": true}) => HTML 1`] = `
+exports[`Table > matches the snapshot > Case 3 With hidden caption: ({ columns: [ { id: 'col1', label: 'Column 1' }, { id: 'col2', label: 'Column 2' }, { id: 'col3', label: 'Column 3' } ], data: [ { col1: 'One', col2: 'Two', col3: 'Three' }, { col1: 1, col2: 2, col3: 3 }, { col1: 'Four', col2: 'Five', col3: 'Six' }, { col1: 4, col2: 5, col3: 6 } ], hideCaption: true }) => HTML 1`] = `
 <div
   class="cdx-table"
   tabindex="0"
@@ -1109,7 +1109,7 @@ exports[`Table matches the snapshot Case 3 With hidden caption: ({"columns": [Ar
 </div>
 `;
 
-exports[`Table matches the snapshot Case 4 With row headers: ({"columns": [Array], "data": [Array], "useRowHeaders": true}) => HTML 1`] = `
+exports[`Table > matches the snapshot > Case 4 With row headers: ({ columns: [ { id: 'col1', label: 'Column 1' }, { id: 'col2', label: 'Column 2' }, { id: 'col3', label: 'Column 3' } ], data: [ { col1: 'One', col2: 'Two', col3: 'Three' }, { col1: 1, col2: 2, col3: 3 }, { col1: 'Four', col2: 'Five', col3: 'Six' }, { col1: 4, col2: 5, col3: 6 } ], useRowHeaders: true }) => HTML 1`] = `
 <div
   class="cdx-table"
   tabindex="0"
@@ -1383,7 +1383,7 @@ exports[`Table matches the snapshot Case 4 With row headers: ({"columns": [Array
 </div>
 `;
 
-exports[`Table matches the snapshot Case 5 With column width settings: ({"columns": [Array], "data": [Array], "useRowHeaders": true}) => HTML 1`] = `
+exports[`Table > matches the snapshot > Case 5 With column width settings: ({ columns: [ { id: 'col1', label: 'Column 1', width: '20%' }, { id: 'col2', label: 'Column 2', minWidth: '100px' }, { id: 'col3', label: 'Column 3', width: '20%', minWidth: '100px' } ], data: [ { col1: 'One', col2: 'Two', col3: 'Three' }, { col1: 1, col2: 2, col3: 3 }, { col1: 'Four', col2: 'Five', col3: 'Six' }, { col1: 4, col2: 5, col3: 6 } ], useRowHeaders: true }) => HTML 1`] = `
 <div
   class="cdx-table"
   tabindex="0"
@@ -1660,7 +1660,7 @@ exports[`Table matches the snapshot Case 5 With column width settings: ({"column
 </div>
 `;
 
-exports[`Table matches the snapshot Case 6 With row selection: ({"columns": [Array], "data": [Array], "useRowSelection": true}) => HTML 1`] = `
+exports[`Table > matches the snapshot > Case 6 With row selection: ({ columns: [ { id: 'col1', label: 'Column 1' }, { id: 'col2', label: 'Column 2' }, { id: 'col3', label: 'Column 3' } ], data: [ { col1: 'One', col2: 'Two', col3: 'Three' }, { col1: 1, col2: 2, col3: 3 }, { col1: 'Four', col2: 'Five', col3: 'Six' }, { col1: 4, col2: 5, col3: 6 } ], useRowSelection: true }) => HTML 1`] = `
 <div
   class="cdx-table"
   tabindex="0"
@@ -2177,7 +2177,7 @@ exports[`Table matches the snapshot Case 6 With row selection: ({"columns": [Arr
 </div>
 `;
 
-exports[`Table matches the snapshot Case 7 With header and footer slots: ({"columns": [Array], "data": [Array]}) => HTML 1`] = `
+exports[`Table > matches the snapshot > Case 7 With header and footer slots: ({ columns: [ { id: 'col1', label: 'Column 1' }, { id: 'col2', label: 'Column 2' }, { id: 'col3', label: 'Column 3' } ], data: [ { col1: 'One', col2: 'Two', col3: 'Three' }, { col1: 1, col2: 2, col3: 3 }, { col1: 'Four', col2: 'Five', col3: 'Six' }, { col1: 4, col2: 5, col3: 6 } ] }) => HTML 1`] = `
 <div
   class="cdx-table"
   tabindex="0"
@@ -2455,7 +2455,7 @@ exports[`Table matches the snapshot Case 7 With header and footer slots: ({"colu
 </div>
 `;
 
-exports[`Table matches the snapshot Case 8 With tfoot: ({"columns": [Array], "data": [Array]}) => HTML 1`] = `
+exports[`Table > matches the snapshot > Case 8 With tfoot: ({ columns: [ { id: 'col1', label: 'Column 1' }, { id: 'col2', label: 'Column 2' }, { id: 'col3', label: 'Column 3' } ], data: [ { col1: 'One', col2: 'Two', col3: 'Three' }, { col1: 1, col2: 2, col3: 3 }, { col1: 'Four', col2: 'Five', col3: 'Six' }, { col1: 4, col2: 5, col3: 6 } ] }) => HTML 1`] = `
 <div
   class="cdx-table"
   tabindex="0"
@@ -2725,7 +2725,7 @@ exports[`Table matches the snapshot Case 8 With tfoot: ({"columns": [Array], "da
 </div>
 `;
 
-exports[`Table matches the snapshot Case 9 With item slot: ({"columns": [Array], "data": [Array]}) => HTML 1`] = `
+exports[`Table > matches the snapshot > Case 9 With item slot: ({ columns: [ { id: 'col1', label: 'Column 1' }, { id: 'col2', label: 'Column 2' }, { id: 'col3', label: 'Column 3' } ], data: [ { col1: 'One', col2: 'Two', col3: 'Three' }, { col1: 1, col2: 2, col3: 3 }, { col1: 'Four', col2: 'Five', col3: 'Six' }, { col1: 4, col2: 5, col3: 6 } ] }) => HTML 1`] = `
 <div
   class="cdx-table"
   tabindex="0"
@@ -3003,7 +3003,7 @@ exports[`Table matches the snapshot Case 9 With item slot: ({"columns": [Array],
 </div>
 `;
 
-exports[`Table matches the snapshot Case 10 With sort icon: ({"columns": [Array], "data": [Array]}) => HTML 1`] = `
+exports[`Table > matches the snapshot > Case 10 With sort icon: ({ columns: [ { id: 'year', label: 'Year', textAlign: 'number', allowSort: true }, { id: 'name', label: 'Last name', allowSort: true }, { id: 'age', label: 'Age at win', textAlign: 'number', allowSort: true } ], data: [ { year: 2023, name: 'Goldin', age: 77 }, { year: 2022, name: 'Bernanke', age: 69 }, { year: 2022, name: 'Diamond', age: 69 }, { year: 2022, name: 'Dybvig', age: 67 }, { year: 2021, name: 'Card', age: 65 }, { year: 2021, name: 'Angrist', age: 61 }, { year: 2021, name: 'Imbens', age: 58 } ] }) => HTML 1`] = `
 <div
   class="cdx-table"
   tabindex="0"
@@ -3491,7 +3491,7 @@ exports[`Table matches the snapshot Case 10 With sort icon: ({"columns": [Array]
 </div>
 `;
 
-exports[`Table matches the snapshot Case 11 With empty state: ({"columns": [Array], "data": [Array]}) => HTML 1`] = `
+exports[`Table > matches the snapshot > Case 11 With empty state: ({ columns: [], data: [] }) => HTML 1`] = `
 <div
   class="cdx-table"
   tabindex="0"
@@ -3556,7 +3556,7 @@ exports[`Table matches the snapshot Case 11 With empty state: ({"columns": [Arra
 </div>
 `;
 
-exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": [Array], "data": [Array], "paginate": true, "paginationPosition": "both"}) => HTML 1`] = `
+exports[`Table > matches the snapshot > Case 12 With basic pagination: ({ columns: [ { id: 'name', label: 'Record Name' }, { id: 'id', label: 'Record ID' } ], data: [ { id: 1001, name: 'AAAAA' }, { id: 1002, name: 'BBBBB' }, { id: 1003, name: 'CCCCC' }, { id: 1004, name: 'DDDDD' }, { id: 1005, name: 'EEEEE' }, { id: 1006, name: 'FFFFF' }, { id: 1007, name: 'GGGGG' }, { id: 1008, name: 'HHHHH' }, { id: 1009, name: 'IIIII' }, { id: 1010, name: 'JJJJJ' }, { id: 1011, name: 'KKKKK' }, { id: 1012, name: 'LLLLL' }, { id: 1013, name: 'MMMMM' }, { id: 1014, name: 'NNNNN' }, { id: 1015, name: 'OOOOO' }, { id: 1016, name: 'PPPPP' }, { id: 1017, name: 'QQQQQ' }, { id: 1018, name: 'RRRRR' }, { id: 1019, name: 'SSSSS' }, { id: 1020, name: 'TTTTT' }, { id: 1021, name: 'UUUUU' }, { id: 1022, name: 'VVVVV' }, { id: 1023, name: 'WWWWW' }, { id: 1024, name: 'XXXXX' }, { id: 1025, name: 'YYYYY' }, { id: 1026, name: 'ZZZZZ' }, { id: 1027, name: 'aaaaa' }, { id: 1028, name: 'bbbbb' }, { id: 1029, name: 'ccccc' }, { id: 1030, name: 'ddddd' }, { id: 1031, name: 'eeeee' }, { id: 1032, name: 'fffff' }, { id: 1033, name: 'ggggg' }, { id: 1034, name: 'hhhhh' }, { id: 1035, name: 'iiiii' }, { id: 1036, name: 'jjjjj' }, { id: 1037, name: 'kkkkk' }, { id: 1038, name: 'lllll' }, { id: 1039, name: 'mmmmm' }, { id: 1040, name: 'nnnnn' }, { id: 1041, name: 'ooooo' }, { id: 1042, name: 'ppppp' }, { id: 1043, name: 'qqqqq' }, { id: 1044, name: 'rrrrr' }, { id: 1045, name: 'sssss' }, { id: 1046, name: 'ttttt' }, { id: 1047, name: 'uuuuu' }, { id: 1048, name: 'vvvvv' }, { id: 1049, name: 'wwwww' }, { id: 1050, name: 'xxxxx' }, { id: 1051, name: 'yyyyy' }, { id: 1052, name: 'zzzzz' } ], paginate: true, paginationPosition: 'both' }) => HTML 1`] = `
 <div
   class="cdx-table"
   tabindex="0"
@@ -3644,7 +3644,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
         <!--teleport start-->
         <div
           class="cdx-menu"
-          style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+          style="display: none; visibility: hidden; position: absolute; top: 0px; right: unset; left: 0px; transform: translate(0px, 0px);"
         >
           <ul
             class="cdx-menu__listbox"
@@ -4326,7 +4326,7 @@ exports[`Table matches the snapshot Case 12 With basic pagination: ({"columns": 
         <!--teleport start-->
         <div
           class="cdx-menu"
-          style="display: none; visibility: hidden; position: absolute; top: 0px; left: 0px; transform: translate(0px, 0px);"
+          style="display: none; visibility: hidden; position: absolute; top: 0px; right: unset; left: 0px; transform: translate(0px, 0px);"
         >
           <ul
             class="cdx-menu__listbox"

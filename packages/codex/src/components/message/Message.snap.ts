@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Message matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
+exports[`Message > matches the snapshot > Case 0 Default props: ({}) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -47,7 +47,7 @@ exports[`Message matches the snapshot Case 0 Default props: ({}) => HTML 1`] = `
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 1 subtle message: ({"type": "subtle"}) => HTML 1`] = `
+exports[`Message > matches the snapshot > Case 1 subtle message: ({ type: 'subtle' }) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -94,7 +94,7 @@ exports[`Message matches the snapshot Case 1 subtle message: ({"type": "subtle"}
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 2 notice message: ({"type": "notice"}) => HTML 1`] = `
+exports[`Message > matches the snapshot > Case 2 notice message: ({ type: 'notice' }) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -141,7 +141,7 @@ exports[`Message matches the snapshot Case 2 notice message: ({"type": "notice"}
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 3 progressive message: ({"type": "progressive"}) => HTML 1`] = `
+exports[`Message > matches the snapshot > Case 3 progressive message: ({ type: 'progressive' }) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -188,7 +188,7 @@ exports[`Message matches the snapshot Case 3 progressive message: ({"type": "pro
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 4 warning message: ({"type": "warning"}) => HTML 1`] = `
+exports[`Message > matches the snapshot > Case 4 warning message: ({ type: 'warning' }) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -235,7 +235,7 @@ exports[`Message matches the snapshot Case 4 warning message: ({"type": "warning
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 5 error message: ({"type": "error"}) => HTML 1`] = `
+exports[`Message > matches the snapshot > Case 5 error message: ({ type: 'error' }) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -282,7 +282,7 @@ exports[`Message matches the snapshot Case 5 error message: ({"type": "error"}) 
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 6 success message: ({"type": "success"}) => HTML 1`] = `
+exports[`Message > matches the snapshot > Case 6 success message: ({ type: 'success' }) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -329,7 +329,7 @@ exports[`Message matches the snapshot Case 6 success message: ({"type": "success
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 7 Inline: ({"inline": true}) => HTML 1`] = `
+exports[`Message > matches the snapshot > Case 7 Inline: ({ inline: true }) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -376,7 +376,7 @@ exports[`Message matches the snapshot Case 7 Inline: ({"inline": true}) => HTML 
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 8 Dismissable: ({"allowUserDismiss": true}) => HTML 1`] = `
+exports[`Message > matches the snapshot > Case 8 Dismissable: ({ allowUserDismiss: true }) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -450,7 +450,7 @@ exports[`Message matches the snapshot Case 8 Dismissable: ({"allowUserDismiss": 
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 9 Dismissable, custom label: ({"allowUserDismiss": true, "dismissButtonLabel": "Dismiss"}) => HTML 1`] = `
+exports[`Message > matches the snapshot > Case 9 Dismissable, custom label: ({ allowUserDismiss: true, dismissButtonLabel: 'Dismiss' }) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"
@@ -524,7 +524,7 @@ exports[`Message matches the snapshot Case 9 Dismissable, custom label: ({"allow
 </transition-stub>
 `;
 
-exports[`Message matches the snapshot Case 10 Custom icon: ({"icon": [Object]}) => HTML 1`] = `
+exports[`Message > matches the snapshot > Case 10 Custom icon: ({ icon: { ltr: '<path d="M2 0h16v20H2zm2 2v16h12V2zm2 2h3v1H6zm0 2h3v1H6zm0 2h3v1H6zm0 3h8v1H6zm0 2h8v1H6zm0 2h8v1H6zm4-11h4v5h-4z"/>', shouldFlip: true } }) => HTML 1`] = `
 <transition-stub
   appear="false"
   css="true"

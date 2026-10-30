@@ -9,7 +9,7 @@ describe( 'getButtonLabel', () => {
 		[ 'empty string is returned if label is null', { label: null, value: 'Bar' }, '' ]
 	];
 
-	test.each( cases )( 'Case %#: %s (%p) => %s', ( _, item, expectedLabel ) => {
+	test.each( cases )( 'Case %#: %s (%O) => %s', ( _, item, expectedLabel ) => {
 		expect( getButtonLabel( item ) ).toBe( expectedLabel );
 	} );
 } );

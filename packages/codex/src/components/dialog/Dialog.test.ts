@@ -36,14 +36,14 @@ config.global.stubs = {
 describe( 'Dialog', () => {
 	beforeEach( () => {
 		// Suppress console errors from jsdom not supporting @layer CSS syntax
-		jest.spyOn( console, 'error' ).mockImplementation( () => {
+		vi.spyOn( console, 'error' ).mockImplementation( () => {
 			// Do nothing
 		} );
 	} );
 
 	afterEach( () => {
 		// Restore console.error
-		jest.restoreAllMocks();
+		vi.restoreAllMocks();
 	} );
 
 	describe( 'matches the snapshot', () => {

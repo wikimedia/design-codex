@@ -23,7 +23,7 @@ describe( 'Image', () => {
 			[ 'renders with a custom aspect ratio', { src: validImageSrc, alt: 'Image with aspect ratio', aspectRatio: '16:9', width: 400, height: 220 } ]
 		];
 
-		test.each( cases )( 'Case %# %s: (%p) => HTML', ( _, props ) => {
+		test.each( cases )( 'Case %# %s: (%O) => HTML', ( _, props ) => {
 			const wrapper = mount( CdxImage, {
 				props
 			} );

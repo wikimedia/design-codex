@@ -56,7 +56,7 @@ describe( 'MenuButton', () => {
 		];
 
 		test.each( cases )(
-			'Case %# %s: (%p) => HTML',
+			'Case %# %s: (%O) => HTML',
 			( _, { menuItems, selected, disabled = false, footer = undefined, action = 'default', weight = 'quiet' } ) => {
 				const wrapper = mount( CdxMenuButton, {
 					props: { menuItems, selected, disabled, footer, action, weight },

@@ -24,7 +24,7 @@ describe( 'Container', () => {
 		];
 
 		test.each( cases )(
-			'Case %# %s: (%p) => HTML',
+			'Case %# %s: (%O) => HTML',
 			( _, props, slot ) => {
 				const wrapper = mount( CdxContainer, {
 					global: {

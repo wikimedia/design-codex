@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ProgressIndicator matches the snapshot indeterminate progress indicator => HTML 1`] = `
+exports[`ProgressIndicator > matches the snapshot > indeterminate progress indicator => HTML 1`] = `
 <div
   class="cdx-progress-indicator"
 >

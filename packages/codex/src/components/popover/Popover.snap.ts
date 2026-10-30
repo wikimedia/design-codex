@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Popover matches the snapshot Case 0 Basic usage 1`] = `
+exports[`Popover > matches the snapshot > Case 0 Basic usage 1`] = `
 <teleport-stub
   disabled="true"
   to="body"
@@ -42,7 +42,7 @@ exports[`Popover matches the snapshot Case 0 Basic usage 1`] = `
 </teleport-stub>
 `;
 
-exports[`Popover matches the snapshot Case 1 With title 1`] = `
+exports[`Popover > matches the snapshot > Case 1 With title 1`] = `
 <teleport-stub
   disabled="true"
   to="body"
@@ -101,7 +101,7 @@ exports[`Popover matches the snapshot Case 1 With title 1`] = `
 </teleport-stub>
 `;
 
-exports[`Popover matches the snapshot Case 2 With icon 1`] = `
+exports[`Popover > matches the snapshot > Case 2 With icon 1`] = `
 <teleport-stub
   disabled="true"
   to="body"
@@ -174,7 +174,7 @@ exports[`Popover matches the snapshot Case 2 With icon 1`] = `
 </teleport-stub>
 `;
 
-exports[`Popover matches the snapshot Case 3 With close button 1`] = `
+exports[`Popover > matches the snapshot > Case 3 With close button 1`] = `
 <teleport-stub
   disabled="true"
   to="body"
@@ -256,7 +256,7 @@ exports[`Popover matches the snapshot Case 3 With close button 1`] = `
 </teleport-stub>
 `;
 
-exports[`Popover matches the snapshot Case 4 With custom close button label 1`] = `
+exports[`Popover > matches the snapshot > Case 4 With custom close button label 1`] = `
 <teleport-stub
   disabled="true"
   to="body"
@@ -338,7 +338,7 @@ exports[`Popover matches the snapshot Case 4 With custom close button label 1`] 
 </teleport-stub>
 `;
 
-exports[`Popover matches the snapshot Case 5 With primary action 1`] = `
+exports[`Popover > matches the snapshot > Case 5 With primary action 1`] = `
 <teleport-stub
   disabled="true"
   to="body"
@@ -399,7 +399,7 @@ exports[`Popover matches the snapshot Case 5 With primary action 1`] = `
 </teleport-stub>
 `;
 
-exports[`Popover matches the snapshot Case 6 With default action 1`] = `
+exports[`Popover > matches the snapshot > Case 6 With default action 1`] = `
 <teleport-stub
   disabled="true"
   to="body"
@@ -460,7 +460,7 @@ exports[`Popover matches the snapshot Case 6 With default action 1`] = `
 </teleport-stub>
 `;
 
-exports[`Popover matches the snapshot Case 7 With stacked actions 1`] = `
+exports[`Popover > matches the snapshot > Case 7 With stacked actions 1`] = `
 <teleport-stub
   disabled="true"
   to="body"
@@ -528,7 +528,7 @@ exports[`Popover matches the snapshot Case 7 With stacked actions 1`] = `
 </teleport-stub>
 `;
 
-exports[`Popover matches the snapshot Case 8 With header and footer slots 1`] = `
+exports[`Popover > matches the snapshot > Case 8 With header and footer slots 1`] = `
 <teleport-stub
   disabled="true"
   to="body"
@@ -584,7 +584,7 @@ exports[`Popover matches the snapshot Case 8 With header and footer slots 1`] = 
 </teleport-stub>
 `;
 
-exports[`Popover matches the snapshot Case 9 With hidden arrow 1`] = `
+exports[`Popover > matches the snapshot > Case 9 With hidden arrow 1`] = `
 <teleport-stub
   disabled="true"
   to="body"

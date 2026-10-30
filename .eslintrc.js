@@ -167,9 +167,21 @@ module.exports = {
 		{
 			files: [ '**/*.spec.[jt]s', '**/*.test.[jt]s' ],
 			extends: [
-				'plugin:jest/recommended',
+				// TODO use eslint-plugin-vitest once we have updated to ESLint 9.x.
 				'wikimedia/client/common'
-			]
+			],
+			// Only the Vitest globals the tests use, so a leftover Jest API fails at lint.
+			globals: {
+				afterAll: 'readonly',
+				afterEach: 'readonly',
+				beforeAll: 'readonly',
+				beforeEach: 'readonly',
+				describe: 'readonly',
+				expect: 'readonly',
+				it: 'readonly',
+				test: 'readonly',
+				vi: 'readonly'
+			}
 		}
 	]
 };
