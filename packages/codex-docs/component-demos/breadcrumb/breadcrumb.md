@@ -1,11 +1,12 @@
 <script setup>
+import { withBase } from 'vitepress';
 import { CdxBreadcrumb } from '@wikimedia/codex';
 import BreadcrumbBasic from '@/../component-demos/breadcrumb/examples/BreadcrumbBasic.vue';
 import BreadcrumbOverflow from '@/../component-demos/breadcrumb/examples/BreadcrumbOverflow.vue';
 
 const items = [
-    { label: 'Home', url: '/' },
-    { label: 'Components', url: '/components/overview.html' },
+    { label: 'Home', url: withBase( '/' ) },
+    { label: 'Components', url: withBase( '/components/overview.html' ) },
     { label: 'Breadcrumb', url: '' }
 ];
 
