@@ -354,7 +354,7 @@ export default defineComponent( {
 	&__input.cdx-text-input {
 		flex: 1 1 auto;
 		// Override TextInput `min-width` to allow for the expander button.
-		min-width: @min-width-medium - @min-size-interactive-pointer;
+		min-width: ( @min-width-medium - @min-size-interactive-pointer );
 		border-top-right-radius: @border-radius-sharp;
 		border-bottom-right-radius: @border-radius-sharp;
 

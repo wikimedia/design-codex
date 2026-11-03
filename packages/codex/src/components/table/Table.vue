@@ -1235,7 +1235,7 @@ export default defineComponent( {
 			// style that is applied to normal `<td>` elements in CdxTable.
 			tbody td&-content {
 				color: @color-subtle;
-				height: @min-height-table-footer - @spacing-150;
+				height: ( @min-height-table-footer - @spacing-150 );
 				text-align: center;
 				vertical-align: middle;
 			}

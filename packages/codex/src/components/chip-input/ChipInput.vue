@@ -471,7 +471,7 @@ export default defineComponent( {
 @import ( reference ) '../../themes/mixins/common.less';
 
 // TODO: create a component-level design token.
-@spacing-vertical-input-chip: @spacing-25 - @border-width-base;
+@spacing-vertical-input-chip: ( @spacing-25 - @border-width-base );
 
 .cdx-chip-input {
 	min-height: @min-size-interactive-pointer;

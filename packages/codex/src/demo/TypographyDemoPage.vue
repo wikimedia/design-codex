@@ -149,7 +149,7 @@ p {
 
 blockquote {
 	// Blockquote box styling.
-	border-left: @border-width-base * 4 @border-style-base @border-color-muted;
+	border-left: ( @border-width-base * 4 ) @border-style-base @border-color-muted;
 	padding-left: @spacing-100;
 
 	p {

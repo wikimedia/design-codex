@@ -428,7 +428,11 @@ module.exports = {
 						'initial',
 						'none',
 						'unset',
-						'0'
+						'0',
+						// Less math in parentheses that starts with a variable,
+						// e.g. `( @size-foo - @spacing-bar )`. Less 'strict' math
+						// needs the parentheses.
+						'/^\\(\\s*@/'
 					],
 					// Specific values to properties.
 					'animation-name': [

@@ -27,20 +27,20 @@
 	& when ( @param-is-icon-only = false ) {
 		// Horizontal button padding is equal to the total horizontal spacing for the button
 		// minus the border width. For this margin, we want to include the border width.
-		.apply-margin( @spacing-horizontal-button + @border-width-base );
+		.apply-margin( ( @spacing-horizontal-button + @border-width-base ) );
 	}
 
 	& when ( @param-is-icon-only = true ) {
 		& when ( @param-size-button = 'small' ) {
-			.apply-margin( @spacing-12 + @border-width-base);
+			.apply-margin( ( @spacing-12 + @border-width-base ) );
 		}
 
 		& when ( @param-size-button = 'medium' ) {
-			.apply-margin( @spacing-horizontal-button-icon-only + @border-width-base );
+			.apply-margin( ( @spacing-horizontal-button-icon-only + @border-width-base ) );
 		}
 
 		& when ( @param-size-button = 'large' ) {
-			.apply-margin( @spacing-horizontal-button + @border-width-base);
+			.apply-margin( ( @spacing-horizontal-button + @border-width-base ) );
 		}
 	}
 }

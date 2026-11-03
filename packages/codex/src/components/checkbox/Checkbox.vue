@@ -218,7 +218,6 @@ export default defineComponent( {
 			// Center horizontally.
 			right: calc( @spacing-25 - @border-width-base );
 			left: calc( @spacing-25 - @border-width-base );
-			/* stylelint-disable-next-line scale-unlimited/declaration-strict-value */
 			height: ( @size-absolute-1 * 2 );
 		}
 
