@@ -4,8 +4,8 @@
 	"type": "module",
 	"license": "GPL-2.0+",
 	"engines": {
-		"npm": ">=11.11.0",
-		"node": ">=24.14.1"
+		"npm": ">=11.20.0",
+		"node": ">=26.12.1"
 	},
 	"scripts": {
 		"build": "npm run minify:svg && npm run mw-examples:build && npm run docgen:build && npm run vitepress:build",

@@ -12,8 +12,8 @@
 	"bugs": "https://phabricator.wikimedia.org/tag/codex/",
 	"license": "MIT",
 	"engines": {
-		"npm": ">=11.11.0",
-		"node": ">=24.14.1"
+		"npm": ">=11.20.0",
+		"node": ">=26.12.1"
 	},
 	"main": "dist/codex-icons.cjs",
 	"module": "dist/codex-icons.js",

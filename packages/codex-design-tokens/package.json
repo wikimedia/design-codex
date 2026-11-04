@@ -13,7 +13,7 @@
 	"license": "GPL-2.0+",
 	"engines": {
 		"npm": ">=11.10.0",
-		"node": ">=24.14.1"
+		"node": ">=26.12.1"
 	},
 	"files": [
 		"dist",

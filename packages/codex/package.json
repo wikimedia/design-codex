@@ -21,8 +21,8 @@
 	"bugs": "https://phabricator.wikimedia.org/tag/codex/",
 	"license": "GPL-2.0+",
 	"engines": {
-		"npm": ">=11.11.0",
-		"node": ">=24.14.1"
+		"npm": ">=11.20.0",
+		"node": ">=26.12.1"
 	},
 	"main": "dist/codex.cjs",
 	"module": "dist/codex.js",
