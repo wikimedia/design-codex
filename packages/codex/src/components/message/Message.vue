@@ -344,8 +344,9 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 		background-color: @background-color-warning-subtle;
 		border-color: @border-color-warning;
 
-		.cdx-message__icon {
-			.cdx-mixin-css-icon( @cdx-icon-alert, @color-icon-warning );
+		// The repeated class outranks the `:lang()` rules of the default icon (T391207).
+		.cdx-message& .cdx-message__icon.cdx-message__icon {
+			.cdx-mixin-css-icon-background-image( @cdx-icon-alert, @color-icon-warning );
 		}
 
 		.cdx-message__icon--vue {
@@ -357,8 +358,9 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 		background-color: @background-color-error-subtle;
 		border-color: @border-color-error;
 
-		.cdx-message__icon {
-			.cdx-mixin-css-icon( @cdx-icon-error, @color-icon-error );
+		// The repeated class outranks the `:lang()` rules of the default icon (T391207).
+		.cdx-message& .cdx-message__icon.cdx-message__icon {
+			.cdx-mixin-css-icon-background-image( @cdx-icon-error, @color-icon-error );
 		}
 
 		.cdx-message__icon--vue {
@@ -370,8 +372,9 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 		background-color: @background-color-success-subtle;
 		border-color: @border-color-success;
 
-		.cdx-message__icon {
-			.cdx-mixin-css-icon( @cdx-icon-success, @color-icon-success );
+		// The repeated class outranks the `:lang()` rules of the default icon (T391207).
+		.cdx-message& .cdx-message__icon.cdx-message__icon {
+			.cdx-mixin-css-icon-background-image( @cdx-icon-success, @color-icon-success );
 		}
 
 		.cdx-message__icon--vue {
@@ -397,9 +400,9 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/message.html#pr
 		}
 	}
 
-	// Note that the height is set above for the CSS icons via the mixin, which is why the selector
-	// used here is `.cdx-message__icon` instead of `&__icon`. This allows the styles included here
-	// to override those set above.
+	// Note that the height is set above for the default and progressive CSS icons via the mixin,
+	// which is why the selector used here is `.cdx-message__icon` instead of `&__icon`. This allows
+	// the styles included here to override those set above.
 	// The second selector is written the same way for consistency's sake.
 	/* stylelint-disable no-descending-specificity */
 	.cdx-message__icon,

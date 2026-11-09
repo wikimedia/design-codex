@@ -169,8 +169,9 @@ export default defineComponent( {
 		background-color: @background-color-error-subtle;
 		border-color: @border-color-error;
 
-		.cdx-info-chip__icon {
-			.cdx-mixin-css-icon( @cdx-icon-error, @color-icon-error, @size-icon-small );
+		// The repeated class outranks the `:lang()` rules of the default icon (T391207).
+		.cdx-info-chip& .cdx-info-chip__icon.cdx-info-chip__icon {
+			.cdx-mixin-css-icon-background-image( @cdx-icon-error, @color-icon-error );
 		}
 
 		.cdx-info-chip__icon--vue {
@@ -182,8 +183,9 @@ export default defineComponent( {
 		background-color: @background-color-warning-subtle;
 		border-color: @border-color-warning;
 
-		.cdx-info-chip__icon {
-			.cdx-mixin-css-icon( @cdx-icon-alert, @color-icon-warning, @size-icon-small );
+		// The repeated class outranks the `:lang()` rules of the default icon (T391207).
+		.cdx-info-chip& .cdx-info-chip__icon.cdx-info-chip__icon {
+			.cdx-mixin-css-icon-background-image( @cdx-icon-alert, @color-icon-warning );
 		}
 
 		.cdx-info-chip__icon--vue {
@@ -195,8 +197,9 @@ export default defineComponent( {
 		background-color: @background-color-success-subtle;
 		border-color: @border-color-success;
 
-		.cdx-info-chip__icon {
-			.cdx-mixin-css-icon( @cdx-icon-success, @color-icon-success, @size-icon-small );
+		// The repeated class outranks the `:lang()` rules of the default icon (T391207).
+		.cdx-info-chip& .cdx-info-chip__icon.cdx-info-chip__icon {
+			.cdx-mixin-css-icon-background-image( @cdx-icon-success, @color-icon-success );
 		}
 
 		.cdx-info-chip__icon--vue {
