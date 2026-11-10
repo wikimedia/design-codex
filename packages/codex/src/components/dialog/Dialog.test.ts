@@ -34,6 +34,12 @@ config.global.stubs = {
 };
 
 describe( 'Dialog', () => {
+	// jsdom doesn't implement the scrollIntoView method, which useFocusTrap calls on a timer
+	// after moving focus. We stub it here to prevent errors.
+	beforeAll( () => {
+		window.HTMLElement.prototype.scrollIntoView = vi.fn();
+	} );
+
 	beforeEach( () => {
 		// Suppress console errors from jsdom not supporting @layer CSS syntax
 		vi.spyOn( console, 'error' ).mockImplementation( () => {

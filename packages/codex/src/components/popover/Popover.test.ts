@@ -38,6 +38,12 @@ vi.mock( '../../composables/useBreakpoint', () => ( {
 } ) );
 
 describe( 'Popover', () => {
+	// jsdom doesn't implement the scrollIntoView method, which useFocusTrap calls on a timer
+	// after moving focus. We stub it here to prevent errors.
+	beforeAll( () => {
+		window.HTMLElement.prototype.scrollIntoView = vi.fn();
+	} );
+
 	// Ignore all "teleport" behavior for the purpose of testing Popover.
 	// Refer to https://test-utils.vuejs.org/guide/advanced/teleport.html
 	config.global.stubs = {
