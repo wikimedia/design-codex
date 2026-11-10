@@ -81,6 +81,13 @@ export default defineComponent( {
 		CdxMenu
 	},
 	inheritAttrs: false,
+	// expose is temporarily disabled to work around a Vue / vue-tsc bug, see
+	// https://github.com/vuejs/language-tools/issues/5069
+	/*
+	expose: [
+		'focus'
+	],
+	*/
 	props: {
 		/**
 		 * Value of the current selection.
@@ -264,6 +271,21 @@ export default defineComponent( {
 			rootStyle,
 			otherAttrs
 		};
+	},
+
+	// Public methods
+	// These must be in the methods block, not in the setup function, otherwise their documentation
+	// won't be picked up by vue-docgen
+	methods: {
+		/**
+		 * Focus the component's toggle button.
+		 *
+		 * @public
+		 */
+		focus(): void {
+			const button = this.$refs.button as InstanceType<typeof CdxButton>;
+			button.$el.focus();
+		}
 	}
 } );
 </script>

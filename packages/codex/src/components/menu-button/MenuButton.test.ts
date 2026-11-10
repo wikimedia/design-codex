@@ -220,4 +220,25 @@ describe( 'MenuButton', () => {
 			expect( footerItem.text() ).toBe( 'Custom Footer for Menu Footer' );
 		} );
 	} );
+
+	describe( 'Public methods', () => {
+		it( 'exposes a public focus() method', () => {
+			const wrapper = mount( CdxMenuButton, {
+				props: propsWithData
+			} );
+
+			expect( typeof wrapper.vm.focus ).toBe( 'function' );
+		} );
+
+		it( 'focuses the toggle button when focus() is called', () => {
+			const wrapper = mount( CdxMenuButton, {
+				props: propsWithData,
+				attachTo: '#root'
+			} );
+
+			const button = wrapper.get( 'button' ).element;
+			wrapper.vm.focus();
+			expect( document.activeElement ).toBe( button );
+		} );
+	} );
 } );
