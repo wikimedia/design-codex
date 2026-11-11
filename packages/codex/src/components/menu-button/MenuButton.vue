@@ -55,7 +55,8 @@ import {
 	defineComponent,
 	ref,
 	toRef,
-	useId
+	useId,
+	watch
 } from 'vue';
 
 import CdxButton from '../button/Button.vue';
@@ -182,7 +183,15 @@ export default defineComponent( {
 		 * If it is possible to add or load more menu items, now would be a good moment
 		 * so that the user can experience infinite scrolling.
 		 */
-		'load-more'
+		'load-more',
+		/**
+		 * When the menu opens or closes.
+		 *
+		 * This event is for notification only.
+		 *
+		 * @property {boolean} expanded Whether the menu is now expanded
+		 */
+		'update:expanded'
 	],
 
 	setup( props, { emit, attrs } ) {
@@ -249,6 +258,12 @@ export default defineComponent( {
 		function onBlur() {
 			expanded.value = false;
 		}
+
+		// Watch the ref instead of the Menu event, because this component
+		// also changes the state on click, blur and Enter.
+		watch( expanded, ( newVal ) => {
+			emit( 'update:expanded', newVal );
+		} );
 
 		useFloatingMenu( button as Ref<ComponentPublicInstance>, menu, {
 			useAvailableWidth: true,

@@ -180,6 +180,72 @@ describe( 'MenuButton', () => {
 		} );
 	} );
 
+	describe( 'when the menu opens or closes', () => {
+		it( 'emits "update:expanded" when the button is clicked', async () => {
+			const wrapper = mount( CdxMenuButton, {
+				props: propsWithData,
+				attachTo: '#root'
+			} );
+			const expandButton = wrapper.findComponent( CdxButton );
+			await expandButton.trigger( 'click' );
+			await expandButton.trigger( 'click' );
+			expect( wrapper.emitted( 'update:expanded' ) ).toEqual( [ [ true ], [ false ] ] );
+		} );
+
+		it( 'emits "update:expanded" when Enter is pressed', async () => {
+			const wrapper = mount( CdxMenuButton, {
+				props: propsWithData,
+				attachTo: '#root'
+			} );
+			const expandButton = wrapper.findComponent( CdxButton );
+			await expandButton.trigger( 'keydown', { key: 'Enter' } );
+			expect( wrapper.emitted( 'update:expanded' ) ).toEqual( [ [ true ] ] );
+		} );
+
+		it( 'emits "update:expanded" when an item is selected', async () => {
+			const wrapper = mount( CdxMenuButton, {
+				props: propsWithData,
+				attachTo: '#root'
+			} );
+			const expandButton = wrapper.findComponent( CdxButton );
+			await expandButton.trigger( 'click' );
+			await wrapper.findAllComponents( CdxMenuItem )[ 0 ].trigger( 'click' );
+			expect( wrapper.emitted( 'update:expanded' ) ).toEqual( [ [ true ], [ false ] ] );
+		} );
+
+		it( 'emits "update:expanded" when Escape is pressed', async () => {
+			const wrapper = mount( CdxMenuButton, {
+				props: propsWithData,
+				attachTo: '#root'
+			} );
+			const expandButton = wrapper.findComponent( CdxButton );
+			await expandButton.trigger( 'click' );
+			await expandButton.trigger( 'keydown', { key: 'Escape' } );
+			expect( wrapper.emitted( 'update:expanded' ) ).toEqual( [ [ true ], [ false ] ] );
+		} );
+
+		it( 'emits "update:expanded" when the button loses focus', async () => {
+			const wrapper = mount( CdxMenuButton, {
+				props: propsWithData,
+				attachTo: '#root'
+			} );
+			const expandButton = wrapper.findComponent( CdxButton );
+			await expandButton.trigger( 'click' );
+			await expandButton.trigger( 'blur' );
+			expect( wrapper.emitted( 'update:expanded' ) ).toEqual( [ [ true ], [ false ] ] );
+		} );
+
+		it( 'does not emit "update:expanded" when the component is disabled', async () => {
+			const wrapper = mount( CdxMenuButton, {
+				props: { ...propsWithData, disabled: true },
+				attachTo: '#root'
+			} );
+			const expandButton = wrapper.findComponent( CdxButton );
+			await expandButton.trigger( 'click' );
+			expect( wrapper.emitted( 'update:expanded' ) ).toBeUndefined();
+		} );
+	} );
+
 	describe( 'when the button loses focus', () => {
 		it( 'closes the menu', async () => {
 			const wrapper = mount( CdxMenuButton, {
