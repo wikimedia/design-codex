@@ -1105,14 +1105,26 @@ export default defineComponent( {
 				padding-bottom: @spacing-150;
 			}
 
-			// Zero-out margin/padding on edge children
+			// Zero-out margin on edge children
 			> *:first-child {
 				margin-top: 0;
-				padding-top: 0;
 			}
 
 			> *:last-child {
 				margin-bottom: 0;
+			}
+
+			// Remove padding from common text block elements only. Components
+			// such as Message keep their internal padding. `:where()` keeps
+			// specificity low.
+			// Older browsers ignore the rule and keep the padding.
+			/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+			> :where( h1, h2, h3, h4, h5, h6, p, ul, ol ):first-child {
+				padding-top: 0;
+			}
+
+			/* stylelint-disable-next-line plugin/no-unsupported-browser-features */
+			> :where( p, ul, ol ):last-child {
 				padding-bottom: 0;
 			}
 		}
