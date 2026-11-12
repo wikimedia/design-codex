@@ -932,6 +932,7 @@ export default defineComponent( {
 
 .cdx-popover {
 	background-color: @background-color-base;
+	color: @color-base;
 	display: flex;
 	flex-direction: column;
 	position: absolute;

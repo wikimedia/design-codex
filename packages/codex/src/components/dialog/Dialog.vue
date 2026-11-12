@@ -532,6 +532,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 
 .cdx-dialog {
 	background-color: @background-color-base;
+	color: @color-base;
 	display: flex;
 	flex-direction: column;
 	box-sizing: @box-sizing-base;
