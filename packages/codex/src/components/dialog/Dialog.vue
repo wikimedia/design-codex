@@ -528,6 +528,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 	/* stylelint-disable-next-line plugin/no-unsupported-browser-features,
 		scale-unlimited/declaration-strict-value */
 	height: -webkit-fill-available;
+	height: @size-viewport-dynamic-height-full;
 }
 
 .cdx-dialog {
@@ -540,6 +541,9 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 	width: calc( @size-viewport-width-full - ( @size-200) );
 	height: unset;
 	max-height: calc( @size-viewport-height-full - ( @size-200 ) );
+	// Use the dynamic viewport height when supported. `100vh` includes the area
+	// behind the mobile browser toolbar, so the dialog overflows the backdrop.
+	max-height: calc( @size-viewport-dynamic-height-full - ( @size-200 ) );
 	border: @border-base;
 	border-radius: @border-radius-base;
 	box-shadow: @box-shadow-large;
@@ -547,6 +551,7 @@ Refer to https://doc.wikimedia.org/codex/latest/components/demos/dialog.html#pro
 	&--fixed-height {
 		// Make dialogs full screen with some space around the top and bottom
 		height: calc( @size-viewport-height-full - ( @size-200 ) );
+		height: calc( @size-viewport-dynamic-height-full - ( @size-200 ) );
 
 		&-custom {
 			/* stylelint-disable-next-line value-keyword-case */

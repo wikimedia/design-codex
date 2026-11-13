@@ -558,6 +558,9 @@
 			},
 			"height-full": {
 				"value": "{ dimension.viewport.height-full }"
+			},
+			"dynamic-height-full": {
+				"value": "{ dimension.viewport.dynamic-height-full }"
 			}
 		},
 		"search-figure": {

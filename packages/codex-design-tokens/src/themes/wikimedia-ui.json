@@ -653,6 +653,9 @@
 			},
 			"height-full": {
 				"value": "100vh"
+			},
+			"dynamic-height-full": {
+				"value": "100dvh"
 			}
 		}
 	},
