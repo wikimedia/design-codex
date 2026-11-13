@@ -23,8 +23,6 @@
 		"build/**/*.ts",
 		"build/**/*.mjs",
 		"demos/**/*.ts",
-		".jest/*.js",
-		".jest/*.cjs",
 		"./*.ts",
 		"./*.js",
 		"./*.mjs"
