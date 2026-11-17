@@ -15,7 +15,6 @@ import { oppositeSides } from '../../constants';
 const contentCounters = new Map<string, number>();
 
 interface StatefulDirectiveElement extends HTMLElement {
-	// eslint-disable-next-line no-use-before-define
 	tooltip?: Tooltip
 }
 

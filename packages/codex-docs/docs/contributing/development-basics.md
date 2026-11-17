@@ -188,7 +188,7 @@ const MODES = [
 ```
 
 Some rules are disabled for an entire repository, workspace or directory in the relevant
-`.eslintrc.json` or `.stylelintrc.json` file. This should not be done lightly, and is only
+`eslint.config.js` or `.stylelintrc.json` file. This should not be done lightly, and is only
 appropriate when the rule is not useful for a structural reason. For example, we disable the
 `no-unsafe` group of rules from typescript-eslint in Vue files, because they cause lots of false
 positives in Vue code.

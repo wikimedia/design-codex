@@ -37,6 +37,7 @@ Make sure to use `InstanceType<typeof ComponentName>` instead.
 ### Options API
 When using a template ref in a computed function or method in the options API, you have to add
 a type assertion as follows:
+<!-- eslint-skip -->
 ```typescript
 methods: {
 	focusSearchInput() {
@@ -62,6 +63,7 @@ When using the composition API, you have to define the type when you create the 
 When you use it, you won't need to use a type assertion, but you will need to use the `!` operator
 (the [non-null assertion operator](https://www.typescriptlang.org/docs/handbook/2/everyday-types.html#non-null-assertion-operator-postfix-))
 to tell TypeScript that the value of the template ref can't be undefined.
+<!-- eslint-skip -->
 ```typescript
 setup( props, context ) {
 	// This assumes the template contains `<input ref="searchInput">`
@@ -162,7 +164,7 @@ export default defineComponent( {
 		}
 		// ...other props...
 	}
-})
+} );
 ```
 **Pitfall:** Inlining the validator with `validator: makeStringTypeValidator( ButtonActions )`
 causes [strange TypeScript errors](#inlining-a-string-type-validator-function).
@@ -215,6 +217,7 @@ error TS2345: Argument of type 'string' is not assignable to parameter of type '
 
 ### Inlining a string type validator function
 Code like this:
+<!-- eslint-skip -->
 ```typescript
 	props: {
 		myPropName: {
@@ -227,6 +230,7 @@ can cause confusing errors like `Cannot find name 'myPropName'` or `Property 'my
 not exist`, or other errors you might expect to get if the `myPropName` prop didn't exist.
 
 To work around this issue, use an intermediate variable for the validator:
+<!-- eslint-skip -->
 ```typescript
 const myPropNameValidator = makeStringTypeValidator( SomeStringTypeValues );
 
@@ -245,6 +249,7 @@ not recommended. For readability, it is recommended that you use a variable inst
 
 ### Wrong types for props in unit tests
 If you have a prop definition like this:
+<!-- eslint-skip -->
 ```typescript
 	props: {
 		myPropName: {

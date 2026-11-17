@@ -1,5 +1,3 @@
-/* eslint-env node */
-
 import { stdin } from 'node:process';
 
 /**

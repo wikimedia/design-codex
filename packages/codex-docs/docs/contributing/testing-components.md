@@ -39,7 +39,7 @@ describe( 'MenuItem', () => {
 
 	describe( 'descriptive test name', () => {
 	} );
-}
+} );
 ```
 
 #### Describe behavior
