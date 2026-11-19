@@ -80,11 +80,11 @@
 		"typescript": "5.9.3",
 		"vite": "7.0.4",
 		"vitest": "5.0.5",
-		"vue": "3.5.17",
-		"vue-tsc": "3.0.1"
+		"vue": "3.5.45",
+		"vue-tsc": "3.3.14"
 	},
 	"peerDependencies": {
-		"vue": "^3.5.13"
+		"vue": "^3.5.45"
 	},
 	"dependencies": {
 		"@floating-ui/vue": "1.0.6",

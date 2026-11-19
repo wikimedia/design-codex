@@ -45,7 +45,7 @@
 		"prismjs": "1.30.0",
 		"svglint": "4.2.1",
 		"svgo": "4.0.2",
-		"vue": "3.5.17"
+		"vue": "3.5.45"
 	},
 	"devDependencies": {
 		"@types/escape-html": "1.0.4",
@@ -66,6 +66,6 @@
 		"vitepress": "1.6.3",
 		"vitest": "5.0.5",
 		"vue-docgen-cli": "4.79.0",
-		"vue-tsc": "3.0.1"
+		"vue-tsc": "3.3.14"
 	}
 }

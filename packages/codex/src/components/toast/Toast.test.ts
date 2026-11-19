@@ -18,7 +18,7 @@ const standaloneDisplayProps = { standalone: true, renderInPlace: true };
  *
  * @param wrapper - Mounted component wrapper that contains the toast
  */
-function simulateToastLeaveEnd( wrapper: VueWrapper ): void {
+function simulateToastLeaveEnd<T extends VueWrapper>( wrapper: T ): void {
 	const display = wrapper.findComponent( CdxToastDisplay );
 	if ( display.exists() ) {
 		display.vm.onAfterLeave();

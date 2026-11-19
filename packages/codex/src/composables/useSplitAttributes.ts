@@ -52,7 +52,7 @@ export default function useSplitAttributes(
 	// Get the style attribute set on the component in the parent.
 	const rootStyle = computed( () => {
 		if ( 'style' in attrs ) {
-			return attrs.style as StyleValue;
+			return attrs.style;
 		}
 
 		return undefined;
